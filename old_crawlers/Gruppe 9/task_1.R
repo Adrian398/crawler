@@ -14,7 +14,7 @@ library(RSelenium)
 library(devtools)
 library(xml)
 
-###ukw####
+###UniversitÃ¤tsklinikum WÃ¼rzburg####
 # Standard approach
 url <- "https://www.ukw.de/patienten-besucher/veranstaltungskalender/"
 
@@ -114,7 +114,13 @@ remDr$close()
 rm(rD)
 gc()
 
-##### Jugendbildungsstätte Unterfranken ######
+
+
+
+
+
+
+##### Jugendbildungsst?tte Unterfranken ######
 
 jubi_raw_month=c(month(today()), month(today())+1, month(today())+2)
 jubi_year=c(year(today()), year(today()+30), year(today()+60))
@@ -243,175 +249,6 @@ jubi_ort=unlist(jubi_ort[1])
 jubi_ort=paste0(jubi_ort[1], ", ", jubi_ort[3], " ",jubi_ort[2])
 
 
-##### Bund Naturschutz #####
-
-#Startseite der Veranstaltungen auslesen
-natur_title=list()
-natur_url= "https://wuerzburg.bund-naturschutz.de/veranstaltungen.html"
-natur_url %>%
-  read_html() -> natur_data
-
-natur_data %>%
-  html_nodes("td:nth-child(3)") %>%
-  html_text() -> natur_ort
-
-natur_data %>%
-  html_nodes("td a") %>%
-  html_text() -> natur_t
-natur_title=append(natur_title,natur_t)
-
-natur_data %>%
-  html_nodes("td a") %>%
-  html_attrs() %>%
-  unlist() -> n_data
-
-natur_start=list()
-natur_beschreibung=list()
-j=1
-
-natur_besch_kombi=list()
-natur4=list()
-n_links=list()
-#Auslesen der Beschreibungen der jeweiligen Veranstaltungen durch Öffnen jedes Links und auslesen
-
-while(j<=length(n_data)){
-  n_link=paste0("https://wuerzburg.bund-naturschutz.de", n_data[j])
-  n_links=append(n_links, n_link)
-  n_link %>%
-    read_html() -> natur_links
-  
-  natur_links %>%
-    html_nodes(".border p") %>%
-    html_text() -> natur_besch
-  
-  print(paste0("Schleife: ", j, "Länge: ", length(natur_besch)))
-  i=1
-  k=1
-  natur2=list()
-  
-  while(i<=length(natur_besch)){
-    
-    if(nchar(natur_besch[i])>20){
-      natur2=append(natur2, natur_besch[i])
-    }
-    print(paste("Schleife: ", i, " ---> ", natur2))
-    i=i+1
-  }
-  
-  if(k==2){natur2=paste0(natur2[1], " ", natur2[2])}
-  if(k==3){natur2=paste0(natur2[1], " ", natur2[2], " ", natur2[3])}
-  natur4=append(natur4,natur2)
-  
-  natur_links %>%
-    html_nodes(".border") %>%
-    html_text() -> natur_c
-  natur_start = append(natur_start,natur_c)
-  
-  j=j+1
-}
-
-
-# Auslesen der Anzahl der Veranstaltungsseiten (Seite 1 ausgeschlossen, da anderer Link)
-natur_url%>%
-  read_html() -> natur_seiten
-
-natur_seiten %>%
-  html_nodes(".f3-widget-paginator") %>%
-  html_text() %>%
-  str_extract_all('[0-9]') %>%
-  unlist() %>%
-  .[-1]-> seiten
-
-k=0
-h=1
-a=list()
-natur_besch_kombi_2=list()
-natur4_2=list()
-natur5=list()
-while(h<=length(seiten)){
-  natur_url2=paste0("https://wuerzburg.bund-naturschutz.de/veranstaltungen/teil/", seiten[h],".html")
-  
-  natur_url2 %>%
-    read_html() -> natur_data2
-  
-  natur_data2 %>%
-    html_nodes("td:nth-child(3)") %>%
-    html_text() -> natur_ort2
-  natur_ort = append(natur_ort, natur_ort2)
-  
-  natur_data2 %>%
-    html_nodes("td a") %>%
-    html_text() -> natur_t
-  
-  natur_title = append(natur_title, natur_t)
-  
-  
-  natur_data2 %>%
-    html_nodes("td a") %>%
-    html_attrs() %>%
-    unlist() -> n_data
-  
-  j=1
-  
-  i=1
-  ## Durchsuchen der einzelnen Veranstaltungen
-  while(j<=length(n_data)){
-    natur_url3=paste0("https://wuerzburg.bund-naturschutz.de", n_data[j])
-    n_links=unlist(append(n_links, natur_url3))
-    
-    natur_url3 %>%
-      read_html() -> natur_links
-    
-    natur_links %>%
-      html_nodes(".border p") %>%
-      html_text() -> natur_besch
-    i=1
-    k=0
-    natur2=list()
-    
-    ## Durchsuchen der einzelnen Beschreibungscontainer
-    while(i<=length(natur_besch)){
-      if(nchar(natur_besch[i])>20){
-        natur2=append(natur2, natur_besch[i])
-        k=k+1
-      }
-      i=i+1
-    }
-    
-    if(k==2){natur2=paste0(natur2[1], " ", natur2[2])}
-    if(k==3){natur2=paste0(natur2[1], " ", natur2[2], " ", natur2[3])}
-    
-    natur5=append(natur5,natur2)
-    
-    natur_links %>%
-      html_nodes(".border") %>%
-      html_text() -> natur_c
-    natur_start=append(natur_start, natur_c)
-    j=j+1
-  }
-  
-  h=h+1
-}
-
-natur_beschreibung=unlist(append(natur4, natur5))
-natur_start=unlist(natur_start)
-natur_datum=str_extract(natur_start, '[0-3]?[0-9].[0-1][0-9].[0-9]{4}')
-
-natur_start_uhrzeit=str_extract(natur_start, '[0-2][0-9]:[0-5][0-9]')
-
-natur_ende=str_extract(natur_start, '- [0-2][0-9]:[0-5][0-9]')
-natur_ende <- lapply(natur_ende, gsub, pattern = "- ", replacement = "", fixed = TRUE)
-natur_ende = unlist(natur_ende)
-
-natur_title=unlist(natur_title)
-
-Natur_time_start = times(paste0(natur_start_uhrzeit, ":00"))
-Natur_time_ende = times(paste0(natur_ende, ":00"))
-
-Natur_date_start = as.Date(natur_datum,format = "%d.%m.%Y")
-Natur_date_ende = as.Date(natur_datum,format = "%d.%m.%Y")
-
-
 ##### LaViva Danceclub #####
 
 library(RSelenium)
@@ -457,17 +294,17 @@ viva_date = as.Date(viva_date,format = "%d.%m.%Y")
 
 
 Jugendbildungszentrumsveranstaltungen = data.frame("title"=jubi_kurse, "url"=jubi_links_raw, "description"= NA,"lng"=9.9547, "lat"=49.73939, 
-                                                   "city"="Würzburg", "street"="Berner Straße 14", "zip"=97084, "date_start"=jubi_date_start, 
+                                                   "city"="W?rzburg", "street"="Berner Stra?e 14", "zip"=97084, "date_start"=jubi_date_start, 
                                                    "date_end"=jubi_date_ende, "time_start"=jubi_time_start, "time_end"=jubi_time_ende , "price"=NA, 
                                                    "organizer"="Jugendbildungszentrum Unterfranken")
 
 Naturveranstaltungen = data.frame("title"=natur_title, "url"=n_links, "description"= natur_beschreibung,
-                                  "lng"=9.9199, "lat"=49.79746, "city"="Würzburg", "street"=natur_ort, "zip"=97082, 
+                                  "lng"=9.9199, "lat"=49.79746, "city"="W?rzburg", "street"=natur_ort, "zip"=97082, 
                                   "date_start"=Natur_date_start, "date_end"=Natur_date_ende, "time_start"=Natur_time_start, 
                                   "time_end"=Natur_time_ende , "price"=NA, "organizer"="Naturschutzbund Bayern")
 
 LaVivaDanceclub = data.frame("title"=viva_title, "url"="http://www.la-viva-danceclub.de/events-laviva-danceclub", "description"= viva_beschreibung,
-                             "lng"=9.970704, "lat"=49.79563, "city"="Würzburg", "street"="Nürnberger Straße 72-74", "zip"=97076, 
+                             "lng"=9.970704, "lat"=49.79563, "city"="W?rzburg", "street"="N?rnberger Stra?e 72-74", "zip"=97076, 
                              "date_start"=viva_date, "date_end"=viva_date, "time_start"=viva_time_start, "time_end"=NA , "price"=NA, "organizer"="LaViva Danceclub")
 
 
@@ -495,7 +332,7 @@ getzipcode <- function(sublink){
   link <- paste0(baselink, sublink)
   desc <-link %>%read_html() %>% html_nodes('img+ p')  %>% html_text()
   desc <- gsub(desc, pattern="Akademie FrankenwarteLeutfresserweg 81 - 83", replacement="", fixed=T)
-  desc <- gsub(desc, pattern=" Würzburg", replacement="", fixed=T) %>% as.numeric
+  desc <- gsub(desc, pattern=" W?rzburg", replacement="", fixed=T) %>% as.numeric
   return(desc[1])
 }
 
@@ -889,13 +726,13 @@ Mariannhill$title %>%
   str_trim("both") -> Mariannhill$title
 
 Mariannhill$title %>%
-  gsub("^[A-zäöü0-9 ]*, (.*)", "\\1", .) %>%
+  gsub("^[A-z???0-9 ]*, (.*)", "\\1", .) %>%
   gsub(" Leitung",", Leitung", .) %>%
   gsub("Steinmeyer-Orgel",", Steinmeyer-Orgel", .) -> Mariannhill$description
 
-Mariannhill$title <- gsub("^([A-zäöü0-9 ]*), (.*)", "\\1", Mariannhill$title)
+Mariannhill$title <- gsub("^([A-z???0-9 ]*), (.*)", "\\1", Mariannhill$title)
 
-replaceMonth_MH <-list(". Januar " = "jan", ". Februar " = "feb",". März " = "mar",". April " = "apr",
+replaceMonth_MH <-list(". Januar " = "jan", ". Februar " = "feb",". M?rz " = "mar",". April " = "apr",
                        ". Mai " = "mai",". Juni " = "jun",". Juli " = "jul",". August " = "aug",
                        ". September " = "sep",". Oktober " = "okt",". November " = "nov",". Dezember " = "dez")
 Mariannhill$date_start   %>%
@@ -909,8 +746,8 @@ Mariannhill$lat <- as.numeric("49.79348")
 Mariannhill$lng <- as.numeric("9.9545")
 Mariannhill$price <- as.character(NA)
 Mariannhill$url <- url_mariannhill
-Mariannhill$city <- "Würzburg"
-Mariannhill$street <- "Mariannhillstraße 1"
+Mariannhill$city <- "W?rzburg"
+Mariannhill$street <- "Mariannhillstra?e 1"
 Mariannhill$zip <- as.numeric("97074")
 
 Mariannhill <- Mariannhill[,c(2, 11, 4, 9, 8, 12, 13, 14, 1, 6, 3, 5, 10, 7)]
@@ -981,7 +818,7 @@ s77V$organizer <- "Salon77"
 s77V$lat <- as.numeric("49.79304")
 s77V$lng <- as.numeric("9.95808")
 s77V$price <- as.character(NA)
-s77V$city <- "Würzburg"
+s77V$city <- "W?rzburg"
 s77V$street <- "Richard-Wagner-Str. 60"
 s77V$zip <- as.numeric("97074")
 s77V$description <- as.character(unlist(map(links_s77V$., GetDataS77V)))
@@ -1165,7 +1002,7 @@ s77WK_prices <- t(s77WK_prices)
 s77WK_prices <- as.data.frame(s77WK_prices)
 
 s77WK$price <- s77WK_prices$V1
-s77WK$city <- "Würzburg"
+s77WK$city <- "W?rzburg"
 s77WK$street <- "Richard-Wagner-Str. 60"
 s77WK$zip <- as.numeric("97074")
 
@@ -1304,7 +1141,7 @@ df_clean$To_date = lapply(df_clean$To_date, gsub, pattern="- ", replacement="", 
 df_clean$EndTime=str_extract(df_clean$Time, '- [0-2][0-9]:[0-5][0-9]')
 df_clean$EndTime = lapply(df_clean$EndTime, gsub, pattern="- ", replacement="", fixed= TRUE)
 df_clean$Time = lapply(df_clean$Time, gsub, pattern='- [0-2][0-9]:[0-5][0-9]', replacement="")
-df_clean$Ort = str_extract(df_clean$Infos, "Veranstaltungsort:.*Würzburg")
+df_clean$Ort = str_extract(df_clean$Infos, "Veranstaltungsort:.*W?rzburg")
 df_clean$Ort = lapply(df_clean$Ort, gsub, pattern="Veranstaltungsort:", replacement="")
 df_clean$Comment = str_extract(df_clean$Teaser, "Kurszeiten:.*Uhr")
 df_clean$Comment = lapply(df_clean$Comment, gsub, pattern="Kurszeiten:", replacement="")
@@ -1383,15 +1220,15 @@ ukw  <- data.frame("title" = title,
                    "time_start" = time_start,
                    "time_end" = time_end,
                    "price" = price,
-                   "organizer" = "Uniklinik Würzburg")
+                   "organizer" = "Uniklinik W?rzburg")
 
 
 
 ####write_csv####
 
 df=rbind(Naturveranstaltungen, LaVivaDanceclub, Jugendbildungszentrumsveranstaltungen, vhs, frankenwarte, s77WK, s77V, Mariannhill, ukw)
-replaceUmlaute <-list("ä" = "ae", "ö" = "oe","ü" = "ue",
-                      "Ä" = "Ae", "Ö" = "Oe", "Ü" = "Ue", "ß" = "ss")
+replaceUmlaute <-list("?" = "ae", "?" = "oe","?" = "ue",
+                      "?" = "Ae", "?" = "Oe", "?" = "Ue", "?" = "ss")
 df$title <- gsubfn(paste(names(replaceUmlaute),collapse="|"),replaceUmlaute, as.character(df$title))
 df$description <- gsubfn(paste(names(replaceUmlaute),collapse="|"),replaceUmlaute, as.character(df$description))
 df$city <- gsubfn(paste(names(replaceUmlaute),collapse="|"),replaceUmlaute, as.character(df$city))
