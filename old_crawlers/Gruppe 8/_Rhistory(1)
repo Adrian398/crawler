@@ -1,0 +1,512 @@
+}
+if (length(aDates>=2)){
+if (length(aTimes)>=2){
+oEndDate=as.character(as.POSIXct(paste(aDates[2],aTimes[2]," "),format="%d.%m.%Y %H:%M"))
+}else{
+oEndDate=as.character(as.POSIXct(aDates[2], format="%d.%m.%Y"))
+}
+}
+rawData%>%
+html_nodes(".datarow-container")%>%html_text_collapse()->sDesc
+sDesc=str_replace_all(sDesc,"\t vergrößern|\t mehr Bilder|\tKolping-Akademie","")
+sDesc=str_replace_all(sDesc,"\t|\n|\r","")
+rawData%>%
+html_nodes(".defaultDataTable")%>%html_table()->oTable
+sLoc=NA
+if(length(oTable)>=2 && (length(oTable[[1]])==length(oTable[[2]]))){
+oInfoTable=oTable[[2]]
+for (i in 1:length(oInfoTable[[1]])){
+if (oInfoTable[[1]][[i]]=="Ort"){
+sLoc=oInfoTable[[2]][[i]]
+if (length(oInfoTable[[1]])>=(i+1) && oInfoTable[[1]][[i+1]]==""){
+sLoc=paste(sLoc, oInfoTable[[2]][[i+1]]," ")
+}
+break;
+}
+}
+}
+lat=NA
+lon=NA
+if (!is.na(sLoc)){
+aCoordinates=addressToGeoLoc(sLoc)
+if (is.numeric(aCoordinates)){
+lat=aCoordinates[[1]]
+lon=aCoordinates[[2]]
+}
+}
+event=data.frame(Eventname=sTitle,Eventbeschreibung=sDesc, Eventveranstalter="Kolping Akademie Würzburg", Ort=sLoc, Lat=lat, Lon=lon, Eventstart=oStartDate, Eventende=oEndDate, Eventurl=url, Eventkalenderurl=NA, Preis=NA)
+return (event)
+}
+getEvents_kolping=function(){
+#readEventLinks
+url="https://www.kolping-akademie-wuerzburg.de/alle-veranstaltungen"
+url %>%
+read_html() -> raw_data
+raw_data %>%
+html_nodes(".itemtitle a") %>%
+html_attr("href")->aEventLinks
+oRes=readLinks(aEventLinks,getEventData_kolping,"http:")
+return (oRes)
+}
+require(tidyverse)
+require(rvest)
+if(!exists("readLinks", mode="function")){ source("utils.R")}
+if(!exists("addressToGeoLoc", mode="function")){source("geocodetest.R")}
+getEventData_stift=function(rawData, url){
+lat=NA
+lon=NA
+oStartDate=NA
+##get Title
+rawData%>%
+html_nodes(".title")%>%
+html_text()->sTitle
+##get date
+rawData%>%
+html_nodes(".datetime")%>%
+html_text()->sDateTime
+if (length(sDateTime>=2)){
+sDateTime=sDateTime[2]
+sDate=str_extract(sDateTime,"\\d{2}\\.\\d{2}\\.\\d{4}")
+sTime=str_extract(sDateTime,"\\d{2}\\:\\d{2}")
+oStartDate=as.POSIXct(paste(sDate,sTime, " "),format="%d.%m.%Y %H:%M")
+}
+##getDesc
+rawData%>%
+html_nodes(".footNotesParent")%>%
+html_text_collapse()->sDesc
+##getLocation
+rawData%>%
+html_nodes(".even-margin .info_value")->aLocation
+if (length(aLocation)>=4){
+aLocation[4]%>%html_text()->sLocation
+sLocation=gsub("\r|\n|\t", '', sLocation)
+sLocation=str_remove_all(sLocation, "in|im")
+if (is.na(str_match(sLocation,"Würzburg"))){
+sLocation=paste0(sLocation ,", Würzburg")
+}
+aCoordinates=addressToGeoLoc(sLocation)
+if (is.numeric(aCoordinates)){
+lat=aCoordinates[[1]]
+lon=aCoordinates[[2]]
+}
+}
+sDesc=gsub("^\r\n\t ","",sDesc)
+sDesc=gsub("\t","",sDesc)
+sDesc=gsub(" \r\n$","",sDesc)
+if(length(sDesc)==0){
+sDesc=NA
+}
+event=data.frame(Eventname=sTitle,Eventbeschreibung=sDesc, Eventveranstalter="Stift Haug Würzburg", Ort=sLocation, Lat=lat, Lon=lon, Eventstart=oStartDate, Eventende=NA, Eventurl=url, Eventkalenderurl=NA, Preis=NA)
+return (event)
+}
+getEvents_stift=function(){
+#readEventLinks
+##  url="C:/Users/Jannis/Desktop/stiftHaug.html"
+url="http://www.stift-haug.de/aktuelle-termine"
+url %>%
+read_html() -> raw_data
+raw_data %>%
+html_nodes(".itemtitle a")->eventList
+eventList%>%
+html_attr("href")->aEventLinks
+aEventLinks
+oRes=readLinks(aEventLinks,getEventData_stift,"")
+return (oRes)
+}
+require(tidyverse)
+require(rvest)
+readLinks = function(aLinks, fnCallback, sBase){
+oRes=data.frame()
+for (sLink in aLinks){
+url=paste0(sBase,sLink)
+url %>% read_html() -> raw_data
+event=fnCallback(raw_data,url=url)
+if(!is.null(event)){
+oRes=data.frame(rbind((oRes), (event)))
+}
+}
+return (oRes)
+}
+getMonth= function(){
+sRegex= ("?: Jan(?:uar)?|Feb (?:ruar?) | März | April | Mai |Juni | Juli | Aug(?:ust?)|Sep(?:tember?)| Okt(?:ober?) | Nov(?:ember?)| Dez(?:ember?)")
+}
+#function definition
+html_text_collapse <- function(x, trim = FALSE, collapse = " "){
+UseMethod("html_text_collapse")
+}
+html_text_collapse.xml_nodeset <- function(x, trim = FALSE, collapse = " "){
+vapply(x, html_text_collapse.xml_node, character(1), trim = trim, collapse = collapse)
+}
+html_text_collapse.xml_node <- function(x, trim = FALSE, collapse = " "){
+paste(xml2::xml_find_all(x, ".//text()"), collapse = collapse)
+}
+require(tidyverse)
+require(rvest)
+source("utils.R")
+source("buergerspital.R")
+source("eisbahn.R")
+source("kolping.R")
+source("kaeppele.R")
+getDataFrames_Jannis=function(){
+oRes=getEvents_spital()
+oRes=data.frame(rbind((oRes), (getEvents_eisbahn())))
+oRes=data.frame(rbind((oRes), (getEvents_stift())))
+oRes=data.frame(rbind((oRes), (getEvents_kolping())))
+oRes=data.frame(rbind((oRes), (getEvents_kaeppele())))
+return (oRes)
+}
+#### combine my Data to one Dataframe
+require(plyr)
+require (devtools)
+require (ggmap)
+# wie exectue
+source("crawler_schroederHaus.R")
+source("crawler_sparkasse.R")
+source("crawler_sieboldMuseum.R")
+rbind.fill(veranstaltungen_sparkasse, veranstaltungen_schroederHaus, veranstaltungen_siebold) -> crawler_sabrina
+getDF_Sabrina=function(){
+aNames=colnames(crawler_sabrina)
+aNames[5]=Lon
+aNames[6]=Lat
+colnames(crawler_sabrina)<-aNames
+}
+source("../crawler_sabrina/Run.R")
+source("../crawler_jannis/getDF_Jannis.R")
+allEvents=rbind.fill(getDF_Sabrina(),getDataFrames_Jannis())
+source("./Run.R")
+source("./getDF_Jannis.R")
+allEvents=rbind.fill(getDF_Sabrina(),getDataFrames_Jannis())
+#### combine my Data to one Dataframe
+require(plyr)
+require (devtools)
+require (ggmap)
+# wie exectue
+source("crawler_schroederHaus.R")
+source("crawler_sparkasse.R")
+source("crawler_sieboldMuseum.R")
+rbind.fill(veranstaltungen_sparkasse, veranstaltungen_schroederHaus, veranstaltungen_siebold) -> crawler_sabrina
+getDF_Sabrina=function(){
+aNames=colnames(crawler_sabrina)
+aNames[5]="Lon"
+aNames[6]="Lat"
+colnames(crawler_sabrina)<-aNames
+}
+source("./Run.R")
+source("./getDF_Jannis.R")
+allEvents=rbind.fill(getDF_Sabrina(),getDataFrames_Jannis())
+#schroeder haus
+# http://www.schroeder-haus.de
+## Funktion
+library (tidyverse)
+library (rvest)
+library(stringr)
+library(dplyr)
+library(ggmap)
+getEvents <- function (url)
+{
+url %>%
+read_html() -> raw_data
+raw_data %>%
+html_nodes ("h3.tc-dynamic") %>%
+html_text (trim=T) -> event
+raw_data %>%
+html_nodes ("h4") %>%
+html_text (trim=T) -> event_zusatz
+raw_data %>%
+html_nodes("#text") %>%
+html_text (trim=T) -> beschreibung
+raw_data %>%
+html_nodes("b") %>%
+html_text (trim=T) %>%
+.[[5]] -> datum
+raw_data %>%
+html_nodes(".ort") %>%
+html_text (trim=T) -> ort
+raw_data %>%
+html_nodes("#infos") %>%
+html_text (trim=T) -> gebühr
+url -> eventurl
+Events <- data.frame(Eventname=event, Eventname_zusatz=event_zusatz, Eventbeschreibung=beschreibung, Datum=datum, Ort=ort, Preis=gebühr, Eventurl=eventurl)
+}
+KalenderURL <- "https://www.schroeder-haus.de/programm/"
+SchroederHausDetails <- KalenderURL %>%
+read_html() %>%
+html_nodes(".bg-dynamic") %>%
+html_attr("href")
+paste0("https://www.schroeder-haus.de/", SchroederHausDetails) -> SchroederHausLinks
+map_df(SchroederHausLinks, getEvents)-> raw_events
+# Datum extraktion
+raw_events %>%
+mutate(`Startdatum` = paste(str_extract_all(Datum,"\\d{1,2}[.]\\d{1,2}[.](\\d{2})?", simplify=T)[,1])) %>%
+mutate(`Enddatum` = paste(str_extract_all(Datum,"\\d{1,2}[.]\\d{1,2}[.](\\d{2})?", simplify=T)[,2])) %>%
+mutate(`Startuhrzeit` = paste(str_extract_all(Datum,"[^.]\\d{1,2}[.]\\d{1,2}[^.]", simplify=T)[,1])) %>%
+mutate(`Enduhrzeit` = paste(str_extract_all(Datum,"[^.]\\d{1,2}[.]\\d{1,2}[^.]", simplify=T)[,2]))->veranstaltungen_schroederHaus_1
+Sys.Date() %>%
+format(format="%Y")->Jahr_heute
+# Datum bereinigung
+veranstaltungen_schroederHaus_1 %>%
+mutate(`Tag` = paste(str_extract_all(Startdatum,"\\d{1,2}[.]", simplify=T)[,1]))%>%
+mutate(`Monat` = paste(str_extract_all(Startdatum,"\\d{1,2}[.]", simplify=T)[,2])) %>%
+mutate(`Jahr` = paste(str_extract_all(Startdatum,"\\d{1,2}", simplify=T)[,3])) %>%
+mutate(Tag = str_pad(Tag, width="3", side = "left", pad = 0)) %>%
+mutate(Monat = str_pad(Monat, width="3", side = "left", pad = 0))%>%
+mutate(Jahr = paste(str_extract(Jahr, "\\d{2}"))) %>%
+mutate(Jahr =paste(str_replace(Jahr, "NA", Jahr_heute))) %>%
+mutate(Jahr = str_pad(Jahr, width="3", side = "left", pad = 0)) %>%
+mutate(Jahr = str_pad(Jahr, width="4", side = "left", pad = 2)) %>%
+mutate(Startuhrzeit =paste(str_replace(Startuhrzeit, "[.]", ":"))) %>%
+mutate(Enduhrzeit =paste(str_replace(Enduhrzeit, "[.]", ":"))) %>%
+mutate(Startuhrzeit =paste(str_remove_all(Startuhrzeit, " "))) %>%
+mutate(Enduhrzeit =paste(str_remove_all(Enduhrzeit, " ")))%>%
+mutate(Startuhrzeit = str_pad(Startuhrzeit, width="5", side = "left", pad = 0)) %>%
+mutate(Startdatum = paste0(Tag, Monat, Jahr, sep="")) %>%
+mutate(Eventstart=paste(Startdatum, Startuhrzeit, sep=" ")) %>%
+mutate(Eventende=paste(Startdatum, Enduhrzeit, sep=" "))  %>%
+.[-(10:14)]->veranstaltungen_schroederHaus_2
+# Finale Bereinigung
+veranstaltungen_schroederHaus_2 %>%
+mutate(Eventbeschreibung= paste(Eventname_zusatz, Datum, Eventbeschreibung, sep= "\n\n")) %>%
+mutate(Eventbeschreibung= trimws(Eventbeschreibung, which="left")) %>%
+.[-(8:9)] %>%
+.[-2] %>%
+.[-3] %>%
+mutate(Eventkalenderurl = paste(KalenderURL)) %>%
+mutate(Eventende = str_pad(Eventende, width="13", side ="right", pad=00))%>%
+mutate(Eventende = str_pad(Eventende, width="14", side ="right", pad=":"))%>%
+mutate(Eventende = str_pad(Eventende, width="16", side ="right", pad=00)) %>%
+mutate(Eventstart=as.POSIXct(Eventstart, format="%d.%m.%Y %H:%M"))%>%
+mutate(Eventende=as.POSIXct(Eventende, format="%d.%m.%Y %H:%M")) %>%
+mutate(Ort = trimws(Ort)) %>%
+mutate(Eventveranstalter = paste("R.-A.Schröder-Haus"))-> veranstaltungen_schroederHaus_3
+# Locations
+register_google (key="AIzaSyBhVIcrHbDcFz-TssiCGSRBUXUXbxApY60")
+locations <- distinct(veranstaltungen_schroederHaus_3, Ort)
+locations_try <- mutate_geocode(locations, Ort)
+# Join
+veranstaltungen_schroederHaus_3 %>%
+left_join(locations_try) -> veranstaltungen_schroederHaus_4
+# Ordnen
+veranstaltungen_schroederHaus <- veranstaltungen_schroederHaus_4[c(1,2,9,3,10,11,6,7,5,8,4)]
+# leicht vereinfachte Variante des Datums (da Wiederholungen immer im Kurs, nach erstem Event
+# möchte da Wahrscheinlich keiner mehr Teilnehmen)
+#### combine my Data to one Dataframe
+require(plyr)
+require (devtools)
+require (ggmap)
+# wie exectue
+source("crawler_schroederHaus.R")
+source("crawler_sparkasse.R")
+source("crawler_sieboldMuseum.R")
+rbind.fill(veranstaltungen_sparkasse, veranstaltungen_schroederHaus, veranstaltungen_siebold) -> crawler_sabrina
+getDF_Sabrina=function(){
+aNames=colnames(crawler_sabrina)
+aNames[5]="Lon"
+aNames[6]="Lat"
+colnames(crawler_sabrina)<-aNames
+}
+#schroeder haus
+# http://www.schroeder-haus.de
+## Funktion
+library (tidyverse)
+library (rvest)
+library(stringr)
+library(dplyr)
+library(ggmap)
+getEvents <- function (url)
+{
+url %>%
+read_html() -> raw_data
+raw_data %>%
+html_nodes ("h3.tc-dynamic") %>%
+html_text (trim=T) -> event
+raw_data %>%
+html_nodes ("h4") %>%
+html_text (trim=T) -> event_zusatz
+raw_data %>%
+html_nodes("#text") %>%
+html_text (trim=T) -> beschreibung
+raw_data %>%
+html_nodes("b") %>%
+html_text (trim=T) %>%
+.[[5]] -> datum
+raw_data %>%
+html_nodes(".ort") %>%
+html_text (trim=T) -> ort
+raw_data %>%
+html_nodes("#infos") %>%
+html_text (trim=T) -> gebühr
+url -> eventurl
+Events <- data.frame(Eventname=event, Eventname_zusatz=event_zusatz, Eventbeschreibung=beschreibung, Datum=datum, Ort=ort, Preis=gebühr, Eventurl=eventurl)
+}
+KalenderURL <- "https://www.schroeder-haus.de/programm/"
+SchroederHausDetails <- KalenderURL %>%
+read_html() %>%
+html_nodes(".bg-dynamic") %>%
+html_attr("href")
+paste0("https://www.schroeder-haus.de/", SchroederHausDetails) -> SchroederHausLinks
+map_df(SchroederHausLinks, getEvents)-> raw_events
+# Datum extraktion
+raw_events %>%
+mutate(`Startdatum` = paste(str_extract_all(Datum,"\\d{1,2}[.]\\d{1,2}[.](\\d{2})?", simplify=T)[,1])) %>%
+mutate(`Enddatum` = paste(str_extract_all(Datum,"\\d{1,2}[.]\\d{1,2}[.](\\d{2})?", simplify=T)[,2])) %>%
+mutate(`Startuhrzeit` = paste(str_extract_all(Datum,"[^.]\\d{1,2}[.]\\d{1,2}[^.]", simplify=T)[,1])) %>%
+mutate(`Enduhrzeit` = paste(str_extract_all(Datum,"[^.]\\d{1,2}[.]\\d{1,2}[^.]", simplify=T)[,2]))->veranstaltungen_schroederHaus_1
+Sys.Date() %>%
+format(format="%Y")->Jahr_heute
+# Datum bereinigung
+veranstaltungen_schroederHaus_1 %>%
+mutate(`Tag` = paste(str_extract_all(Startdatum,"\\d{1,2}[.]", simplify=T)[,1]))%>%
+mutate(`Monat` = paste(str_extract_all(Startdatum,"\\d{1,2}[.]", simplify=T)[,2])) %>%
+mutate(`Jahr` = paste(str_extract_all(Startdatum,"\\d{1,2}", simplify=T)[,3])) %>%
+mutate(Tag = str_pad(Tag, width="3", side = "left", pad = 0)) %>%
+mutate(Monat = str_pad(Monat, width="3", side = "left", pad = 0))%>%
+mutate(Jahr = paste(str_extract(Jahr, "\\d{2}"))) %>%
+mutate(Jahr =paste(str_replace(Jahr, "NA", Jahr_heute))) %>%
+mutate(Jahr = str_pad(Jahr, width="3", side = "left", pad = 0)) %>%
+mutate(Jahr = str_pad(Jahr, width="4", side = "left", pad = 2)) %>%
+mutate(Startuhrzeit =paste(str_replace(Startuhrzeit, "[.]", ":"))) %>%
+mutate(Enduhrzeit =paste(str_replace(Enduhrzeit, "[.]", ":"))) %>%
+mutate(Startuhrzeit =paste(str_remove_all(Startuhrzeit, " "))) %>%
+mutate(Enduhrzeit =paste(str_remove_all(Enduhrzeit, " ")))%>%
+mutate(Startuhrzeit = str_pad(Startuhrzeit, width="5", side = "left", pad = 0)) %>%
+mutate(Startdatum = paste0(Tag, Monat, Jahr, sep="")) %>%
+mutate(Eventstart=paste(Startdatum, Startuhrzeit, sep=" ")) %>%
+mutate(Eventende=paste(Startdatum, Enduhrzeit, sep=" "))  %>%
+.[-(10:14)]->veranstaltungen_schroederHaus_2
+# Finale Bereinigung
+veranstaltungen_schroederHaus_2 %>%
+mutate(Eventbeschreibung= paste(Eventname_zusatz, Datum, Eventbeschreibung, sep= "\n\n")) %>%
+mutate(Eventbeschreibung= trimws(Eventbeschreibung, which="left")) %>%
+.[-(8:9)] %>%
+.[-2] %>%
+.[-3] %>%
+mutate(Eventkalenderurl = paste(KalenderURL)) %>%
+mutate(Eventende = str_pad(Eventende, width="13", side ="right", pad=00))%>%
+mutate(Eventende = str_pad(Eventende, width="14", side ="right", pad=":"))%>%
+mutate(Eventende = str_pad(Eventende, width="16", side ="right", pad=00)) %>%
+mutate(Eventstart=as.POSIXct(Eventstart, format="%d.%m.%Y %H:%M"))%>%
+mutate(Eventende=as.POSIXct(Eventende, format="%d.%m.%Y %H:%M")) %>%
+mutate(Ort = trimws(Ort)) %>%
+mutate(Eventveranstalter = paste("R.-A.Schröder-Haus"))-> veranstaltungen_schroederHaus_3
+# Locations
+register_google (key="AIzaSyBhVIcrHbDcFz-TssiCGSRBUXUXbxApY60")
+locations <- distinct(veranstaltungen_schroederHaus_3, Ort)
+locations_try <- mutate_geocode(locations, Ort)
+# Join
+veranstaltungen_schroederHaus_3 %>%
+left_join(locations_try) -> veranstaltungen_schroederHaus_4
+# Ordnen
+veranstaltungen_schroederHaus <- veranstaltungen_schroederHaus_4[c(1,2,9,3,10,11,6,7,5,8,4)]
+# leicht vereinfachte Variante des Datums (da Wiederholungen immer im Kurs, nach erstem Event
+# möchte da Wahrscheinlich keiner mehr Teilnehmen)
+#### combine my Data to one Dataframe
+require(plyr)
+require (devtools)
+require (ggmap)
+# wie exectue
+source("crawler_schroederHaus.R")
+source("crawler_sparkasse.R")
+source("crawler_sieboldMuseum.R")
+rbind.fill(veranstaltungen_sparkasse, veranstaltungen_schroederHaus, veranstaltungen_siebold) -> crawler_sabrina
+getDF_Sabrina=function(){
+aNames=colnames(crawler_sabrina)
+aNames[5]="Lon"
+aNames[6]="Lat"
+colnames(crawler_sabrina)<-aNames
+}
+source("./Run.R")
+source("./getDF_Jannis.R")
+allEvents=rbind.fill(getDF_Sabrina(),getDataFrames_Jannis())
+oRes
+require(tidyverse)
+require(rvest)
+source("utils.R")
+source("buergerspital.R")
+source("eisbahn.R")
+source("kolping.R")
+source("kaeppele.R")
+getDataFrames_Jannis=function(){
+oRes=getEvents_spital()
+oRes=data.frame(rbind((oRes), (getEvents_eisbahn())))
+oRes=data.frame(rbind((oRes), (getEvents_stift())))
+oRes=data.frame(rbind((oRes), (getEvents_kolping())))
+oRes=data.frame(rbind((oRes), (getEvents_kaeppele())))
+return (oRes)
+}
+getDataFrames_Jannis()
+oRes
+require(tidyverse)
+require(rvest)
+source("utils.R")
+source("buergerspital.R")
+source("eisbahn.R")
+source("kolping.R")
+source("kaeppele.R")
+getDataFrames_Jannis=function(){
+oRes=getEvents_spital()
+oRes=data.frame(rbind((oRes), (getEvents_eisbahn())))
+oRes=data.frame(rbind((oRes), (getEvents_stift())))
+oRes=data.frame(rbind((oRes), (getEvents_kolping())))
+oRes=data.frame(rbind((oRes), (getEvents_kaeppele())))
+return (oRes)
+}
+oDataJannis=getDataFrames_Jannis()
+oDataJannis
+source("./Run.R")
+source("./Run.R")
+source("./Run.R")
+source("./getDF_Jannis.R")
+allEvents=rbind.fill(getDF_Sabrina(),getDataFrames_Jannis())
+require(tidyverse)
+require(rvest)
+if(!exists("readLinks", mode="function")){ source("utils.R")}
+#getEventData
+getEventData_spital = function (rawData,url){
+event=data.frame(matrix(ncol = 11, nrow = 1));
+#getDesc
+rawData%>%
+html_nodes("td")->eventList
+eventList%>%
+html_text_collapse()->sDesc
+#getDatet
+date=str_extract(sDesc,"Termin:  \\d{2}.\\d{2}.\\d{4}")
+if (!is.na(date) && nchar(date)>=19){
+endDate=substr(date,10,nchar(date))
+date=substr(date,10,nchar(date))
+}else{
+date=""
+endDate=""
+}
+#getTime
+time=str_extract(sDesc,"Uhrzeit:  \\d{2}:\\d{2} - \\d{2}:\\d{2}")
+if (!is.na(time) && nchar(time)>=23){
+time=substr(time,10,nchar(time))
+startTime=substr(time,2,6);
+endTime=substr(time,10,14)
+startDate=(as.POSIXct(paste(date,startTime," "),format = "%d.%m.%Y %H:%M"))
+endDate=as.character(as.POSIXct(paste(date,endTime," "),format = "%d.%m.%Y %H:%M"))
+}else{
+startDate=(as.POSIXct(date,format = "%d.%m.%Y"))
+endDate=NA
+}
+sTitle=gsub( "Termin.*$", "", sDesc )
+sDesc=substr(sDesc,0,nchar(sDesc)-15)
+sDesc=gsub("^.*\\t\\t\\t", "", sDesc )
+sDesc=gsub("\\s\\s+/g", ' ', sDesc)
+sDesc=gsub("^ +","",sDesc)
+event=data.frame(Eventname=sTitle,Eventbeschreibung=sDesc, Eventveranstalter="Bürgerspital Würzburg", Ort="Bürgerspital Würzburg", Lat=9.9350524, Lon=49.7957823, Eventstart=startDate, Eventende=endDate, Eventurl=url, Eventkalenderurl=NaN, Preis=NaN)
+return (event)
+}
+getEvents_spital=function(){
+#readEventLinks
+url="https://www.buergerspital.de/weingut/termine"
+url %>%
+read_html() -> raw_data
+raw_data %>%
+html_nodes(".artikeluebersicht_classic .title a")->eventList
+eventList%>%
+html_attr("href")->aEventLinks
+oRes=readLinks(aEventLinks,getEventData_spital,"https://www.buergerspital.de")
+return (oRes)
+}
+oData=getEvents_spital()

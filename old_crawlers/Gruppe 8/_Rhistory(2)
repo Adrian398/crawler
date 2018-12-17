@@ -1,0 +1,512 @@
+if (req$status == "OK") {
+print("OK")
+location = req$results[[1]]$geometry$`location`
+lat = location[[1]]
+lon = location[[2]]
+#print(typeof(lat))
+#print(lon)
+print(location)
+} else {
+location <- NA
+}
+Sys.sleep(0.3)
+return(location)
+}
+crawl_kwm_klinikum <- function()
+{
+overviewurl <- "http://www.kwm-klinikum.de/veranstaltungen/?page=1"
+getMaxPages <- function(overviewurl)
+{
+code <- read_html(overviewurl)
+linkPart <- html_node(code, "body > div.container > div > div.paging > ul > li:nth-child(7) > a")
+href <- html_attr(linkPart, "href")
+maxP = str_extract(href, "[0-9]+")
+return(as.numeric(maxP))
+}
+maxP <- getMaxPages(overviewurl)
+pageNumbers <- seq(from = 1, to = maxP, by = 1)
+getOverviewPage <- function(page)
+{
+base = "http://www.kwm-klinikum.de/veranstaltungen/?page="
+url <- paste0(base, page)
+return (url)
+}
+overViewURLs <- map(pageNumbers, getOverviewPage)
+getEventsPerEventpage <- function(url)
+{
+code <- read_html(url)
+eventLinks <- html_nodes(code, ".title a")
+#print(length(eventLinks))
+return (eventLinks)
+}
+eventLinks <- map(overViewURLs, getEventsPerEventpage)
+eventLinksListEndings <- c()
+counter <- 1
+for (i in 1:length(eventLinks))
+{
+for (a in 1:length(eventLinks[[i]]))
+{
+#print(a)
+href <- html_attr(eventLinks[[i]][a], "href")
+if(href != "")
+{
+eventLinksListEndings[counter] <- href
+counter = counter + 1
+}
+}
+}
+createFullEventLink <- function(ending)
+{
+base <- "http://www.kwm-klinikum.de/"
+fullurl <- paste0(base, ending)
+return(fullurl)
+}
+fullEventURLs <- map(eventLinksListEndings, createFullEventLink)
+#print(typeof(fullEventURLs))
+dimn= list("Eventname", "Description", "Organizer", "Place", "EventStart", "EventEnd")
+maindfklinikum = data.frame(Eventname=character(), Eventbeschreibung=character(), Eventveranstalter=character(), Ort=character(),
+Lon = numeric(), Lat =numeric(), Eventstart=as.POSIXct(character()),
+Eventende=as.POSIXct(character()) , Eventurl=character(), Eventkalenderurl=character(), Preis = numeric())
+getEventInformation <- function(eventurl)
+{
+print(eventurl)
+response <- httr::GET(eventurl)
+code <- httr::content(response)
+stat_code<- httr::status_code(response)
+if (stat_code == 200)
+{
+#code <- read_html(eventurl)
+titleArea <- html_node(code, xpath="/html/body/div[1]/div/article/h2")
+sideLoaded <- FALSE
+if (length(titleArea) > 0)
+{
+sideLoaded <- TRUE
+}
+if (sideLoaded == TRUE)
+{
+infoBox <- html_nodes(code, "#content")[1]
+whenAreaType <- html_nodes(infoBox, "p:nth-child(4)")
+whenArea <- NULL
+whereArea <- NULL
+pAreas <- html_nodes(code, xpath = "//*[@id='content']/p")
+for(i in 1: length(pAreas))
+{
+#print(pAreas[i])
+if (grepl("Wann:", pAreas[i], fixed = TRUE) == TRUE)
+{
+whenArea <- pAreas[i]
+}
+else if (grepl("Wo:", pAreas[i], fixed = TRUE) == TRUE)
+{
+whereArea <- pAreas[i]
+}
+}
+#print(whereArea)
+dateText <- html_text(whenArea)
+datY4 <- str_extract(dateText, "\\d+\\.\\d+\\.\\d{4}")
+dat <- datY4
+datY2 <- str_extract(dateText, "\\d+\\.\\d+\\.\\d{2}")
+dateFormatStr = "%d.%m.%Y %H:%M"
+if (is.na(datY4) & !is.na(datY2))
+{
+dat <- datY2
+dateFormatStr = "%d.%m.%y %H:%M"
+}
+times <- str_extract_all(dateText, "(?<= )\\d{1,2}[:.]\\d{2}(?= )")
+startTime <- str_replace(times[[1]][1], "\\.", ":")
+endTime <- ""
+if (length(times[[1]]) >= 2)
+{
+endTime <- str_replace(times[[1]][2], "\\.", ":")
+}
+#description <- html_node(code, xpath = "//*[@id='content']/div[1]")
+description <- html_node(code, xpath = "//*[@id='content']")
+#//*[@id="content"]
+desc_text <- html_text(description)
+dtStart <- paste(dat, startTime)
+dtEnd <- paste(dat, endTime)
+dtStart <- as.POSIXct(dtStart, format=dateFormatStr, tz = "")
+dtEnd <- as.POSIXct(dtEnd, format=dateFormatStr, tz = "")
+titleDirty <- html_text(titleArea)
+titleclean <- str_extract(titleDirty, "(?<=: ).*") # erfordert kein Postprocessing
+locDirty <- html_text(whereArea)
+locClean <- str_extract(locDirty, "(?<=Wo: ).*")
+#print(desc_text)
+#subdf <- data.frame(Eventname=c(titleclean), Description= c(desc_text), Organizer=c("KWM Klinikum"),
+#Place=c(locClean), EventStart= dtStart, EventEnd = dtEnd, Eventurl=c(eventurl))
+locCord <- addressToGeoLoc(locClean)
+lat <- NA
+lon <- NA
+if(!is.na(locCord))
+{
+lat <- locCord[[1]]
+lon <- locCord[[2]]
+}
+subdf = data.frame(Eventname=c(titleclean), Eventbeschreibung=c(desc_text), Eventveranstalter=c("Missionsaerztliche Klinik"), Ort=c(locClean),
+Lon = c(lon), Lat =c(lat), Eventstart=c(dtStart),
+Eventende=c(dtEnd), Eventurl=c(eventurl), Eventkalenderurl=c("http://www.kwm-klinikum.de/veranstaltungen/?page=1"), Preis=c(NA))
+return (subdf)
+}
+}
+}
+eventData <- map(fullEventURLs, getEventInformation)
+df1 <- eventData[[1]]
+for (i in 1: length(eventData))
+{
+maindfklinikum <- rbind(maindfklinikum, eventData[[i]])
+}
+#View(maindfklinikum)
+return(maindfklinikum)
+}
+#crawl_kwm_klinikum()
+library(rvest)
+library(tidyverse)
+#print(Sys.timezone())
+crawl_franz_obertheur_schule <- function()
+{
+eventsurl = "https://www.franz-oberthuer-schule.de/events/event/"
+getMaxPages <- function(url, i=1)
+{
+code <- read_html(url)
+mainBlock <- html_node(code, xpath="//*[@id='primary']")
+morePages <- grepl("Spätere Termine", mainBlock, fixed = TRUE)
+if(morePages == TRUE)
+{
+i = i + 1
+url <- paste0("https://www.franz-oberthuer-schule.de/events/event/page/", i)
+print(url)
+getMaxPages(url, i)
+}
+return (i)
+}
+maxPages = getMaxPages(eventsurl)
+pages <- seq(1, maxPages, 1)
+print(pages)
+pageUrls <- paste0("https://www.franz-oberthuer-schule.de/events/event/page/", pages)
+print(pageUrls)
+getEvents <- function(url)
+{
+code <- read_html(url)
+mainBlock <- html_node(code, xpath="//*[@id='primary']")
+events <- html_nodes(code, ".hentry")
+startDates = c()
+pagedfschule = data.frame(Eventname=character(), Eventbeschreibung=character(), Eventveranstalter=character(), Ort=character(),
+Lon = numeric(), Lat =numeric(), Eventstart=as.POSIXct(character()),
+Eventende=as.POSIXct(character()) , Eventurl=character(), Eventkalenderurl=character(), Preis = numeric())
+for (i in 1:length(events))
+{
+print("-------------------")
+title_node <- html_node(events[i], ".entry-title span")
+title = html_text(title_node)
+print(title)
+dateRow <- html_node(events[i], "p")
+timeRowNode <- html_node(events[i], ".eo-event-date , time")
+timeTag <- html_nodes(timeRowNode, "time")
+dtValues <- html_attr(timeTag, "datetime")
+dtValues <- str_replace(dtValues, "\\+[\\d]{2}:[\\d]{2}", "")
+if (nchar(dtValues) >= 12)
+{
+print("a")
+dateFormatStrFromSchool = "%Y-%m-%dT%H:%M:%S"
+dateFormatStr = "%d.%m.%Y %H:%M"
+dtValues <- as.POSIXct(dtValues, dateFormatStrFromSchool, tz="")
+#dtValues <- format(dtValues, dateFormatStr)
+# dtValues[[1]] <- as.POSIXct(dtValues[[1]], dateFormatStrFromSchool, tz="")
+# dtValues[[2]] <- as.POSIXct(dtValues[[2]], dateFormatStrFromSchool, tz="")
+#
+# a <- dtValues[[1]]
+# a <- as.POSIXct(a, "%d.%m.%Y %H:%M", tz = "")
+# print(a)
+# print(typeof(a))
+# dtValues[[1]] <- a
+}
+else if((nchar(dtValues) <= 11) & (nchar(dtValues) >= 9))
+{
+print("b")
+dateFormatStrFromSchool = "%Y-%m-%d"
+dateFormatStr = "%d.%m.%Y"
+dtValues <- as.POSIXct(dtValues, dateFormatStrFromSchool, tz="")
+#dtValues <- format(dtValues, dateFormatStr)
+# dtValues[[1]] <- as.POSIXct(dtValues[[1]], dateFormatStrFromSchool, tz="")
+# dtValues[[2]] <- as.POSIXct(dtValues[[2]], dateFormatStrFromSchool, tz="")
+}
+startDt <- dtValues[[1]]
+endDt <- dtValues[[2]]
+#print(typeof(startDt))
+#print(typeof(endDt))
+subdfschule = data.frame(Eventname= c(title), Eventbeschreibung=c(NA), Eventveranstalter=c("Franz-Oberthuer-Schule"), Ort=c(NA),
+Lon = c(9.95439), Lat =c(49.7865), Eventstart=c(startDt),
+Eventende= c(endDt), Eventurl=c(NA), Eventkalenderurl=c("https://www.franz-oberthuer-schule.de/events/event/"), Preis = c(NA))
+pagedfschule <- rbind(pagedfschule, subdfschule)
+}
+#print("blub")
+#print(length(pagedfschule))
+return (pagedfschule)
+}
+maindfschule = data.frame(Eventname=character(), Eventbeschreibung=character(), Eventveranstalter=character(), Ort=character(),
+Lon = numeric(), Lat =numeric(), Eventstart=as.POSIXct(character()),
+Eventende=as.POSIXct(character()) , Eventurl=character(), Eventkalenderurl=character(), Preis = numeric())
+allpageDFs <- map(pageUrls, getEvents)
+print(length(allpageDFs))
+for (i in 1:length(allpageDFs))
+{
+maindfschule <- rbind(maindfschule, allpageDFs[[i]])
+}
+#View(allpageDFs[[1]])
+#View(maindfschule)
+return (maindfschule)
+}
+#crawl_franz_obertheur_schule()
+library(rvest)
+library(tidyverse)
+replaceMonthNameWithNumber <- function(strORList)
+{
+strORList <- str_replace_all(strORList, "Januar", "01.")
+strORList <- str_replace_all(strORList, "Februar", "02.")
+strORList <- str_replace_all(strORList, "März", "03.")
+strORList <- str_replace_all(strORList, "April", "04.")
+strORList <- str_replace_all(strORList, "Mai", "05.")
+strORList <- str_replace_all(strORList, "Juni", "06.")
+strORList <- str_replace_all(strORList, "Juli", "07.")
+strORList <- str_replace_all(strORList, "August", "08.")
+strORList <- str_replace_all(strORList, "September", "09.")
+strORList <- str_replace_all(strORList, "Okober", "10.")
+strORList <- str_replace_all(strORList, "November", "11.")
+strORList <- str_replace_all(strORList, "Dezember", "12.")
+return (strORList)
+}
+crawl_sundermannkunst <- function()
+{
+eventcalender <- "https://www.sundermann-kunst.de/Ausstellungen"
+code <- read_html(eventcalender)
+infobox <- html_node(code, "#content_main")
+#print(infobox)
+description <- html_nodes(infobox, "span")
+description <- html_text(description)
+description <- paste(description, collapse = " ")
+#print(description)
+eventname <- html_node(infobox, "h1")
+eventname <- html_text(eventname)
+dateArea <- html_node(infobox, "h3")
+dateArea <- html_text(dateArea)
+dateArea <- str_extract(dateArea, "(?<=(Ausstellung)).*")
+#dateArea <- str_remove_all(dateArea, " ")
+dateArea <- str_replace_all(dateArea, "[\\s]*", "")
+#print(dateArea)
+#dates <- strsplit(dateArea, "-")
+dates <- replaceMonthNameWithNumber(dateArea)
+s1 <- unlist(strsplit(dates, "-"))
+dates <- unlist(strsplit(s1, "bis"))
+if(nchar(dates[[1]]) < 6)
+{
+dates[[1]] <- paste("0", dates[[1]], sep = "")
+}
+if(nchar(dates[[2]]) < 10)
+{
+dates[[2]] <- paste("0", dates[[2]], sep = "")
+}
+if((nchar(dates[[1]]) == 6) & nchar(dates[[2]]) == 10)
+{
+year <- substr(dates[[2]], 7, 10)
+dates[[1]] <- paste(dates[[1]], year, sep="")
+}
+#print(dates)
+startdt <- as.POSIXct(dates[[1]], "%d.%m.%Y", tz="")
+enddt <- as.POSIXct(dates[[2]], "%d.%m.%Y", tz="")
+#print(typeof(enddt))
+maindfsundermann = data.frame(Eventname=eventname, Eventbeschreibung=description, Eventveranstalter="Galerie Sundermann", Ort=NA,
+Lon = 9.92982, Lat =49.78833, Eventstart=startdt,
+Eventende=enddt , Eventurl=eventcalender, Eventkalenderurl=eventcalender, Preis = NA)
+#View(maindfsundermann)
+return (maindfsundermann)
+}
+#crawl_sundermannkunst()
+source("franziskanerkloster.R")
+df -> df_franz
+source("kirche_frauenland.R")
+df -> df_k_frau
+source("kirche_zellerau.R")
+df -> df_k_zell
+source("theater_hobbit.R")
+df -> df_theater
+source("zfk-wuerzburg.R")
+df -> df_zfk
+bind_rows(df_franz, df_k_frau, df_k_zell, df_theater, df_zfk) -> df_final
+df_final
+source("./awo.R")
+source("./evdhg.R")
+source("./kwm_klinikum.R")
+source("./oberthuerschule.R")
+source("./sundermann.R")
+getdfNiklas <- function()
+{
+bigdf <- rbind(crawl_awo_jw(), crawl_evdgh(),crawl_kwm_klinikum(), crawl_franz_obertheur_schule(), crawl_sundermannkunst())
+#View(bigdf)
+return(bigdf)
+}
+#getdfNiklas()
+source("./Run.R")
+source("./getDF_Jannis.R")
+source("./df_Pia.R")
+source("./dfNiklas.R")
+allEvents=rbind.fill(getDF_Sabrina(),getDataFrames_Jannis(), getdfNiklas(), df_final)
+write.table(allEvents, sep="||", file = "gruppe8.csv", row.names = FALSE, col.names = TRUE)
+#### combine my Data to one Dataframe
+require(dplyr)
+require (devtools)
+require (ggmap)
+# wie exectue
+source("crawler_schroederHaus.R")
+source("crawler_sparkasse.R")
+#### combine my Data to one Dataframe
+require(dplyr)
+require (devtools)
+require (ggmap)
+# wie exectue
+source("crawler_schroederHaus.R")
+source("crawler_sparkasse.R")
+source("crawler_sieboldMuseum.R")
+bind_rows(veranstaltungen_sparkasse, veranstaltungen_schroederHaus, veranstaltungen_siebold) -> crawler_sabrina
+getDF_Sabrina=function(){
+aNames=colnames(crawler_sabrina)
+aNames[5]="Lon"
+aNames[6]="Lat"
+colnames(crawler_sabrina)<-aNames
+return(crawler_sabrina)
+}
+source("./Run.R")
+source("./getDF_Jannis.R")
+source("./df_Pia.R")
+source("./dfNiklas.R")
+library(dplyr)
+allEvents=bind_rows(getDF_Sabrina(),getDataFrames_Jannis(), getdfNiklas(), df_final)
+write.table(allEvents, sep="||", file = "gruppe8.csv", row.names = FALSE, col.names = TRUE)
+require(tidyverse)
+require(rvest)
+if(!exists("readLinks", mode="function")){ source("utils.R")}
+if(!exists("addressToGeoLoc", mode="function")){source("geocodetest.R")}
+getEventData_stift=function(rawData, url){
+lat=NA
+lon=NA
+oStartDate=NA
+##get Title
+rawData%>%
+html_nodes(".title")%>%
+html_text()->sTitle
+##get date
+rawData%>%
+html_nodes(".datetime")%>%
+html_text()->sDateTime
+if (length(sDateTime>=2)){
+sDateTime=sDateTime[2]
+sDate=str_extract(sDateTime,"\\d{2}\\.\\d{2}\\.\\d{4}")
+sTime=str_extract(sDateTime,"\\d{2}\\:\\d{2}")
+oStartDate=as.POSIXct(paste(sDate,sTime, " "),format="%d.%m.%Y %H:%M")
+}
+##getDesc
+rawData%>%
+html_nodes(".footNotesParent")%>%
+html_text_collapse()->sDesc
+##getLocation
+rawData%>%
+html_nodes(".even-margin .info_value")->aLocation
+if (length(aLocation)>=4){
+aLocation[4]%>%html_text()->sLocation
+sLocation=gsub("\r|\n|\t", '', sLocation)
+sLocation=str_remove_all(sLocation, "in|im")
+if (is.na(str_match(sLocation,"Würzburg"))){
+sLocation=paste0(sLocation ,", Würzburg")
+}
+aCoordinates=addressToGeoLoc(sLocation)
+if (is.numeric(aCoordinates)){
+lat=aCoordinates[[1]]
+lon=aCoordinates[[2]]
+}
+}
+sDesc=gsub("^\r\n\t ","",sDesc)
+sDesc=gsub("\t","",sDesc)
+sDesc=gsub(" \r\n$","",sDesc)
+if(length(sDesc)==0){
+sDesc=NA
+}
+event=data.frame(Eventname=sTitle,Eventbeschreibung=sDesc, Eventveranstalter="Stift Haug Würzburg", Ort=sLocation, Lat=lat, Lon=lon, Eventstart=oStartDate, Eventende=NA, Eventurl=url, Eventkalenderurl=NA, Preis=NA)
+return (event)
+}
+getEvents_stift=function(){
+#readEventLinks
+##  url="C:/Users/Jannis/Desktop/stiftHaug.html"
+url="http://www.stift-haug.de/aktuelle-termine"
+url %>%
+read_html() -> raw_data
+raw_data %>%
+html_nodes(".itemtitle a")->eventList
+eventList%>%
+html_attr("href")->aEventLinks
+aEventLinks
+oRes=readLinks(aEventLinks,getEventData_stift,"")
+return (oRes)
+}
+source("./Run.R")
+require(tidyverse)
+require(rvest)
+source("utils.R")
+source("buergerspital.R")
+source("eisbahn.R")
+source("kolping.R")
+source("kaeppele.R")
+source("stift.R")
+getDataFrames_Jannis=function(){
+oRes=getEvents_spital()
+oRes=data.frame(rbind((oRes), (getEvents_eisbahn())))
+oRes=data.frame(rbind((oRes), (getEvents_stift())))
+oRes=data.frame(rbind((oRes), (getEvents_kolping())))
+oRes=data.frame(rbind((oRes), (getEvents_kaeppele())))
+return (oRes)
+}
+require(tidyverse)
+require(rvest)
+source("utils.R")
+source("buergerspital.R")
+source("eisbahn.R")
+source("kolping.R")
+source("kaeppele.R")
+source("stiftHaug.R")
+getDataFrames_Jannis=function(){
+oRes=getEvents_spital()
+oRes=data.frame(rbind((oRes), (getEvents_eisbahn())))
+oRes=data.frame(rbind((oRes), (getEvents_stift())))
+oRes=data.frame(rbind((oRes), (getEvents_kolping())))
+oRes=data.frame(rbind((oRes), (getEvents_kaeppele())))
+return (oRes)
+}
+source("./Run.R")
+source("./getDF_Jannis.R")
+source("./df_Pia.R")
+source("./dfNiklas.R")
+library(dplyr)
+allEvents=bind_rows(getDF_Sabrina(),getDataFrames_Jannis(), getdfNiklas(), df_final)
+write.table(allEvents, sep="||", file = "gruppe8.csv", row.names = FALSE, col.names = TRUE)
+source("./Run.R")
+source("./getDF_Jannis.R")
+source("./df_Pia.R")
+source("./dfNiklas.R")
+library(dplyr)
+allEvents=bind_rows(getDF_Sabrina(),getDataFrames_Jannis(), getdfNiklas(), df_final)
+write.table(allEvents, sep="||", file = "gruppe8.csv", row.names = FALSE, col.names = TRUE)
+source("./Run.R")
+install.packages("sqldf")
+source("./Run.R")
+source("./getDF_Jannis.R")
+source("./df_Pia.R")
+source("./dfNiklas.R")
+library(dplyr)
+allEvents=bind_rows(getDF_Sabrina(),getDataFrames_Jannis(), getdfNiklas(), df_final)
+write.table(allEvents, sep="||", file = "gruppe8.csv", row.names = FALSE, col.names = TRUE)
+source("./Run.R")
+source("./getDF_Jannis.R")
+source("./df_Pia.R")
+source("./dfNiklas.R")
+allEvents=rbind(getDF_Sabrina(),getDataFrames_Jannis(), getdfNiklas(), df_final)
+write.table(allEvents, sep="||", file = "gruppe8.csv", row.names = FALSE, col.names = TRUE)
+View(allEvents)
+View(allEvents)
