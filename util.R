@@ -2,19 +2,20 @@
 
 intialize = function(){
   
-  url = c()
-  title = c()
-  link = c()
-  date_start = c()
-  date_end = c()
-  description = c()
-  lng = c()
-  lat = c()
-  organizer = c()
-  street = c()
-  zip = c()
-  city = c()
-  time_start = c()
+  url = c() # chr
+  title = c() # chr
+  link = c() # chr
+  date_start = c() # date
+  date_end = c() # date
+  description = c() # chr
+  lng = c() # numeric
+  lat = c() # numeric
+  organizer = c() # chr
+  street = c() # chr
+  zip = c() # numeric
+  city = c() # chr
+  time_start = c() #time
+  time_end = c() #time
 }
 
 ##get this in Mainfile (chris)

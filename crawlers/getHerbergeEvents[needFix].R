@@ -1,20 +1,9 @@
-library(RMariaDB)
 library(dbConnect)
 library(tidyverse)
 library(rvest)
 library(xml2)
-library(stringr)
-library(tidyr)
-library(knitr)
-library(chron)
 library(lubridate)
-library(plyr)
-library(qdapRegex)
-library(RSelenium)
-library(rowr)
-library(purrr)
-library(gsubfn)
-library(RJSONIO)
+
 
 
 # problem: unifying, simplfying library

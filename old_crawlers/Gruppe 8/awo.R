@@ -5,6 +5,7 @@ library(chron)
 
 crawl_awo_jw <- function()
 {
+  
   calenderUrl = "https://www.awo-jw.de/"
   # maindfawo <- data.frame(Eventname=character(), Eventbeschreibung=character(), Eventveranstalter=character(), Ort=character(),
   #                         lon = numeric(), Lat =numeric(), Eventstart=as.POSIXct(character()),  

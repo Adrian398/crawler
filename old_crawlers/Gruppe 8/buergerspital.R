@@ -2,8 +2,8 @@ require(tidyverse)
 require(rvest)
 require(chron)
 
-if(!exists("readLinks", mode="function")){ source("utils.R")}
-if(!exists("addressToGeoLoc", mode="function")){source("geocode_tool.R")}
+if(!exists("readLinks", mode="function")){ source("old_crawlers/Gruppe 8/utils.R")}
+if(!exists("addressToGeoLoc", mode="function")){source("old_crawlers/Gruppe 8/geocode_tool.R")}
 
 #getEventData
 getEventData_spital = function (rawData,url){
@@ -59,5 +59,3 @@ getEvents_spital=function(){
   oRes=readLinks(aEventLinks,getEventData_spital,"https://www.buergerspital.de")
   return (oRes)
 }
-
-
