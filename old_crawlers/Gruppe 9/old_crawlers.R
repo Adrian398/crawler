@@ -308,7 +308,7 @@ LaVivaDanceclub = data.frame("title"=viva_title, "url"="http://www.la-viva-dance
                              "date_start"=viva_date, "date_end"=viva_date, "time_start"=viva_time_start, "time_end"=NA , "price"=NA, "organizer"="LaViva Danceclub")
 
 
-####Frankenwarte ########
+#### Frankenwarte ########
 frankenwarte_link <- "https://www.frankenwarte.de/unser-bildungsangebot/aktuell.html"
 fw_desc_sublink <- frankenwarte_link %>% read_html() %>% html_nodes(".intern") %>% html_attr('href') %>% unique()
 

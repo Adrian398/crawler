@@ -153,7 +153,7 @@ time_end = chron(times = time_end)
 
 
 # Build table
-jubi <- data.frame(title = title,
+df <- data.frame(title = title,
                   date_start = date_start,
                   date_end = date_end, 
                   time_start = time_start,
