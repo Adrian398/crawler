@@ -74,14 +74,15 @@ city = rep("Würzburg", length(title))
 
 # Build table
 df <- data.frame(title = title,
-                   date_start = date_start,
-                   date_end = date_end, 
-                   time_start = time_start,
-                   time_end = time_end,
-                   description = description,
-                   organizer = organizer,
-                   lat = lat,
-                   lng = lng,
-                   street = street,
-                   zip = zip,
-                   city = city)
+                 date_start = date_start,
+                 date_end = date_end, 
+                 time_start = time_start,
+                 time_end = time_end,
+                 description = description,
+                 organizer = organizer,
+                 lat = lat,
+                 lng = lng,
+                 street = street,
+                 zip = zip,
+                 city = city,
+                 link = link)

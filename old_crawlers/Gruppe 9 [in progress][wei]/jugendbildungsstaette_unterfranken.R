@@ -56,7 +56,6 @@ month_convertor <- function(given_date){
   return(given_date)
 }
 
-!is_empty(link)
 
 for (x in 1:length(url_month)){
   url <- paste("http://www.jubi-unterfranken.de/events/", url_year[x], "-", url_month[x], sep = "")
@@ -164,4 +163,5 @@ df <- data.frame(title = title,
                   lng = lng,
                   street = street,
                   zip = zip,
-                  city = city)
+                  city = city,
+                  link = link)

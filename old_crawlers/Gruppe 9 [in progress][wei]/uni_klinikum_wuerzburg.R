@@ -81,5 +81,6 @@ ukw <- data.frame(title = title,
                   lng = lng,
                   street = street,
                   zip = zip,
-                  city = city)
+                  city = city,
+                  link = link)
 
