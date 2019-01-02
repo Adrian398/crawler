@@ -4,11 +4,11 @@ library(tidyverse)
 library(chron)
 
 ### Possible Improvements ###
-# 1. none
-# responsible: your name
+# 1. description chaotic
+# responsible: Wei
 
 
-### Website name ####
+### Salon 77  ####
 # functions initialization #
 month_convertor <- function(given_date){
   given_date = gsub(" Januar ","01.",given_date)
@@ -27,31 +27,61 @@ month_convertor <- function(given_date){
 }
 
 # crawl data
-url <- "https://www.yourHtml.com"
+url <- "https://www.salon77.de/index.php?nav=ve&mod=va&bc1=Veranstaltungen"
 
 url %>%
   read_html() %>%
-  html_nodes(".yourNode")-> raw_read
+  html_nodes("#innercontent a") %>%
+  html_attr("href") -> link
 
-raw_read %>%
-  html_nodes(".yourTitle") %>%
-  html_text(trim = T) -> title
+link = paste("https://www.salon77.de", gsub("\\s", "%20", link), sep = "")
 
-str_extract(date_start, "[0-9]+\\.\\s[[:alpha:]]+\\s[0-9]{4}") # substract date
-str_extract(time_start, "[0-9]{2}:[0-9]{2}") # substract time
-paste(time_start, ":00", sep = "") # prepare date for time conversion
+title = c()
+date_start = c()
+date_end = c()
+description = c()
+
+for (temp_url in link){
+  temp_url %>%
+    read_html() %>%
+    html_nodes("#content") -> raw_read
+  
+  raw_read %>%
+    html_node("h1") %>%
+    html_text(trim = T)-> temp_title
+  
+  raw_read %>%
+    html_node("h2+ strong") %>%
+    html_text(trim = T) %>%
+    str_extract("[0-9]{2}\\.[0-9]{2}\\.[0-9]{4}") -> temp_date_start
+  
+  raw_read %>%
+    html_node("h2+ strong") %>%
+    html_text(trim = T) %>%
+    str_extract("-\\s[0-9]{2}\\.[0-9]{2}\\.[0-9]{4}") -> temp_date_end
+  
+  temp_date_end = gsub("-\\s", "", temp_date_end)
+  
+  raw_read %>%
+    html_node("#ktml") %>%
+    html_text(trim = T)-> temp_description
+  
+  title = c(title, temp_title)
+  date_start = c(date_start, temp_date_start)
+  date_end = c(date_end, temp_date_end)
+  description = c(description, temp_description)
+  
+}
 
 # fixed data setup
-date_end = rep(NA, length(title))
+time_start = rep(NA, length(title))
 time_end = rep(NA, length(title))
-description = rep(NA, length(title))
-organizer = rep("who?", length(title))
-lat = rep(NA, length(title))
-lng = rep(NA, length(title))
-street = rep("Your street name", length(title))
-zip = rep(NA, length(title))
+organizer = rep("Salon 77", length(title))
+lat = rep(49.79304, length(title))
+lng = rep(9.95808, length(title))
+street = rep("Richard-Wagner-Straße 60", length(title))
+zip = rep(97074, length(title))
 city = rep("Würzburg", length(title))
-link = rep("https://www.yourHtml.com", length(title))
 
 # data type conversion
 date_start <- as.Date(date_start, "%d.%m.%Y")
