@@ -1,137 +1,84 @@
+##### Import Packages ####
 library(rvest)
 library(tidyverse)
-library(RJSONIO)
 library(chron)
 
-url1 = "http://www.theater-hobbit.de/"
-url1 %>%
-  read_html() -> rawData
-
-url2 = "http://www.theater-hobbit.de/Kontakt.html"
-url2 %>%
-  read_html() -> rawData2
-
-url3 = "http://www.theater-hobbit.de/preise.html"
-url3 %>%
-  read_html() -> rawData3
-
-rawData %>% 
-  html_nodes(".stacks_right .stacks_out+ .stacks_out span") %>%
-  html_text(trim = T) -> beschreibung
-beschreibung
-
-rawData %>%
-  html_nodes("strong+ span , .stacks_right a") %>% 
-  html_attr("href") -> link
-gsub("//www.","www.", link) -> link
-link
-
-rawData2 %>% 
-  html_nodes(".com_yourhead_stack_header_stack span") %>%
-  html_text(trim = T) -> ort
-
-ort
-stringr::str_extract_all(ort, "\\d{5}.*") -> city
-stringr::str_extract_all(city, "\\D+") -> city
-gsub(" ", "", city) -> city
-c(rep(city, length)) -> city
-
-stringr::str_extract_all(ort, "\\d{5}") -> zip
-unlist(zip) -> zip
-c(rep(zip, length)) -> zip
-
-stringr::str_extract_all(ort, "[\n].*[\n]") -> street
-unlist(street) -> street
-gsub("\n", "", street) -> street
-c(rep(street, length)) -> street
-
-gsub("\n", "", ort) -> ort
+### Possible Improvements ###
+# 1. none
+# responsible: Wei
 
 
-rawData %>%
-  html_nodes("strong") %>% 
-  html_text(trim = T) -> daten
-stringr::str_extract_all(daten, "\\d{2}[:]\\d{2}") -> Uhrzeit
-unlist(Uhrzeit) -> time
-time <- times(paste0(time, ":00"))
-time
+### Plastisches Theater Hobbit ####
+# crawl data
+url <- "http://www.theater-hobbit.de/"
 
+url %>%
+  read_html() %>%
+  html_nodes("#stacks_out_23_page3")-> raw_read
 
-stringr::str_extract_all(daten, "\\d{2}[.]\\d{2}[.]") -> Datum
-unlist(Datum) -> date
-date <- as.POSIXct(date,format="%d.%m.")
-date
+raw_read %>%
+  html_nodes(".stacks_right a") %>%
+  html_text(trim = T) -> temp_title
 
-rawData %>%
-  html_nodes("strong+ span , .stacks_right a") %>% 
-  html_text(trim = T) -> title
-title
+raw_read %>%
+  html_nodes("strong") %>%
+  html_text(trim = T) -> temp_date_start
 
-rawData3 %>%
-  html_nodes("strong:nth-child(3)") %>% 
-  html_text(trim = T) -> preis
-preis
+temp_date_start = gsub("UHR", "", temp_date_start)
 
-rawData %>%
-  html_nodes("#stacks_in_974_page3 , span+ strong") %>% 
-  html_text(trim = T) -> test
-test
-test[1] -> test2
-stringr::str_extract_all(test2, "\\d{2}[.]\\d{2}[.]") -> Datum
-unlist(Datum) -> datetest
-length(datetest) -> length
-length
+raw_read %>%
+  html_nodes(".stacks_right span") %>%
+  html_text(trim = T) -> temp_description
 
-c(rep(title[1],length),title[2], title[3], title[4])-> alltitles
-c(rep(link[1],length), link[2], link[3], link[4]) -> alllinks
-c(rep(beschreibung[1], length), beschreibung[2], beschreibung[3], beschreibung[4]) -> allbeschreibungen
+title = c()
+date_start = c()
+time_start = c()
+description = c()
 
-length(alltitles) -> length1
-
-
-gsub("http://", "", url) -> url
-c(rep("Plastisches Theater HOBBIT",length1)) -> veranstalter
-c(rep(preis, length1)) -> preis
-
-city <- c(rep(city[1], length1))
-street <- c(rep(street[1], length1))
-zip <- c(rep(zip[1], length1))
-
-
-addressToGeoLoc <- function(address)
-{
-  address = str_replace_all(address, " ", "")
-  gurl <- paste0("https://maps.googleapis.com/maps/api/geocode/json?address=",address,"&key=AIzaSyAx0fpXEbPEYrKIQfv3so2TFU96-tUcaww")
-  print(gurl)
-  req <- fromJSON(gurl)
-  
-  if (req$status == "OK") {
-    print("OK")
-    location = req$results[[1]]$geometry$`location`
-    lat = location[[1]]
-    lon = location[[2]]
-    #print(typeof(lat))
-    #print(lon)
-    print(location)
-  } else {
-    location <- NA
+for (n in 1:length(temp_date_start)){
+  temp_date = str_extract_all(temp_date_start[n], "[0-9]+\\.[0-9]{2}", simplify = T)
+  temp_time = str_extract_all(temp_date_start[n], "[0-9]+:[0-9]+", simplify = T)
+  # add date, time and corresponding title
+  for (i in 1:length(temp_date)){
+    date_start = c(date_start, temp_date[i])
+    time_start = c(time_start, temp_time[i])
+    title = c(title, temp_title[n])
+    description = c(description, temp_description[n])
   }
-  Sys.sleep(0.3)
-  return(location)
 }
-data <- lapply(ort, addressToGeoLoc)
-unlist(data) -> data
-stringr::str_extract_all(data, "\\d+[.]\\d+") -> data
-unlist(data) -> data
-stringr::str_extract_all(data, "^\\d{1}[.]\\d+") -> long
-stringr::str_extract_all(data, "\\d{2}[.]\\d+") -> lat
-unlist(long) -> long
-unlist(lat) -> lat
 
-long <- c(rep(long, length1))
-lat <- c(rep(lat, length1))
+date_start = paste(date_start, format(Sys.Date(), "%Y"), sep = ".")
+time_start = paste(time_start, ":00", sep = "")
 
-df <- data.frame(title = alltitles, url = alllinks, description= allbeschreibungen, lng = long, lat = lat, city = city, street = street, zip = zip, date_start = date, date_end = date, time_start = time, time_end = NA, price = preis, organizer = veranstalter)
+# fixed data setup
+date_end = rep(NA, length(title))
+time_end = rep(NA, length(title))
+organizer = rep("Plastisches Theater Hobbit", length(title))
+lat = rep(49.78884, length(title))
+lng = rep(9.93252, length(title))
+street = rep("Münzstraße 1", length(title))
+zip = rep(97070, length(title))
+city = rep("Würzburg", length(title))
+link = rep("http://www.theater-hobbit.de/", length(title))
 
+# data type conversion
+date_start <- as.Date(date_start, "%d.%m.%Y")
+date_end <- as.Date(date_end, "%d.%m.%Y")
 
+time_start <- chron(times = time_start)
+time_end <- chron(times = time_end)
 
+# build table
+df <- data.frame(title = title,
+                  date_start = date_start,
+                  date_end = date_end, 
+                  time_start = time_start,
+                  time_end = time_end,
+                  description = description,
+                  organizer = organizer,
+                  lat = lat,
+                  lng = lng,
+                  street = street,
+                  zip = zip,
+                  city = city,
+                  link = link)
