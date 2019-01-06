@@ -33,16 +33,16 @@ library("DBI")
 getSqlConnection <- function(){
   con <-dbConnect(
       RMySQL::MySQL(),
-      username = 'Adrian',
-      password = 'root',
-      host = '104.199.97.47',
-      dbname = 'event_calender'
+      username = 'root',
+      password = 'crawler2018',
+      host = 'a1.cj8zdbsk8kip.eu-central-1.rds.amazonaws.com',
+      port = 3306,
+      dbname = 'eventscalender'
     )
   return(con)
 }
 conn <- getSqlConnection()
-res <- dbListTables(conn)
-print(res)
+dbListTables(conn)
 dbDisconnect(conn) # Closes all open connections
 
 
