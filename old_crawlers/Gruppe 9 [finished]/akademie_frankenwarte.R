@@ -86,3 +86,5 @@ df <- data.frame(title = title,
                  zip = zip,
                  city = city,
                  link = link)
+
+df

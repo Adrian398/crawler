@@ -33,7 +33,7 @@ library("DBI")
 getSqlConnection <- function(){
   con <-dbConnect(
       RMySQL::MySQL(),
-      username = 'root',
+      username = 'crawler',
       password = 'crawler2018',
       host = 'a1.cj8zdbsk8kip.eu-central-1.rds.amazonaws.com',
       port = 3306,
@@ -43,8 +43,18 @@ getSqlConnection <- function(){
 }
 conn <- getSqlConnection()
 dbListTables(conn)
+
 dbDisconnect(conn) # Closes all open connections
 
 
+dbWriteTable(con, value = data.frame, name = "MyTable", overwrite = TRUE ) 
 
+### matching mit zeit und title 
+### crawler user
+## dbplr
+
+
+## serientermine erstmal rauslassen
+
+###category bei event dazu!!! 
 
