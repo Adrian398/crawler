@@ -52,6 +52,7 @@ street = rep("Your street name", length(title))
 zip = rep(NA, length(title))
 city = rep("Würzburg", length(title))
 link = rep("https://www.yourHtml.com", length(title))
+photo = rep(NA, length(title))
 
 # data type conversion
 date_start <- as.Date(date_start, "%d.%m.%Y")
@@ -62,15 +63,17 @@ time_end <- chron(times = time_end)
 
 # build table
 df <- data.frame(title = title,
-                  date_start = date_start,
-                  date_end = date_end, 
-                  time_start = time_start,
-                  time_end = time_end,
-                  description = description,
-                  organizer = organizer,
-                  lat = lat,
-                  lng = lng,
-                  street = street,
-                  zip = zip,
-                  city = city,
-                  link = link)
+                 date_start = date_start,
+                 date_end = date_end, 
+                 time_start = time_start,
+                 time_end = time_end,
+                 price = price,
+                 description = description,
+                 organizer = organizer,
+                 lat = lat,
+                 lng = lng,
+                 street = street,
+                 zip = zip,
+                 city = city,
+                 link = link,
+                 image_url = image_url)

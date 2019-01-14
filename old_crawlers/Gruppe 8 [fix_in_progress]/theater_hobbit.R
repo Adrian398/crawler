@@ -51,15 +51,19 @@ date_start = paste(date_start, format(Sys.Date(), "%Y"), sep = ".")
 time_start = paste(time_start, ":00", sep = "")
 
 # fixed data setup
+category = rep("Bühne", length(title))
 date_end = rep(NA, length(title))
 time_end = rep(NA, length(title))
-organizer = rep("Plastisches Theater Hobbit", length(title))
+organizer = "Plastisches Theater Hobbit"
 lat = rep(49.78884, length(title))
 lng = rep(9.93252, length(title))
 street = rep("Münzstraße 1", length(title))
 zip = rep(97070, length(title))
 city = rep("Würzburg", length(title))
 link = rep("http://www.theater-hobbit.de/", length(title))
+image_url = rep(NA, length(title))
+price = rep(NA, length(title))
+advanced_price = rep(NA, length(title))
 
 # data type conversion
 date_start <- as.Date(date_start, "%d.%m.%Y")
@@ -69,16 +73,23 @@ time_start <- chron(times = time_start)
 time_end <- chron(times = time_end)
 
 # build table
-df <- data.frame(title = title,
-                  date_start = date_start,
-                  date_end = date_end, 
-                  time_start = time_start,
-                  time_end = time_end,
-                  description = description,
-                  organizer = organizer,
-                  lat = lat,
-                  lng = lng,
-                  street = street,
-                  zip = zip,
-                  city = city,
-                  link = link)
+crawled_df <- data.frame(
+                    category = category,
+                    title = title,
+                    date_start = date_start,
+                    date_end = date_end, 
+                    time_start = time_start,
+                    time_end = time_end,
+                    price = price,
+                    advanced_price = advanced_price,
+                    description = description,
+                    lat = lat,
+                    lng = lng,
+                    street = street,
+                    zip = zip,
+                    city = city,
+                    link = link,
+                    image_url = image_url)
+
+meta_df = data.frame(url = url
+                     , organizer = organizer)
