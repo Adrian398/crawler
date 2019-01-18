@@ -108,22 +108,36 @@ dbListTables(conn)
 tidy_immerhin$title = tidy_immerhin$description
 ###one meta dataframe####
 url_crawler = url_immerhin
-crawled_df = tidy_immerhin
 organizer = "Immerhin"
-city = "Würzburg"
-street = "Bahnhofplatz"
-house_number = "2"
-lng = "9.93173"
-lat = "49.80186"
-zip = "97080"
-meta_df = data.frame(url_crawler, organizer,zip,city, street, house_number,lng,lat)
+# city = "Würzburg"
+# street = "Bahnhofplatz"
+# house_number = "2"
+# lng = "9.93173"
+# lat = "49.80186"
+# zip = "97080"
+meta_df = data.frame(url_crawler, organizer)
 meta_df
 
-crawled_df = select(tidy_immerhin,title, description, url, date_start,date_end,time_start,time_end,price)
-crawled_df
+crawled_df = tidy_immerhin
+colnames(crawled_df)[3] = "link"
+#extract organizer
+crawled_df = crawled_df[-13]
+
+#Posix to Date
+as.Date(crawled_df["date_start"])
+crawled_df["date_start"] = as.Date(c(sapply(crawled_df["date_start"], as.character)), tz =  "UTC", format = "%Y-%m-%d")
+crawled_df["date_end"] = as.Date(c(sapply(crawled_df["date_end"], as.character)), tz =  "UTC", format = "%Y-%m-%d")
+
 
 ###test use function
-write_dataframes_to_database(crawled_df, meta_df, conn)
+crawled_df[c(1,3),]
+crawled_df[1:2,]
+
+meta_df
+write_dataframes_to_database(crawled_df[1:2,], meta_df, conn)
+
+as.data.frame(tbl(conn, "event") %>%
+    filter(idcrawler==1))
 
 dbReadTable(conn, name ="event")
 
@@ -232,6 +246,8 @@ lapply( dbListConnections( dbDriver( drv = "MySQL")), dbDisconnect)
 ### saved old connection: a1.cj8zdbsk8kip.eu-central-1.rds.amazonaws.com
 #organizer und veranstaltungsorte notieren.
 ## check how to do the missing date values
+
+## change url to link
 
 
 

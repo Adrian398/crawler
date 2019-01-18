@@ -1,5 +1,15 @@
 write_dataframes_to_database <- function(crawled_df, meta_df, conn) {
   
+  ##columns to check:
+  #title
+  #link
+  #date
+  #time
+  #price
+  #advanced_price
+  #street
+  
+  
   ##to do:
   #vergleich auf time basis verbessern
   # Probleme bei date in Datenbank schreiben 
@@ -11,7 +21,7 @@ write_dataframes_to_database <- function(crawled_df, meta_df, conn) {
   ##crawled_df
     #title req
     #description req
-    #url req 
+    #link req 
     #date_start  req 
     #date_end req 
     #time_start req 00:00:00 if Na
@@ -64,35 +74,36 @@ write_dataframes_to_database <- function(crawled_df, meta_df, conn) {
     print(paste("New Organizer added:", as.character(meta_df["organizer"][1,1])))
   }
   
+
+  ##write event_location to event table
   
-  ### write to event_location table
-  if("booking_office" %in% colnames(meta_df)){
-  df_event_location = meta_df[c("house_number",
-                                "street",
-                                "city",
-                                "zip",
-                                "lng",
-                                "lat",
-                                "booking_office")]
-  }else{
-    df_event_location = meta_df[c("house_number",
-                                  "street",
-                                  "city",
-                                  "zip",
-                                  "lng",
-                                  "lat")]
-  }
-  db_event_location_lng_lat <- as.data.frame(tbl(conn, "event_location") %>%
-                                               select(lng, lat))
+  #if("booking_office" %in% colnames(meta_df)){
+   # df_event_location = meta_df[c("house_number",
+    #                            "street",
+     #                           "city",
+      #                          "zip",
+       #                         "lng",
+        #                        "lat",
+         #                       "booking_office")]
+  # }else{
+  #   df_event_location = meta_df[c("house_number",
+  #                                 "street",
+  #                                 "city",
+  #                                 "zip",
+  #                                 "lng",
+  #                                 "lat")]
+  # }
+  # db_event_location_lng_lat <- as.data.frame(tbl(conn, "event_location") %>%
+  #                                              select(lng, lat))
   
     ## if event_location doesnt exist write it in database
-  if(!(any(db_event_location_lng_lat["lng"]==as.character(meta_df["lng"][1,1])) & any(db_event_location_lng_lat["lat"]==as.character(meta_df["lat"][1,1])) )){
-    dbWriteTable(conn, value = df_event_location, name = "event_location", append = TRUE, row.names=F )
-    print(paste("New Event_Location added:", as.character(paste(df_event_location["lng"],df_event_location["lng"]))))
-  }
+  # if(!(any(db_event_location_lng_lat["lng"]==as.character(meta_df["lng"][1,1])) & any(db_event_location_lng_lat["lat"]==as.character(meta_df["lat"][1,1])) )){
+  #   dbWriteTable(conn, value = df_event_location, name = "event_location", append = TRUE, row.names=F )
+  #   print(paste("New Event_Location added:", as.character(paste(df_event_location["lng"],df_event_location["lng"]))))
+  # }
   
   ### write to event table
-    ## add ids for crawler, organizer, event_location
+    ## add ids for crawler, organizer
       # add crawler foreignkey
   idcrawler = tbl(conn, "crawler") %>%
     filter(url_crawler == as.character(meta_df["url_crawler"][1,1]))%>%
@@ -108,27 +119,27 @@ write_dataframes_to_database <- function(crawled_df, meta_df, conn) {
   crawled_df = cbind(crawled_df,idorganizer)
   
       # add event_location foreignkey
-  idevent_location = tbl(conn, "event_location") %>%
-    filter(lng == as.character(meta_df["lng"][1,1]) & lat == as.character(meta_df["lat"][1,1]))%>%
-    select(idevent_location)
-  
-  idevent_location = rep.int(as.integer(as.data.frame(idevent_location)), nrow(crawled_df))
-  crawled_df = cbind(crawled_df,idevent_location)
-  
+  # idevent_location = tbl(conn, "event_location") %>%
+  #   filter(lng == as.character(meta_df["lng"][1,1]) & lat == as.character(meta_df["lat"][1,1]))%>%
+  #   select(idevent_location)
+  # 
+  # idevent_location = rep.int(as.integer(as.data.frame(idevent_location)), nrow(crawled_df))
+  # crawled_df = cbind(crawled_df,idevent_location)
+  # 
     ## if event is not in database write it in database
       #get all events of the current crawler
   db_events_current_crawler = as.data.frame(tbl(conn, "event") %>%
-                                              filter(idcrawler == idcrawler[1]))
+                                             filter(idcrawler == idcrawler[1]))
       #compare all the events of current crawler in the database with the new events of the current crawler
       #parse date and time
   if(nrow(db_events_current_crawler) != 0){
     
       #check if date or posix
-      db_events_current_crawler["date_start"] = as.POSIXct(c(sapply(db_events_current_crawler["date_start"], as.character)), tz =  "UTC", format = "%Y-%m-%d")
-      db_events_current_crawler["date_end"] = as.POSIXct(c(sapply(db_events_current_crawler["date_end"], as.character)), tz =  "UTC", format = "%Y-%m-%d")
+      db_events_current_crawler["date_start"] = as.Date(c(sapply(db_events_current_crawler["date_start"], as.character)), tz =  "UTC", format = "%Y-%m-%d")
+      db_events_current_crawler["date_end"] = as.Date(c(sapply(db_events_current_crawler["date_end"], as.character)), tz =  "UTC", format = "%Y-%m-%d")
     
     
-    new_events= anti_join(crawled_df, db_events_current_crawler,by=c("title", "url","date_start", "date_end"))
+    new_events= anti_join(crawled_df, db_events_current_crawler,by=c("title", "link","date_start", "date_end"))
     if (nrow(new_events) != 0) {
       dbWriteTable(conn, value = new_events, name = "event", append = TRUE, row.names=F )
       write.xml(new_events, file="new_events.xml")
@@ -136,7 +147,7 @@ write_dataframes_to_database <- function(crawled_df, meta_df, conn) {
     }else{
       print("No new events found!")
     }
-    events_to_delete = anti_join(db_events_current_crawler, crawled_df,by=c("title", "url","date_start", "date_end"))
+    events_to_delete = anti_join(db_events_current_crawler, crawled_df,by=c("title", "link","date_start", "date_end"))
     if (nrow(events_to_delete) != 0) {
         #create sql delete string
       sql_charaacter_ids_comma_separated_for_query = paste(as.character(events_to_delete$idevent), collapse=",")
