@@ -42,17 +42,21 @@ str_extract(time_start, "[0-9]{2}:[0-9]{2}") # substract time
 paste(time_start, ":00", sep = "") # prepare date for time conversion
 
 # fixed data setup
+organizer = ""
+url = ""
+category= rep(NA, length(title))
 date_end = rep(NA, length(title))
 time_end = rep(NA, length(title))
 description = rep(NA, length(title))
-organizer = rep("who?", length(title))
+price = rep(NA, length(title))
+advanced_price = rep(NA, length(title))
 lat = rep(NA, length(title))
 lng = rep(NA, length(title))
 street = rep("Your street name", length(title))
 zip = rep(NA, length(title))
 city = rep("Würzburg", length(title))
 link = rep("https://www.yourHtml.com", length(title))
-photo = rep(NA, length(title))
+image_url = rep(NA, length(title))
 
 # data type conversion
 date_start <- as.Date(date_start, "%d.%m.%Y")
@@ -62,18 +66,23 @@ time_start <- chron(times = time_start)
 time_end <- chron(times = time_end)
 
 # build table
-df <- data.frame(title = title,
-                 date_start = date_start,
-                 date_end = date_end, 
-                 time_start = time_start,
-                 time_end = time_end,
-                 price = price,
-                 description = description,
-                 organizer = organizer,
-                 lat = lat,
-                 lng = lng,
-                 street = street,
-                 zip = zip,
-                 city = city,
-                 link = link,
-                 image_url = image_url)
+crawled_df <- data.frame(
+                    category = category,
+                    title = title,
+                    date_start = date_start,
+                    date_end = date_end, 
+                    time_start = time_start,
+                    time_end = time_end,
+                    price = price,
+                    advanced_price = advanced_price,
+                    description = description,
+                    lat = lat,
+                    lng = lng,
+                    street = street,
+                    zip = zip,
+                    city = city,
+                    link = link,
+                    image_url = image_url)
+
+meta_df = data.frame(url = url
+                     , organizer = organizer)
