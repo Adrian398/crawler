@@ -1,5 +1,10 @@
 write_dataframes_to_database <- function(crawled_df, meta_df, conn) {
   
+  crawled_df %>% map_if(is.factor, as.character) %>% as_data_frame -> crawled_df
+  
+  #add standard row
+
+  
   ##columns to check:
   #title
   #link
@@ -130,24 +135,91 @@ write_dataframes_to_database <- function(crawled_df, meta_df, conn) {
       #get all events of the current crawler
   db_events_current_crawler = as.data.frame(tbl(conn, "event") %>%
                                              filter(idcrawler == idcrawler[1]))
+  
+  # ##add row to fix
+  # idevent = c(10000000)
+  # atemp = cbind(crawled_df[nrow(crawled_df),],idevent)
+  
+  
+  #db_events_current_crawler = rbind(db_events_current_crawler, atemp)
       #compare all the events of current crawler in the database with the new events of the current crawler
       #parse date and time
   if(nrow(db_events_current_crawler) != 0){
+  
+    #check if date or posix
+    db_events_current_crawler["date_start"] = as.Date(c(sapply(db_events_current_crawler["date_start"], as.character)), tz =  "UTC", format = "%Y-%m-%d")
+    db_events_current_crawler["date_end"] = as.Date(c(sapply(db_events_current_crawler["date_end"], as.character)), tz =  "UTC", format = "%Y-%m-%d")
     
-      #check if date or posix
-      db_events_current_crawler["date_start"] = as.Date(c(sapply(db_events_current_crawler["date_start"], as.character)), tz =  "UTC", format = "%Y-%m-%d")
-      db_events_current_crawler["date_end"] = as.Date(c(sapply(db_events_current_crawler["date_end"], as.character)), tz =  "UTC", format = "%Y-%m-%d")
+    #print(db_events_current_crawler["time_end"])
+    
+    #as.character()
     
     
-    new_events= anti_join(crawled_df, db_events_current_crawler,by=c("title", "link","date_start", "date_end"))
+    # convert_to_times <- function(x){
+    #   if(!is.na(x))
+    #     return(as.character(x))
+    #   
+    #   return(x)
+    # }
+    
+    #convert times 
+    temp = chron(times = c(c(sapply(db_events_current_crawler["time_start"], as.character)),"00:00:59"))
+    db_events_current_crawler["time_start"] = temp[-length(temp)]
+    temp = chron(times = c(c(sapply(db_events_current_crawler["time_end"], as.character)),"00:00:59"))
+    db_events_current_crawler["time_end"] = temp[-length(temp)]
+    
+    #print(db_events_current_crawler["time_end"])
+    
+    ### join differntly if price or advanced price are excluded
+    if('price' %in% colnames(crawled_df) & 'advanced_price' %in% colnames(crawled_df)){
+      new_events= anti_join(crawled_df, db_events_current_crawler,by=c("title", "link","date_start", "date_end", "time_start", "time_end", "price", "advanced_price", "street"))
+    }else if('price' %in% colnames(crawled_df)){
+      new_events= anti_join(crawled_df, db_events_current_crawler,by=c("title", "link","date_start", "date_end", "time_start", "time_end", "price", "street"))
+    } else if('advanced_price' %in% colnames(crawled_df)){
+      new_events= anti_join(crawled_df, db_events_current_crawler,by=c("title", "link","date_start", "date_end", "time_start", "time_end", "advanced_price", "street"))
+    }else
+      new_events= anti_join(crawled_df, db_events_current_crawler,by=c("title", "link","date_start", "date_end", "time_start", "time_end", "street"))
+    
+    
+    
+    #temp = c(chron(times = c(sapply(new_events["time_start"], as.character))),"00:00:99")
+    #new_events["time_start"] = temp[-length(temp)]
+    #temp = c(chron(times = c(sapply(new_events["time_end"], as.character))),"00:00:99")
+    #new_events["time_end"] = temp[-length(temp)]
+    
+    
+    
     if (nrow(new_events) != 0) {
-      dbWriteTable(conn, value = new_events, name = "event", append = TRUE, row.names=F )
+      #fix 00:00:00 mysql error
+      if(all(is.na(new_events["time_start"]))){
+       new_events$time_start <- NULL
+      }
+      if(all(is.na(new_events["time_end"]))){
+        new_events$time_end <- NULL
+      }
+      dbWriteTable(conn, value = new_events, name = "event", append = TRUE, row.names=F, encoding = "latin1")
       write.xml(new_events, file="new_events.xml")
       print(paste(nrow(new_events),"new events added to database!"))
     }else{
       print("No new events found!")
     }
-    events_to_delete = anti_join(db_events_current_crawler, crawled_df,by=c("title", "link","date_start", "date_end"))
+    ### join differntly if price or advanced price are excluded
+    if('price' %in% colnames(crawled_df) & 'advanced_price' %in% colnames(crawled_df)){
+      events_to_delete= anti_join(db_events_current_crawler, crawled_df,by=c("title", "link","date_start", "date_end", "time_start", "time_end", "price", "advanced_price", "street"))
+    }else if('price' %in% colnames(crawled_df)){
+      events_to_delete= anti_join(db_events_current_crawler, crawled_df,by=c("title", "link","date_start", "date_end", "time_start", "time_end", "price", "street"))
+    } else if('advanced_price' %in% colnames(crawled_df)){
+      events_to_delete= anti_join(db_events_current_crawler, crawled_df,by=c("title", "link","date_start", "date_end", "time_start", "time_end", "advanced_price", "street"))
+    }else
+      events_to_delete= anti_join(db_events_current_crawler, crawled_df,by=c("title", "link","date_start", "date_end", "time_start", "time_end", "street"))
+    
+    
+    # temp = c(chron(times = c(sapply(events_to_delete["time_start"], as.character))),"00:00:99")
+    # events_to_delete["time_start"] = temp[-length(temp)]
+    # temp = c(chron(times = c(sapply(events_to_delete["time_end"], as.character))),"00:00:99")
+    # events_to_delete["time_end"] = temp[-length(temp)]
+    
+    
     if (nrow(events_to_delete) != 0) {
         #create sql delete string
       sql_charaacter_ids_comma_separated_for_query = paste(as.character(events_to_delete$idevent), collapse=",")
@@ -161,7 +233,7 @@ write_dataframes_to_database <- function(crawled_df, meta_df, conn) {
       print("No events deleted!")
     }
   }else{
-    dbWriteTable(conn, value = crawled_df, name = "event", append = TRUE, row.names=F )
+    dbWriteTable(conn, value = crawled_df, name = "event", append = TRUE, row.names=F, encoding = "latin1")
     write.xml(crawled_df, file="new_events.xml")
     print(paste(nrow(crawled_df),"new events added to database!"))
   }

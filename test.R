@@ -134,7 +134,7 @@ crawled_df[c(1,3),]
 crawled_df[1:2,]
 
 meta_df
-write_dataframes_to_database(crawled_df[1:2,], meta_df, conn)
+write_dataframes_to_database(crawled_df[1:5,], meta_df, conn)
 
 as.data.frame(tbl(conn, "event") %>%
     filter(idcrawler==1))

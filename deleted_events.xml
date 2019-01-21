@@ -1,22 +1,51 @@
 <?xml version="1.0"?>
 <document>
   <row>
-    <idevent>158</idevent>
-    <title>Konzert A Secret RevealedAncstDepravationVEL</title>
-    <description>Konzert A Secret RevealedAncstDepravationVEL</description>
-    <url>http://www.immerhin-wuerzburg.de/</url>
-    <date_start>1548374400</date_start>
-    <date_end>1548374400</date_end>
+    <idevent>458</idevent>
+    <title>Fortbildungskalender 2018/2019</title>
+    <description>Hier finden Sie den aktuellen Fortbildungskalender des Schulzentrums. Bitte nutzen Sie das Anmeldeformular und senden Sie es per Mail oder Post an Fr. Hoyer. (Hoyer_N@&#xA0;ukw.de)</description>
+    <link>https://www.ukw.de/patienten-besucher/veranstaltungskalender/</link>
+    <date_start>17917</date_start>
+    <date_end>18261</date_end>
     <idgroup>NA</idgroup>
-    <idevent_location>1</idevent_location>
-    <advance_sale_price>NA</advance_sale_price>
+    <advance_price>NA</advance_price>
     <price>NA</price>
     <event_site>NA</event_site>
-    <idorganizer>4</idorganizer>
-    <image>NA</image>
+    <idorganizer>2</idorganizer>
+    <image_url>NA</image_url>
     <category>NA</category>
-    <time_start>00:00:00</time_start>
-    <time_end>00:00:00</time_end>
-    <idcrawler>1</idcrawler>
+    <time_start>NA</time_start>
+    <time_end>NA</time_end>
+    <idcrawler>2</idcrawler>
+    <street>Josef-Schneider-Stra&#xDF;e</street>
+    <city>W&#xFC;rzburg</city>
+    <zip>97080</zip>
+    <lng>9.95373</lng>
+    <lat>49.8007</lat>
+    <booking_office>NA</booking_office>
+  </row>
+  <row>
+    <idevent>467</idevent>
+    <title>Myocarditis and microbiome</title>
+    <description></description>
+    <link>https://www.ukw.de/patienten-besucher/veranstaltungskalender/</link>
+    <date_start>17917</date_start>
+    <date_end>NA</date_end>
+    <idgroup>NA</idgroup>
+    <advance_price>NA</advance_price>
+    <price>NA</price>
+    <event_site>NA</event_site>
+    <idorganizer>2</idorganizer>
+    <image_url>NA</image_url>
+    <category>NA</category>
+    <time_start>0.6875</time_start>
+    <time_end>NA</time_end>
+    <idcrawler>2</idcrawler>
+    <street>Josef-Schneider-Stra&#xDF;e</street>
+    <city>W&#xFC;rzburg</city>
+    <zip>97080</zip>
+    <lng>9.95373</lng>
+    <lat>49.8007</lat>
+    <booking_office>NA</booking_office>
   </row>
 </document>

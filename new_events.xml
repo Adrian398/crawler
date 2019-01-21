@@ -1,37 +1,18 @@
 <?xml version="1.0"?>
 <document>
   <row>
-    <date_start>1547856000</date_start>
-    <description>DJ-Abend A Night of Steel and Thunder</description>
-    <link>http://www.immerhin-wuerzburg.de/</link>
-    <lng>9.93173</lng>
-    <lat>49.80186</lat>
-    <city>Wuerzburg</city>
-    <street>Bahnhofplatz 2 (Posthalle)</street>
+    <title>Myocarditis and microbiome</title>
+    <description></description>
+    <link>https://www.ukw.de/patienten-besucher/veranstaltungskalender/</link>
+    <date_start>17917</date_start>
+    <date_end>NA</date_end>
+    <time_start>0.6875</time_start>
+    <street>Josef-Schneider-Stra&#xDF;e</street>
+    <city>W&#xFC;rzburg</city>
     <zip>97080</zip>
-    <date_end>1547856000</date_end>
-    <time_start>NA</time_start>
-    <time_end>NA</time_end>
-    <price>NA</price>
-    <title>DJ-Abend A Night of Steel and Thunder</title>
-    <idcrawler>1</idcrawler>
-    <idorganizer>1</idorganizer>
-  </row>
-  <row>
-    <date_start>1548374400</date_start>
-    <description>Konzert A Secret RevealedAncstDepravationVEL</description>
-    <link>http://www.immerhin-wuerzburg.de/</link>
-    <lng>9.93173</lng>
-    <lat>49.80186</lat>
-    <city>Wuerzburg</city>
-    <street>Bahnhofplatz 2 (Posthalle)</street>
-    <zip>97080</zip>
-    <date_end>1548374400</date_end>
-    <time_start>NA</time_start>
-    <time_end>NA</time_end>
-    <price>NA</price>
-    <title>Konzert A Secret RevealedAncstDepravationVEL</title>
-    <idcrawler>1</idcrawler>
-    <idorganizer>1</idorganizer>
+    <lng>9.95373</lng>
+    <lat>49.8007</lat>
+    <idcrawler>2</idcrawler>
+    <idorganizer>2</idorganizer>
   </row>
 </document>
