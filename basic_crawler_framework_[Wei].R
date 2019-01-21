@@ -30,8 +30,7 @@ month_convertor <- function(given_date){
 url <- "https://www.yourHtml.com"
 
 url %>%
-  read_html() %>%
-  html_nodes(".yourNode")-> raw_read
+  read_html() -> raw_read
 
 raw_read %>%
   html_nodes(".yourTitle") %>%
@@ -52,8 +51,8 @@ price = rep(NA, length(title))
 advanced_price = rep(NA, length(title))
 lat = rep(NA, length(title))
 lng = rep(NA, length(title))
-street = rep("Your street name", length(title))
-zip = rep(NA, length(title))
+street = rep("", length(title))
+zip = rep(97070, length(title))
 city = rep("Würzburg", length(title))
 link = rep("https://www.yourHtml.com", length(title))
 image_url = rep(NA, length(title))
