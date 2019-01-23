@@ -4,7 +4,6 @@ library(lubridate)
 library(chron)
 library(tibble)
 library("DBI")
-library(mongolite)
 library(dbplyr)
 source("write_to_database.R")
 
