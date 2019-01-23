@@ -2,6 +2,7 @@
 library(rvest)
 library(tidyverse)
 library(chron)
+source("write_to_database.R")
 
 ### Improvement ###
 # 1. only crawl 7 events without loading more
@@ -70,7 +71,7 @@ time_start <- chron(times = time_start)
 time_end <- chron(times = time_end)
 
 # Build table
-ukw <- data.frame(title = title,
+df <- data.frame(title = title,
                   date_start = date_start,
                   date_end = date_end, 
                   time_start = time_start,
@@ -84,3 +85,13 @@ ukw <- data.frame(title = title,
                   city = city,
                   link = link)
 
+
+#set up to write to database
+crawled_df = df[c("title", "description", "link", "date_start", "date_end", "time_end", "time_start", "street", "city", "zip", "lng", "lat")]
+meta_df = df[c("organizer", "link")][1,]
+names(meta_df)[names(meta_df) == 'link'] <- 'url_crawler'
+
+#write to database
+write_dataframes_to_database(crawled_df, meta_df, conn)
+
+crawled_df

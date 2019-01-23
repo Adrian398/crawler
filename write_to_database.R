@@ -32,12 +32,18 @@ write_dataframes_to_database <- function(crawled_df, meta_df, conn) {
     #time_start req 00:00:00 if Na
     #time_end req as 00:00:00 if Na
     #price req
-  
     #idgroup not req
     #advance_sale_price not req
     #event_site not req
-    #image not req just get url???
+    #image
     #category not req
+    #house_number req
+    #street req
+    #city req
+    #zip req 
+    #lng req
+    #lat req 
+    #booking_office not req
   
   ##foreign keys
     #idevent_location
@@ -50,13 +56,7 @@ write_dataframes_to_database <- function(crawled_df, meta_df, conn) {
     
     #url_crawler req
     
-    #house_number req
-    #street req
-    #city req
-    #zip req 
-    #lng req
-    #lat req 
-    #booking_office not req
+   
 
   
   

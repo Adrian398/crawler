@@ -133,8 +133,16 @@ meta_df = df[c("organizer", "link")][1,]
 names(meta_df)[names(meta_df) == 'link'] <- 'url_crawler'
 
 meta_df
+crawled_df$booking_office = rep("hi",7)
+crawled_df$image_url = rep("hi",7)
+crawled_df$category = rep("hi",7)
+crawled_df$idgroup = seq(1,7)
+  crawled_df$price[1] = rep(90.23,1)
+crawled_df$advance_price = rep(34.23,7)
+
 crawled_df
 write_dataframes_to_database(crawled_df[1,], meta_df, conn)
+write_dataframes_to_database(crawled_df[5:7,], meta_df, conn)
 meta_df["url_crawler"]
 
 dbReadTable(conn, name ="event")
