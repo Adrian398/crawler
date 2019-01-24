@@ -1,73 +1,23 @@
 <?xml version="1.0"?>
 <document>
   <row>
-    <idevent>698</idevent>
-    <title>Philosophicum Herbipolense WS 2018/19</title>
-    <description>Wintersemester&#xA0;2018/2019&#xD;
-jeweils Do. 18.00 Uhr c.t. bis 19.30 Uhr &#xD;
-Veranstaltungsort: Zentrum Innere Medizin Haus A3, 2. Stock, Seminarraum (A3. +2. 302) &#xD;
-Wir reflektieren interdisziplin&#xE4;r die Grundlagen der heutigen Medizin, ihre Begriffe und Problemstellungen und diskutieren aktuelle philosophische Fragen in der Medizin und ihrer Randbereiche (Praxis, Klinik, Forschung, verwandte F&#xE4;cher). Eingeladen sind Studenten und Mitarbeiter des Klinikums, Studenten anderer F&#xE4;cher, v.a. der Philosophie, auch interessierte G&#xE4;ste sind immer willkommen.</description>
+    <idevent>2</idevent>
+    <title>"Bedeutung der Angiopoietine f&#xFC;r den Dermatologen"</title>
+    <description>Die Zertifizierung dieses Vortrags ist bei der Bayerischen Landes&#xE4;rztekammer beantragt. Eine Anmeldung ist nicht erforderlich. Auskunft erteilt das Sekretariat, Tel.-Nr. 0931-201-26351.&#xD;
+Flyer</description>
     <link>https://www.ukw.de/patienten-besucher/veranstaltungskalender/</link>
-    <date_start>17917</date_start>
-    <date_end>17920</date_end>
-    <idgroup>NA</idgroup>
-    <advance_price>NA</advance_price>
-    <price>NA</price>
-    <event_site>NA</event_site>
-    <idorganizer>2</idorganizer>
-    <image_url>NA</image_url>
-    <category>NA</category>
-    <time_start>NA</time_start>
-    <time_end>NA</time_end>
-    <idcrawler>2</idcrawler>
-    <street>Josef-Schneider-Stra&#xDF;e 2</street>
-    <city>W&#xFC;rzburg</city>
-    <zip>97080</zip>
-    <lng>9.95373</lng>
-    <lat>49.8007</lat>
-    <booking_office>NA</booking_office>
-  </row>
-  <row>
-    <idevent>699</idevent>
-    <title>Fortbildungskalender 2018/2019</title>
-    <description>Hier finden Sie den aktuellen Fortbildungskalender des Schulzentrums. Bitte nutzen Sie das Anmeldeformular und senden Sie es per Mail oder Post an Fr. Hoyer. (Hoyer_N@&#xA0;ukw.de)</description>
-    <link>https://www.ukw.de/patienten-besucher/veranstaltungskalender/</link>
-    <date_start>17917</date_start>
-    <date_end>18261</date_end>
-    <idgroup>NA</idgroup>
-    <advance_price>NA</advance_price>
-    <price>NA</price>
-    <event_site>NA</event_site>
-    <idorganizer>2</idorganizer>
-    <image_url>NA</image_url>
-    <category>NA</category>
-    <time_start>NA</time_start>
-    <time_end>NA</time_end>
-    <idcrawler>2</idcrawler>
-    <street>Josef-Schneider-Stra&#xDF;e 2</street>
-    <city>W&#xFC;rzburg</city>
-    <zip>97080</zip>
-    <lng>9.95373</lng>
-    <lat>49.8007</lat>
-    <booking_office>NA</booking_office>
-  </row>
-  <row>
-    <idevent>700</idevent>
-    <title>Myocarditis and microbiome</title>
-    <description></description>
-    <link>https://www.ukw.de/patienten-besucher/veranstaltungskalender/</link>
-    <date_start>17917</date_start>
+    <date_start>17919</date_start>
     <date_end>NA</date_end>
     <idgroup>NA</idgroup>
     <advance_price>NA</advance_price>
     <price>NA</price>
     <event_site>NA</event_site>
-    <idorganizer>2</idorganizer>
+    <idorganizer>NA</idorganizer>
     <image_url>NA</image_url>
     <category>NA</category>
     <time_start>0.6875</time_start>
-    <time_end>NA</time_end>
-    <idcrawler>2</idcrawler>
+    <time_end>0.75</time_end>
+    <idcrawler>1</idcrawler>
     <street>Josef-Schneider-Stra&#xDF;e 2</street>
     <city>W&#xFC;rzburg</city>
     <zip>97080</zip>

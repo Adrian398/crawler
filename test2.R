@@ -160,3 +160,115 @@ b
 a
 
 ###test
+
+
+
+
+
+
+#### tests uniklinikum convert utf8
+
+
+
+crawled_df$street
+
+dbReadTable(conn, name ="event")
+
+crawled_df$city = as.character(crawled_df$city)
+Encoding(crawled_df$city) <- "UTF-8"
+crawled_df$city <- iconv(crawled_df$city, "latin1", "latin1")
+Encoding(crawled_df$city)
+crawled_df$city
+c =data.frame(crawled_df$city)
+Encoding(as.character(crawled_df$city))
+
+crawled_df$description = as.character(crawled_df$description)
+
+db_events_current_crawler = as.data.frame(tbl(conn, "event", stringsasfactor = FALSE) %>%
+                                            filter(idcrawler == 1))
+
+
+
+db_events_current_crawler$city <- iconv(db_events_current_crawler$city, "latin1", "UTF-8")
+db_events_current_crawler$city
+Encoding(db_events_current_crawler$city) 
+
+
+"UTF-8"
+db_events_current_crawler$city
+
+db_events_current_crawler
+meta_df
+
+x = data.frame(c("Änderung","Würzburg"))
+write.xml(x,"x.xml")
+
+
+db_organizer_names <- as.data.frame(tbl(conn, "organizer"))
+db_organizer_names                                                                
+db_organizer_names$organizer = iconv(db_organizer_names$organizer, "latin1", "UTF-8")                                    
+
+select(db_organizer_names,"Universitätsklinikum Würzburg")
+db_organizer_names
+db_organizer_names <- as.data.frame(tbl(conn, "organizer") %>%
+                                      select(organizer))
+
+db_organizer_names$organizer = iconv(db_organizer_names$organizer, "latin1", "UTF-8")
+
+!any(db_organizer_names==as.character(meta_df["organizer"][1,1]))
+
+
+db_events_current_crawler = data.frame(db_events_current_crawler)
+
+db_events_current_crawler %>% map_if(is.character, iconv("latin1", "UTF-8")) %>% as_data_frame -> db_events_current_crawler
+
+
+typeof(db_events_current_crawler$idevent)
+
+db_events_current_crawler %>% map_if(is.character, iconv(.,"latin1", "UTF-8"))
+
+db_events_current_crawler
+
+
+db_events_current_crawler$category = iconv(db_events_current_crawler$category, "latin1", "UTF-8")
+
+db_events_current_crawler
+
+db_events_current_crawler %>% mutate_if(is.character, iconv("latin1", "UTF-8"))
+
+for (i in colnames(db_events_current_crawler)){
+  if(is.character(db_events_current_crawler[[i]])){
+    db_events_current_crawler[[i]] = iconv(db_events_current_crawler[[i]], "latin1", "UTF-8")
+  }
+}
+class(db_events_current_crawler)
+colnames(db_events_current_crawler)
+db_events_current_crawler
+
+
+a = data.frame(c("Änderung", "ünder"))
+write.xml(a, "a.xml")
+
+
+xml <- xmlTree()
+# names(xml)
+xml$addTag("report", close=FALSE, attrs=c(type="enhanced"))
+xml$addTag("pages", close=FALSE)
+for (i in 1:nrow(data)) {
+  xml$addTag("page", close=FALSE)
+  for (j in names(data)) {
+    xml$addTag(j, data[i, j])
+  }
+  xml$closeTag()
+}
+xml$closeTag()
+xml$closeTag()
+cat(saveXML(xml))
+
+
+
+
+
+
+
+

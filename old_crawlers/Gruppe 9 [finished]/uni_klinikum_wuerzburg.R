@@ -93,5 +93,3 @@ names(meta_df)[names(meta_df) == 'link'] <- 'url_crawler'
 
 #write to database
 write_dataframes_to_database(crawled_df, meta_df, conn)
-
-crawled_df

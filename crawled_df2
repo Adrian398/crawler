@@ -1,6 +1,22 @@
 <?xml version="1.0"?>
 <document>
   <row>
+    <title>An&#xE4;sthesiologisches Kolloquium Wintersemester 2018/2019</title>
+    <description>F&#xFC;r unser &#x201E;An&#xE4;sthesiologisches Kolloquium&#x201C; konntenwir erneut renommierte Referenten gewinnen, dieThemen aus An&#xE4;sthesie, Intensivmedizin, Notfallmedizinund Schmerztherapie pr&#xE4;sentieren werden. In bew&#xE4;hrterWeise folgt den Vortr&#xE4;gen eine kollegiale Diskussion.&#xD;
+Selbstverst&#xE4;ndlich sind alle Vortr&#xE4;ge mit 2 Punkten beider Bayerischen Landes&#xE4;rztekammer akkreditiert.&#xD;
+Wir freuen uns auf interessante Themen, pr&#xE4;gnanteVortr&#xE4;ge, versierte Referenten und ganz besonders aufIhr Kommen.</description>
+    <link>https://www.ukw.de/patienten-besucher/veranstaltungskalender/</link>
+    <date_start>17919</date_start>
+    <date_end>17932</date_end>
+    <time_end>0.791666666666667</time_end>
+    <time_start>0.708333333333333</time_start>
+    <street>Josef-Schneider-Stra&#xDF;e 2</street>
+    <city>W&#xFC;rzburg</city>
+    <zip>97080</zip>
+    <lng>9.95373</lng>
+    <lat>49.8007</lat>
+  </row>
+  <row>
     <title>"Bedeutung der Angiopoietine f&#xFC;r den Dermatologen"</title>
     <description>Die Zertifizierung dieses Vortrags ist bei der Bayerischen Landes&#xE4;rztekammer beantragt. Eine Anmeldung ist nicht erforderlich. Auskunft erteilt das Sekretariat, Tel.-Nr. 0931-201-26351.&#xD;
 Flyer</description>
@@ -14,8 +30,6 @@ Flyer</description>
     <zip>97080</zip>
     <lng>9.95373</lng>
     <lat>49.8007</lat>
-    <idcrawler>1</idcrawler>
-    <idorganizer>1</idorganizer>
   </row>
   <row>
     <title>Philosophicum Herbipolense WS 2018/19</title>
@@ -33,8 +47,6 @@ Wir reflektieren interdisziplin&#xE4;r die Grundlagen der heutigen Medizin, ihre
     <zip>97080</zip>
     <lng>9.95373</lng>
     <lat>49.8007</lat>
-    <idcrawler>1</idcrawler>
-    <idorganizer>1</idorganizer>
   </row>
   <row>
     <title>Fortbildungskalender 2018/2019</title>
@@ -49,8 +61,6 @@ Wir reflektieren interdisziplin&#xE4;r die Grundlagen der heutigen Medizin, ihre
     <zip>97080</zip>
     <lng>9.95373</lng>
     <lat>49.8007</lat>
-    <idcrawler>1</idcrawler>
-    <idorganizer>1</idorganizer>
   </row>
   <row>
     <title>Journal Club</title>
@@ -65,8 +75,6 @@ Wir reflektieren interdisziplin&#xE4;r die Grundlagen der heutigen Medizin, ihre
     <zip>97080</zip>
     <lng>9.95373</lng>
     <lat>49.8007</lat>
-    <idcrawler>1</idcrawler>
-    <idorganizer>1</idorganizer>
   </row>
   <row>
     <title>Fortbildungsangebot f&#xFC;r Logop&#xE4;den und Sprachtherapeuten</title>
@@ -81,8 +89,6 @@ Wir reflektieren interdisziplin&#xE4;r die Grundlagen der heutigen Medizin, ihre
     <zip>97080</zip>
     <lng>9.95373</lng>
     <lat>49.8007</lat>
-    <idcrawler>1</idcrawler>
-    <idorganizer>1</idorganizer>
   </row>
   <row>
     <title>Post-ASH 2019: Therapie h&#xE4;matologischer Systemerkrankungen</title>
@@ -99,7 +105,5 @@ Anmeldung bis 20.01.2019 erbeten anPer E-Mail: Veranst_Med2@&#xA0;ukw.dePer Fax:
     <zip>97080</zip>
     <lng>9.95373</lng>
     <lat>49.8007</lat>
-    <idcrawler>1</idcrawler>
-    <idorganizer>1</idorganizer>
   </row>
 </document>

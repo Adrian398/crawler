@@ -64,6 +64,13 @@ write_dataframes_to_database <- function(crawled_df, meta_df, conn) {
     ##get current urls of crawlers
   db_url_crawlers <- as.data.frame(tbl(conn, "crawler") %>%
                                      select(url_crawler))
+  ##fix encoding error
+  for (i in colnames(db_url_crawlers)){
+    if(is.character(db_url_crawlers[[i]])){
+      db_url_crawlers[[i]] = iconv(db_url_crawlers[[i]], "latin1", "UTF-8")
+    }
+  }
+  
     ## if url_crawler doesnt exist write url_crawler in database
   if(!any(db_url_crawlers==as.character(meta_df["url_crawler"][1,1]))){
     dbWriteTable(conn, value = meta_df["url_crawler"], name = "crawler", append = TRUE, row.names=F )
@@ -73,6 +80,13 @@ write_dataframes_to_database <- function(crawled_df, meta_df, conn) {
   ### write to organizer table
   db_organizer_names <- as.data.frame(tbl(conn, "organizer") %>%
                                         select(organizer))
+  ##fix encoding error
+  for (i in colnames(db_organizer_names)){
+    if(is.character(db_organizer_names[[i]])){
+      db_organizer_names[[i]] = iconv(db_organizer_names[[i]], "latin1", "UTF-8")
+    }
+  }
+  
     ## if organizer doesnt exist write him in database
   if(!any(db_organizer_names==as.character(meta_df["organizer"][1,1]))){
     dbWriteTable(conn, value = meta_df["organizer"], name = "organizer", append = TRUE, row.names=F )
@@ -110,15 +124,17 @@ write_dataframes_to_database <- function(crawled_df, meta_df, conn) {
   ### write to event table
     ## add ids for crawler, organizer
       # add crawler foreignkey
-  idcrawler = tbl(conn, "crawler") %>%
-    filter(url_crawler == as.character(meta_df["url_crawler"][1,1]))%>%
+  all_id_crawler = as.data.frame(tbl(conn, "crawler"))
+  all_id_crawler[[2]] = iconv(all_id_crawler[[2]], "latin1", "UTF-8")
+  idcrawler = filter(all_id_crawler, url_crawler == as.character(meta_df["url_crawler"][1,1]))%>%
     select(idcrawler)
   idcrawler = rep.int(as.integer(as.data.frame(idcrawler)), nrow(crawled_df))
   crawled_df = cbind(crawled_df,idcrawler)
   
       # add organizer foreignkey
-  idorganizer = tbl(conn, "organizer") %>%
-    filter(organizer == as.character(meta_df["organizer"][1,1]))%>%
+  all_id_organizer = as.data.frame(tbl(conn, "organizer"))
+  all_id_organizer[[2]] = iconv(all_id_organizer[[2]], "latin1", "UTF-8")
+  idorganizer = filter(all_id_organizer, organizer == as.character(meta_df["organizer"][1,1]))%>%
     select(idorganizer)
   idorganizer = rep.int(as.integer(as.data.frame(idorganizer)), nrow(crawled_df))
   crawled_df = cbind(crawled_df,idorganizer)
@@ -135,6 +151,13 @@ write_dataframes_to_database <- function(crawled_df, meta_df, conn) {
       #get all events of the current crawler
   db_events_current_crawler = as.data.frame(tbl(conn, "event") %>%
                                              filter(idcrawler == idcrawler[1]))
+  
+  ##fix encoding error
+  for (i in colnames(db_events_current_crawler)){
+    if(is.character(db_events_current_crawler[[i]])){
+      db_events_current_crawler[[i]] = iconv(db_events_current_crawler[[i]], "latin1", "UTF-8")
+    }
+  }
   
   # ##add row to fix
   # idevent = c(10000000)
@@ -197,7 +220,7 @@ write_dataframes_to_database <- function(crawled_df, meta_df, conn) {
       if(all(is.na(new_events["time_end"]))){
         new_events$time_end <- NULL
       }
-      dbWriteTable(conn, value = new_events, name = "event", append = TRUE, row.names=F, encoding = "latin1")
+      dbWriteTable(conn, value = new_events, name = "event", append = TRUE, row.names=F)
       write.xml(new_events, file="new_events.xml")
       print(paste(nrow(new_events),"new events added to database!"))
     }else{
@@ -227,13 +250,14 @@ write_dataframes_to_database <- function(crawled_df, meta_df, conn) {
       sql_delete_query
         #delete ids from database
       dbSendQuery(conn, sql_delete_query)
+      #new_events["description"] = iconv(new_events["description"], "enc2native", "UTF-8", sub=NA)
       write.xml(events_to_delete, file="deleted_events.xml")
       print(paste(nrow(events_to_delete)," events droped from database!"))
     }else{
       print("No events deleted!")
     }
   }else{
-    dbWriteTable(conn, value = crawled_df, name = "event", append = TRUE, row.names=F, encoding = "latin1")
+    dbWriteTable(conn, value = crawled_df, name = "event", append = TRUE, row.names=F)
     write.xml(crawled_df, file="new_events.xml")
     print(paste(nrow(crawled_df),"new events added to database!"))
   }
