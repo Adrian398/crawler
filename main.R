@@ -9,7 +9,7 @@ getSqlConnection <- function(){
     host = 'a1.cyawe3clu0j3.eu-west-1.rds.amazonaws.com',
     port = 3306,
     dbname = 'eventscalender',
-    encoding = "latin1"
+    encoding = "utf8"
   )
   return(con)
 }
