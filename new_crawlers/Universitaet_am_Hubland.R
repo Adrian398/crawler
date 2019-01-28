@@ -9,97 +9,131 @@ library(RCurl)
 # 1. none
 # responsible: Wei
 
-
 ### Universität am Hubland ####
 # crawl data
-url <- "https://www.uni-wuerzburg.de/aktuelles/veranstaltungen/"
 
-url %>%
-  read_html() -> raw_read
+current_year = str_extract(Sys.Date(), "[0-9]{4}")
+current_month = gsub("-", "", str_extract(Sys.Date(), "-[0-9]{2}"))
 
-raw_read %>%
-  html_nodes(".news-list__item-header a") %>%
-  html_text(trim = T) -> title
+url = c()
 
-raw_read %>%
-  html_nodes(".news-list__item-header a") %>%
-  html_attr('href') -> temp_link
+for (n in current_month:12) {
+  cache_url = paste("https://www.uni-wuerzburg.de/aktuelles/veranstaltungen/zeitraum", current_year, n, sep = "/")
+  url = c(url, cache_url)  
+}
 
-raw_read %>%
-  html_nodes(".news-single__item-value") %>%
-  html_text(trim = T) -> date
-
-date_start = str_extract(date, "[0-9]+\\.[0-9]+\\.[0-9]{4}")
-date_end = gsub("\\s", "", str_extract(date, "\\s[0-9]+\\.[0-9]+\\.[0-9]{4}"))
-
-time_start = paste(str_extract_all(date, "[0-9]+:[0-9]+", simplify = T)[,1], ":00", sep = "")
-time_end = paste(str_extract_all(date, "[0-9]+:[0-9]+", simplify = T)[,2], ":00", sep = "")
-
-raw_read %>%
-  html_nodes(".news-list__item-event-category .news-list__item-value") %>%
-  html_text(trim = T) -> category
-
-raw_read %>%
-  html_nodes(".news-list__item") %>%
-  html_text(trim = T) -> all
-
-# filter out street information
-street = gsub("Veranstalter.*", "", str_extract(all, "Ort:(.*)"))
-street = gsub("Vortragender.*", "", street)
-street = gsub("Ort:", "", street)
-
+title = c()
+date_start = c()
+date_end = c()
+time_start = c()
+time_end = c()
+street = c()
+category = c()
 description = c()
 image_url = c()
 link = c()
 
-# fix webiste address
-for (web_link in temp_link) {
-  if (!grepl("https://", web_link)){
-    temp_url = paste("https://www.uni-wuerzburg.de", web_link, sep = "")
-  } else {
-    temp_url = web_link
-  }
-  link = c(link, temp_url)
-}
-
-# collect descriptions and img
-for (url in link) {
-  url %>%
+for (cache_url in url) {
+  
+  cache_url %>%
     read_html() -> raw_read
   
   raw_read %>%
-    html_nodes(".intro") %>%
-    html_text(trim = T) -> temp_intro
+    html_nodes(".news-list__item-header a") %>%
+    html_text(trim = T) -> cache_title
   
   raw_read %>%
-    html_nodes(".news-single__item-content") %>%
-    html_text(trim = T) -> temp_description
+    html_nodes(".news-list__item-header a") %>%
+    html_attr('href') -> single_page_links
   
-  temp_description = paste(temp_intro, temp_description, sep = " ")
+  raw_read %>%
+    html_nodes(".news-single__item-value") %>%
+    html_text(trim = T) -> date
   
-  if (is_empty(temp_description)){
-    description = c(description, NA)
-  } else {
-    description = c(description, temp_description)
+  cache_date_start = str_extract(date, "[0-9]+\\.[0-9]+\\.[0-9]{4}")
+  cache_date_end = gsub("\\s", "", str_extract(date, "\\s[0-9]+\\.[0-9]+\\.[0-9]{4}"))
+  
+  cache_time_start = paste(str_extract_all(date, "[0-9]+:[0-9]+", simplify = T)[,1], ":00", sep = "")
+  cache_time_end = paste(str_extract_all(date, "[0-9]+:[0-9]+", simplify = T)[,2], ":00", sep = "")
+  
+  raw_read %>%
+    html_nodes(".news-list__item-event-category .news-list__item-value") %>%
+    html_text(trim = T) -> cache_category
+  
+  raw_read %>%
+    html_nodes(".news-list__item") %>%
+    html_text(trim = T) -> all
+  
+  # filter out street information
+  cache_street = gsub("Veranstalter.*", "", str_extract(all, "Ort:(.*)"))
+  cache_street = gsub("Vortragender.*", "", cache_street)
+  cache_street = gsub("Ort:", "", cache_street)
+  
+  title = c(title, cache_title)
+  date_start = c(date_start, cache_date_start)
+  date_end = c(date_end, cache_date_end)
+  time_start = c(time_start, cache_time_start)
+  time_end = c(time_end, cache_time_end)
+  street = c(street, cache_street)
+  category = c(category, cache_category)
+  
+  # fix webiste address
+  loop_links = c()
+  for (cache_link in single_page_links) {
+    if (!grepl("https://", cache_link)){
+      fixed_url = paste("https://www.uni-wuerzburg.de", cache_link, sep = "")
+      loop_links = c(loop_links, fixed_url)
+    } else {
+      loop_links = c(loop_links, cache_link)
+    }
   }
   
-  raw_read %>%
-    html_nodes(".news-single__item-big-image a") %>%
-    html_attr('href') -> temp_img_url
+  # add webiste address to link
+  link = c(link, loop_links)
   
-  if (is_empty(temp_img_url)){
-    image_url = c(image_url, NA)
-  } else {
-    temp_img_url = paste("https://www.uni-wuerzburg.de", temp_img_url, sep = "")
-    image_url = c(image_url, temp_img_url)
+  # collect descriptions and image_url
+  for (cache_link in loop_links) {
+    cache_link %>%
+      read_html() -> cache_read
+    
+    cache_read %>%
+      html_nodes(".intro") %>%
+      html_text(trim = T) -> cache_intro
+    
+    cache_read %>%
+      html_nodes(".news-single__item-content") %>%
+      html_text(trim = T) -> cache_description
+    
+    if (!is_empty(cache_intro)){
+      cache_description = paste(cache_intro, cache_description, sep = " ")
+    }
+    
+    if (!is_empty(cache_description)){
+      if (nchar(cache_description) > 0){
+        description = c(description, cache_description)
+      } else {
+        description = c(description, NA)
+      }
+    } else {
+      description = c(description, NA)
+    }
+    
+    cache_read %>%
+      html_nodes(".news-single__item-big-image a") %>%
+      html_attr('href') -> cache_image_url
+    
+    if (is_empty(cache_image_url)){
+      image_url = c(image_url, NA)
+    } else {
+      cache_image_url = paste("https://www.uni-wuerzburg.de", cache_image_url, sep = "")
+      image_url = c(image_url, cache_image_url)
+    }
   }
 }
 
 # fixed data setup
 organizer = "Universität am Hubland"
 url = "https://www.uni-wuerzburg.de/aktuelles/veranstaltungen/"
-price = rep(NA, length(title))
-advanced_price = rep(NA, length(title))
 lat = rep(49.7815829, length(title))
 lng = rep(9.9707861, length(title))
 zip = rep(97070, length(title))
