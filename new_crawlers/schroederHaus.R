@@ -2,6 +2,7 @@
 library(rvest)
 library(tidyverse)
 library(chron)
+source("write_to_database.R")
 
 ### Possible Improvements ###
 # 1. lat long are not 100% correct, becase ggmap has visit limit and therefore unusable
@@ -127,15 +128,18 @@ crawled_df <- data.frame(
                     time_start = time_start,
                     time_end = time_end,
                     price = price,
-                    advanced_price = advanced_price,
                     description = description,
                     lat = lat,
                     lng = lng,
                     street = street,
                     zip = zip,
                     city = city,
-                    link = link,
-                    image_url = image_url)
+                    link = link)
 
 meta_df = data.frame(url = url
                      , organizer = organizer)
+
+names(meta_df)[names(meta_df) == 'url'] <- 'url_crawler'
+
+#write to database
+write_dataframes_to_database(crawled_df, meta_df, conn)

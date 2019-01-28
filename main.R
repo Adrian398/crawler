@@ -15,7 +15,6 @@ getSqlConnection <- function(){
 }
 conn <- getSqlConnection()
 
-sourceDirectory("old_crawlers/Gruppe\ 9\ [finished]")
-
+sourceDirectory("new_crawlers")
 
 dbDisconnect(conn)

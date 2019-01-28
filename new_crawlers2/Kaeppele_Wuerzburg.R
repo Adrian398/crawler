@@ -2,6 +2,7 @@
 library(rvest)
 library(tidyverse)
 library(chron)
+source("write_to_database.R")
 
 ### Possible Improvements ###
 # 1. no event at this moment
@@ -78,16 +79,13 @@ crawled_df <- data.frame(
   date_end = date_end, 
   time_start = time_start,
   time_end = time_end,
-  price = price,
-  advanced_price = advanced_price,
   description = description,
   lat = lat,
   lng = lng,
   street = street,
   zip = zip,
   city = city,
-  link = link,
-  image_url = image_url)
+  link = link)
 
-meta_df = data.frame(url = url
+meta_df = data.frame(url_crawler = url
                      , organizer = organizer)
