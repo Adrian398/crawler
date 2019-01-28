@@ -120,8 +120,6 @@ crawled_df <- data.frame(
                     date_end = date_end, 
                     time_start = time_start,
                     time_end = time_end,
-                    price = price,
-                    advanced_price = advanced_price,
                     description = description,
                     lat = lat,
                     lng = lng,

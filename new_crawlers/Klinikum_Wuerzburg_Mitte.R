@@ -3,6 +3,7 @@ library(rvest)
 library(tidyverse)
 library(chron)
 library(RCurl)
+source("write_to_database.R")
 
 ### Possible Improvements ###
 # 1. time information is not unified, it seems to be manual typed in
@@ -112,8 +113,6 @@ crawled_df <- data.frame(
                     date_end = date_end, 
                     time_start = time_start,
                     time_end = time_end,
-                    price = price,
-                    advanced_price = advanced_price,
                     description = description,
                     lat = lat,
                     lng = lng,
@@ -125,3 +124,8 @@ crawled_df <- data.frame(
 
 meta_df = data.frame(url = url
                      , organizer = organizer)
+
+names(meta_df)[names(meta_df) == 'url'] <- 'url_crawler'
+
+#write to database
+write_dataframes_to_database(crawled_df, meta_df, conn)

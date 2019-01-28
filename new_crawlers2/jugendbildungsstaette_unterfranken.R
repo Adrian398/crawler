@@ -167,8 +167,6 @@ df <- data.frame(title = title,
                   city = city,
                   link = link)
 
-df
-colnames(df)
 #set up to write to database
 crawled_df = df[c("title", "description", "link", "date_start", "date_end", "time_end", "time_start", "street", "city", "zip", "lng", "lat")]
 meta_df = df[c("organizer", "link")][1,]

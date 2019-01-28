@@ -2,6 +2,13 @@ write_dataframes_to_database <- function(crawled_df, meta_df, conn) {
   
   crawled_df %>% map_if(is.factor, as.character) %>% as_data_frame -> crawled_df
   
+  
+  #convert times 
+  temp = chron(times = c(c(sapply(crawled_df["time_start"], as.character)),"00:00:59"))
+  crawled_df["time_start"] = temp[-length(temp)]
+  temp = chron(times = c(c(sapply(crawled_df["time_end"], as.character)),"00:00:59"))
+  crawled_df["time_end"] = temp[-length(temp)]
+  
   #add standard row
 
   
@@ -257,8 +264,16 @@ write_dataframes_to_database <- function(crawled_df, meta_df, conn) {
       print("No events deleted!")
     }
   }else{
+      #fix 00:00:00 mysql error
+      if(all(is.na(crawled_df["time_start"]))){
+        crawled_df$time_start <- NULL
+      }
+      if(all(is.na(crawled_df["time_end"]))){
+        crawled_df$time_end <- NULL
+      }
     dbWriteTable(conn, value = crawled_df, name = "event", append = TRUE, row.names=F)
-    write.xml(crawled_df, file="new_events.xml")
+    write_df_to_xml(crawled_df,meta_df)
+    #write.xml(crawled_df, file="new_events.xml")
     print(paste(nrow(crawled_df),"new events added to database!"))
   }
 }  
