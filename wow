@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+
+<events>
+  <event>
+    <category>Ausstellung</category>
+    <title>Michael Markwick | New Songs to Learn and Sing</title>
+    <date_start>2018-12-12</date_start>
+    <date_end>2019-04-14</date_end>
+    <time_start>0.416666666666667</time_start>
+  </event>
+  <event>
+    <category>Ausstellung</category>
+    <title>Ausstellung: Ausgebrannt! Europa nach dem Ersten Weltkrieg</title>
+    <date_start>2019-01-14</date_start>
+    <date_end>2019-02-06</date_end>
+    <time_start>0.405555555555556</time_start>
+  </event>
+  <event>
+    <category>Info-Veranstaltung</category>
+    <title>1. Würzburger Inklusionswochen der Stadt Würzburg</title>
+    <date_start>2019-01-21</date_start>
+    <date_end>2019-02-03</date_end>
+    <time_start>0</time_start>
+  </event>
+  <event>
+    <category>87020000-Kalender, 
+            
+                Vortrag</category>
+    <title>Angewandter Naturschutz XXIV</title>
+    <date_start>2019-01-22</date_start>
+    <date_end>2019-01-29</date_end>
+    <time_start>0.708333333333333</time_start>
+  </event>
+  <event>
+    <category>Workshop</category>
+    <title>EndNote for Scientists</title>
+    <date_start>2019-01-28</date_start>
+    <date_end>NA</date_end>
+    <time_start>0.375</time_start>
+  </event>
+</events> 

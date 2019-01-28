@@ -126,7 +126,8 @@ crawled_df <- data.frame(
                     street = street,
                     zip = zip,
                     city = city,
-                    link = link)
+                    link = link,
+                    image_url = image_url)
 
 meta_df = data.frame(url = url
                      , organizer = organizer)

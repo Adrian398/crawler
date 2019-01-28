@@ -272,7 +272,7 @@ write_dataframes_to_database <- function(crawled_df, meta_df, conn) {
         crawled_df$time_end <- NULL
       }
     dbWriteTable(conn, value = crawled_df, name = "event", append = TRUE, row.names=F)
-    write_df_to_xml(crawled_df)
+    write_df_to_xml(crawled_df,meta_df)
     #write.xml(crawled_df, file="new_events.xml")
     print(paste(nrow(crawled_df),"new events added to database!"))
   }
