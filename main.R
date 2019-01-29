@@ -31,4 +31,4 @@ xml_document = paste0(xml_document,end_xml)
 write(xml_document,"new_events.xml",append=FALSE)
 
 dbDisconnect(conn)
-xml_document
+
