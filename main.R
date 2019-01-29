@@ -32,3 +32,4 @@ write(xml_document,"new_events.xml",append=FALSE)
 
 dbDisconnect(conn)
 
+lapply( dbListConnections( dbDriver( drv = "MySQL")), dbDisconnect)
