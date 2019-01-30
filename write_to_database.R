@@ -74,7 +74,7 @@ write_dataframes_to_database <- function(crawled_df, meta_df, conn) {
   ##fix encoding error
   for (i in colnames(db_url_crawlers)){
     if(is.character(db_url_crawlers[[i]])){
-      db_url_crawlers[[i]] = iconv(db_url_crawlers[[i]], "latin1", "UTF-8")
+      db_url_crawlers[[i]] = iconv(db_url_crawlers[[i]], "windows-1252", "UTF-8")
     }
   }
   
@@ -90,7 +90,7 @@ write_dataframes_to_database <- function(crawled_df, meta_df, conn) {
   ##fix encoding error
   for (i in colnames(db_organizer_names)){
     if(is.character(db_organizer_names[[i]])){
-      db_organizer_names[[i]] = iconv(db_organizer_names[[i]], "latin1", "UTF-8")
+      db_organizer_names[[i]] = iconv(db_organizer_names[[i]], "windows-1252", "UTF-8")
     }
   }
   
@@ -132,7 +132,7 @@ write_dataframes_to_database <- function(crawled_df, meta_df, conn) {
     ## add ids for crawler, organizer
       # add crawler foreignkey
   all_id_crawler = as.data.frame(tbl(conn, "crawler"))
-  all_id_crawler[[2]] = iconv(all_id_crawler[[2]], "latin1", "UTF-8")
+  all_id_crawler[[2]] = iconv(all_id_crawler[[2]], "windows-1252", "UTF-8")
   idcrawler = filter(all_id_crawler, url_crawler == as.character(meta_df["url_crawler"][1,1]))%>%
     select(idcrawler)
   idcrawler = rep.int(as.integer(as.data.frame(idcrawler)), nrow(crawled_df))
@@ -140,7 +140,7 @@ write_dataframes_to_database <- function(crawled_df, meta_df, conn) {
   
       # add organizer foreignkey
   all_id_organizer = as.data.frame(tbl(conn, "organizer"))
-  all_id_organizer[[2]] = iconv(all_id_organizer[[2]], "latin1", "UTF-8")
+  all_id_organizer[[2]] = iconv(all_id_organizer[[2]], "windows-1252", "UTF-8")
   idorganizer = filter(all_id_organizer, organizer == as.character(meta_df["organizer"][1,1]))%>%
     select(idorganizer)
   idorganizer = rep.int(as.integer(as.data.frame(idorganizer)), nrow(crawled_df))
@@ -162,7 +162,7 @@ write_dataframes_to_database <- function(crawled_df, meta_df, conn) {
   ##fix encoding error
   for (i in colnames(db_events_current_crawler)){
     if(is.character(db_events_current_crawler[[i]])){
-      db_events_current_crawler[[i]] = iconv(db_events_current_crawler[[i]], "latin1", "UTF-8")
+      db_events_current_crawler[[i]] = iconv(db_events_current_crawler[[i]], "windows-1252", "UTF-8")
     }
   }
   
@@ -210,13 +210,34 @@ write_dataframes_to_database <- function(crawled_df, meta_df, conn) {
     }else
       new_events= anti_join(crawled_df, db_events_current_crawler,by=c("title", "link","date_start", "date_end", "time_start", "time_end", "street"))
     
-    
-    
-    #temp = c(chron(times = c(sapply(new_events["time_start"], as.character))),"00:00:99")
-    #new_events["time_start"] = temp[-length(temp)]
-    #temp = c(chron(times = c(sapply(new_events["time_end"], as.character))),"00:00:99")
-    #new_events["time_end"] = temp[-length(temp)]
-    
+    # new_events
+    # crawled_df["link"]=="https://www.frankenwarte.de/unser-bildungsangebot/veranstaltung.html?id=912"
+    # b = crawled_df %>%
+    #   filter(crawled_df["link"]=="https://www.frankenwarte.de/unser-bildungsangebot/veranstaltung.html?id=912"
+    #          | crawled_df["link"]=="https://www.frankenwarte.de/unser-bildungsangebot/veranstaltung.html?id=946"
+    #          |crawled_df["link"]=="https://www.frankenwarte.de/unser-bildungsangebot/veranstaltung.html?id=953") %>%
+    #   select(c("title", "link","date_start", "date_end", "time_start", "time_end", "street"))
+    # a = db_events_current_crawler %>%
+    #   filter(db_events_current_crawler["link"]=="https://www.frankenwarte.de/unser-bildungsangebot/veranstaltung.html?id=912"
+    #          | db_events_current_crawler["link"]=="https://www.frankenwarte.de/unser-bildungsangebot/veranstaltung.html?id=946"
+    #          |db_events_current_crawler["link"]=="https://www.frankenwarte.de/unser-bildungsangebot/veranstaltung.html?id=953") %>%
+    #   select(c("title", "link","date_start", "date_end", "time_start", "time_end", "street"))
+    # 
+    # select(a,"date_end")
+    # select(b,"date_end")
+    # select(a,"date_start")
+    # select(b,"date_start")
+    # select(a,"time_end")
+    # select(b,"time_end")
+    # select(a,"time_start")
+    # select(b,"time_start")
+    # select(a,"street")
+    # select(b,"street")
+    # select(a,"title")
+    # select(b,"title")
+    # r = dbSendQuery(conn, "select * from event where idorganizer = 4", encoding = "utf8")
+    # fetch(r)
+    # dbReadTable(conn, "event")
     
     
     if (nrow(new_events) != 0) {

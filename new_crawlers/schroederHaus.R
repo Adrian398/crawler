@@ -119,6 +119,7 @@ date_end <- as.Date(date_end, "%d.%m.%Y")
 time_start <- chron(times = time_start)
 time_end <- chron(times = time_end)
 
+price = as.numeric(price)
 # build table
 crawled_df <- data.frame(
                     category = category,

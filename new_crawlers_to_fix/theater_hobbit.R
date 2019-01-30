@@ -4,46 +4,64 @@ library(tidyverse)
 library(chron)
 source("write_to_database.R")
 
-
 ### Possible Improvements ###
 # 1. none
 # responsible: Wei
 
 
-### Sparkasse Mainfranken ####
+### Plastisches Theater Hobbit ####
 # crawl data
-url <- "https://www.sparkasse-mainfranken.de/de/home/ihre-sparkasse/termine-und-events.html"
+url <- "http://www.theater-hobbit.de/"
 
 url %>%
   read_html() %>%
-  html_nodes(".if6_section")-> raw_read
+  html_nodes("#stacks_out_23_page3")-> raw_read
 
 raw_read %>%
-  html_nodes(".left:nth-child(2)") %>%
-  html_text(trim = T) -> title
+  html_nodes(".stacks_right a") %>%
+  html_text(trim = T) -> temp_title
 
 raw_read %>%
-  html_nodes(".table .left:nth-child(1)") %>%
-  html_text(trim = T) -> temp_date
+  html_nodes("strong") %>%
+  html_text(trim = T) -> temp_date_start
+
+temp_date_start = gsub("UHR", "", temp_date_start)
 
 raw_read %>%
-  html_nodes(".left~ .left+ .left") %>%
-  html_text(trim = T) -> description
+  html_nodes(".stacks_right span") %>%
+  html_text(trim = T) -> temp_description
 
-date_start = str_extract(temp_date, "[0-9]+\\.[0-9]+\\.[0-9]{4}")
-date_end = gsub("\n", "", str_extract(temp_date, "\n[0-9]+\\.[0-9]+\\.[0-9]{4}"))
+title = c()
+date_start = c()
+time_start = c()
+description = c()
+
+for (n in 1:length(temp_date_start)){
+  temp_date = str_extract_all(temp_date_start[n], "[0-9]+\\.[0-9]{2}", simplify = T)
+  temp_time = str_extract_all(temp_date_start[n], "[0-9]+:[0-9]+", simplify = T)
+  # add date, time and corresponding title
+  for (i in 1:length(temp_date)){
+    date_start = c(date_start, temp_date[i])
+    time_start = c(time_start, temp_time[i])
+    title = c(title, temp_title[n])
+    description = c(description, temp_description[n])
+  }
+}
+
+date_start = paste(date_start, format(Sys.Date(), "%Y"), sep = ".")
+time_start = paste(time_start, ":00", sep = "")
 
 # fixed data setup
-category = rep("Ausstellung / Messe", length(title))
-time_start = rep(NA, length(title))
+category = rep("Bühne", length(title))
+date_end = rep(NA, length(title))
 time_end = rep(NA, length(title))
-organizer = "Sparkasse Mainfranken"
-lat = rep(49.79417, length(title))
-lng = rep(9.93496, length(title))
-street = rep("Hofstraße 9", length(title))
+organizer = "Plastisches Theater Hobbit"
+lat = rep(49.78884, length(title))
+lng = rep(9.93252, length(title))
+street = rep("Münzstraße 1", length(title))
 zip = rep(97070, length(title))
 city = rep("Würzburg", length(title))
-link = rep("https://www.sparkasse-mainfranken.de/de/home/ihre-sparkasse/termine-und-events.html", length(title))
+link = rep("http://www.theater-hobbit.de/", length(title))
 image_url = rep(NA, length(title))
 price = rep(NA, length(title))
 advanced_price = rep(NA, length(title))
@@ -54,7 +72,6 @@ date_end <- as.Date(date_end, "%d.%m.%Y")
 
 time_start <- chron(times = time_start)
 time_end <- chron(times = time_end)
-
 
 # build table
 crawled_df <- data.frame(
