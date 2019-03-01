@@ -27,10 +27,8 @@ month_convertor <- function(given_date){
 }
 
 # crawl data
-url <- ""
-
-url %>%
-  read_html() -> raw_read
+url = ""
+raw_read = read_html(url)
 
 raw_read %>%
   html_nodes("") %>%
@@ -39,6 +37,14 @@ raw_read %>%
 raw_read %>%
   html_nodes("") %>%
   html_attr("href") -> link
+
+
+for (cache_link in link) {
+  cache_raw_read = read_html(cache_link)
+  cache_raw_read %>%
+    html_nodes("") %>%
+    html_text(trim = T) -> title
+}
 
 str_extract(date_start, "[0-9]+\\.\\s[[:alpha:]]+\\s[0-9]{4}") # substract date
 str_extract(time_start, "[0-9]{2}:[0-9]{2}") # substract time
