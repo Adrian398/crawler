@@ -5,23 +5,28 @@ library(chron)
 
 ### Possible Improvements ###
 # 1. none
-# responsible:
+# responsible: Wei
 
 
-### websiteName ####
+### Palais-Keller (im Würtzburg-Palais) ####
 # crawl data
-url = "http://www.igz.wuerzburg.de/angebote-und-leistungen/veranstaltungen/index.html"
+url = "https://www.bayerischerhof.de/de/erleben-geniessen/eventkalender.html"
 raw_read = read_html(url)
 
 raw_read %>%
-  html_nodes("#embhl a , tr:nth-child(18) strong") %>%
+  html_nodes(".listViewListContainer a") %>%
   html_attr("href") -> link
 
-link = link[!is.na(link)]
-link = paste("http://www.igz.wuerzburg.de", link, sep = "")
+# remove ticket shop link
+link = link[link!="http://www.astor-cinemalounge.de/tickets-kaufen.html"]
+link = link[link!="https://www.astor-cinemalounge.de/tickets-kaufen.html"]
 
-description = c()
+link = paste("https://www.bayerischerhof.de/", link, sep = "")
+
 title = c()
+description = c()
+date_start = c()
+date_end = c()
 time_start = c()
 time_end = c()
 
@@ -29,60 +34,53 @@ for (cache_link in link) {
   cache_raw_read = read_html(cache_link)
   
   cache_raw_read %>%
-    html_nodes("#embhl div:nth-child(1) strong") %>%
+    html_nodes(".fs50px") %>%
     html_text(trim = T) -> cache_title
   
   cache_raw_read %>%
-    html_nodes("td") %>%
+    html_nodes(".content p") %>%
+    html_text(trim = T) -> raw_date
+  
+  cache_raw_read %>%
+    html_nodes(".contentMain") %>%
     html_text(trim = T) -> cache_description
   
-  cache_date_start = str_extract(cache_description ,"[0-9]{2}\\.[0-9]{2}\\.[0-9]{4}")
-  
-  extract_time = str_extract_all(cache_description, "[0-9]{2}:[0-9]{2}", simplify = T)
-  if (length(extract_time) > 0) {
-    cache_time_start = extract_time[,1]
+  date_extract = str_extract_all(raw_date, "[0-9]{2}\\.[0-9]{2}\\.", simplify = T)
+  cache_date_start = date_extract[,1]
+  if (length(date_extract) > 1){
+    cache_date_end = date_extract[,2]
   } else {
-    cache_time_start = ""
+    cache_date_end = ""
   }
   
-  if (length(extract_time) > 1) {
-    if (extract_time[,1] != extract_time[,2]){
-      cache_time_end = extract_time[,2]
-    } else {
-      cache_time_end = ""
-    }
+  time_extract = str_extract_all(raw_date, "[0-9]{2}:[0-9]{2}", simplify = T)
+  cache_time_start = time_extract[,1]
+  if (length(time_extract) > 1){
+    cache_time_end = time_extract[,2]
   } else {
     cache_time_end = ""
   }
   
-  description = c(description, cache_description)
   title = c(title, cache_title)
+  description = c(description, cache_description)
+  date_start = c(date_start, cache_date_start)
+  date_end = c(date_end, cache_date_end)
   time_start = c(time_start, cache_time_start)
   time_end = c(time_end, cache_time_end)
   
 }
 
-
-str_extract(date_start, "[0-9]+\\.\\s[[:alpha:]]+\\s[0-9]{4}") # substract date
-str_extract(time_start, "[0-9]{2}:[0-9]{2}") # substract time
-paste(time_start, ":00", sep = "") # prepare date for time conversion
+link
+cache_link = "https://www.bayerischerhof.de/de/erleben-geniessen/eventkalender/faschingamhotelbayerischerhof.html"
 
 # fixed data setup
-organizer = ""
-url = ""
-category= rep(NA, length(title))
-date_end = rep(NA, length(title))
-time_end = rep(NA, length(title))
-description = rep(NA, length(title))
-price = rep(NA, length(title))
-advanced_price = rep(NA, length(title))
-lat = rep(NA, length(title))
-lng = rep(NA, length(title))
-street = rep("", length(title))
+organizer = "Palais-Keller (im Würtzburg-Palais)"
+url = "https://www.bayerischerhof.de/de.html"
+lat = rep(49.7479214, length(title))
+lng = rep(9.8594372, length(title))
+street = rep("Am Congress Centrum", length(title))
 zip = rep(97070, length(title))
 city = rep("Würzburg", length(title))
-link = rep("", length(title))
-image_url = rep(NA, length(title))
 
 # data type conversion
 date_start <- as.Date(date_start, "%d.%m.%Y")

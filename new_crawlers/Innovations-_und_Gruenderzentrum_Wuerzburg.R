@@ -5,10 +5,10 @@ library(chron)
 
 ### Possible Improvements ###
 # 1. none
-# responsible:
+# responsible: Wei
 
 
-### websiteName ####
+### Innovations- und Gründerzentrum Würzburg ####
 # crawl data
 url = "http://www.igz.wuerzburg.de/angebote-und-leistungen/veranstaltungen/index.html"
 raw_read = read_html(url)
@@ -22,6 +22,7 @@ link = paste("http://www.igz.wuerzburg.de", link, sep = "")
 
 description = c()
 title = c()
+date_start = c()
 time_start = c()
 time_end = c()
 
@@ -59,37 +60,25 @@ for (cache_link in link) {
   title = c(title, cache_title)
   time_start = c(time_start, cache_time_start)
   time_end = c(time_end, cache_time_end)
+  date_start = c(date_start, cache_date_start)
   
 }
 
-
-str_extract(date_start, "[0-9]+\\.\\s[[:alpha:]]+\\s[0-9]{4}") # substract date
-str_extract(time_start, "[0-9]{2}:[0-9]{2}") # substract time
-paste(time_start, ":00", sep = "") # prepare date for time conversion
-
 # fixed data setup
-organizer = ""
-url = ""
-category= rep(NA, length(title))
-date_end = rep(NA, length(title))
-time_end = rep(NA, length(title))
-description = rep(NA, length(title))
-price = rep(NA, length(title))
-advanced_price = rep(NA, length(title))
-lat = rep(NA, length(title))
-lng = rep(NA, length(title))
-street = rep("", length(title))
-zip = rep(97070, length(title))
+organizer = "Innovations- und Gründerzentrum Würzburg"
+url = "http://www.igz.wuerzburg.de/"
+category= rep("Kurs", length(title))
+lat = rep(49.8034612, length(title))
+lng = rep(9.9981454, length(title))
+street = rep("Friedrich-Bergius-Ring 15", length(title))
+zip = rep(97076, length(title))
 city = rep("Würzburg", length(title))
-link = rep("", length(title))
-image_url = rep(NA, length(title))
 
 # data type conversion
 date_start <- as.Date(date_start, "%d.%m.%Y")
-date_end <- as.Date(date_end, "%d.%m.%Y")
 
-time_start = paste(time_start, ":00", sep = "")
-time_end = paste(time_end, ":00", sep = "")
+time_start = gsub("^:00", "", paste(time_start, ":00", sep = ""))
+time_end = gsub("^:00", "", paste(time_end, ":00", sep = ""))
 time_start <- chron(times = time_start)
 time_end <- chron(times = time_end)
 
@@ -98,19 +87,15 @@ crawled_df <- data.frame(
                     category = category,
                     title = title,
                     date_start = date_start,
-                    date_end = date_end, 
                     time_start = time_start,
                     time_end = time_end,
-                    price = price,
-                    advanced_price = advanced_price,
                     description = description,
                     lat = lat,
                     lng = lng,
                     street = street,
                     zip = zip,
                     city = city,
-                    link = link,
-                    image_url = image_url)
+                    link = link)
 
 meta_df = data.frame(url = url
                      , organizer = organizer)
