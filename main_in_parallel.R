@@ -24,21 +24,51 @@ conn <- getSqlConnection()
 
 write("","new_events.xml",append=FALSE)
 write("","deleted_events.xml",append=FALSE)
+#write(substring(as(saveXML(xml,encoding = "utf8"), "character"),24), "new_events.xml",append=TRUE)
+
+# cores=detectCores()
+# cl <- makeCluster(cores[1]-1) #not to overload your computer
+# registerDoParallel(cl)
+# 
+# output = foreach(file_name=list.files("new_crawlers")) %dopar% {
+#   tryCatch({
+#     print(file_name)
+#     source(paste0("new_crawlers/", file_name))
+#   }, warning = function(w) {
+#     message("Warning!!!!")
+#     return(NULL)
+#   }, error = function(e) {
+#     message(paste("Error in crawler:", file_name))
+#     return(NA)
+#   }, finally = {
+#   })
+# }
+# #stop cluster
+# stopCluster(cl)
+
+#mclapply(list.files("new_crawlers")[20:24], source())
 
 
-## try catch for continuing the process when interrupted by an error
-for (file_name in list.files("new_crawlers")){
+
+
+#source(paste0("new_crawlers/", "buergerbraeu.R"))
+
+#list.files("new_crawlers")[20:24]
+
+for (file_name in list.files("new_crawlers")[20:24]){
   tryCatch({
     print(file_name)
     source(paste0("new_crawlers/", file_name))
   }, error = function(e) {
     message(paste("Error in crawler:", file_name))
-    message("Here's the original error message:")
-    message(e)
     return(NA)
   }, finally = {
   })
 }
+
+
+
+
 
 #try(sourceDirectory("new_crawlers"))
 finish_xml("new_events.xml")

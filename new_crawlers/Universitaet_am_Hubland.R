@@ -163,6 +163,10 @@ crawled_df <- data.frame(
                     link = link,
                     image_url = image_url)
 
-meta_df = data.frame(url_crawler = url_crawler
+meta_df = data.frame(url_crawler = url
                      , organizer = organizer)
+
+
+#write to database
+write_dataframes_to_database(crawled_df, meta_df, conn)
 

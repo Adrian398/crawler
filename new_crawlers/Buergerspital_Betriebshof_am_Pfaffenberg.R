@@ -99,5 +99,9 @@ crawled_df <- data.frame(
                     city = city,
                     link = link)
 
-meta_df = data.frame(url = url
+meta_df = data.frame(url_crawler = url
                      , organizer = organizer)
+
+
+#write to database
+write_dataframes_to_database(crawled_df, meta_df, conn)
