@@ -249,7 +249,8 @@ write_dataframes_to_database <- function(crawled_df, meta_df, conn) {
         new_events$time_end <- NULL
       }
       dbWriteTable(conn, value = new_events, name = "event", append = TRUE, row.names=F)
-      write.xml(new_events, file="new_events.xml")
+      write.xml(new_events, file="new_event.xml")
+      write_df_to_xml(new_events,meta_df, file = "new_events.xml")
       print(paste(nrow(new_events),"new events added to database!"))
     }else{
       print("No new events found!")
@@ -279,7 +280,8 @@ write_dataframes_to_database <- function(crawled_df, meta_df, conn) {
         #delete ids from database
       dbSendQuery(conn, sql_delete_query)
       #new_events["description"] = iconv(new_events["description"], "enc2native", "UTF-8", sub=NA)
-      write.xml(events_to_delete, file="deleted_events.xml")
+      write.xml(events_to_delete, file="deleted_event.xml")
+      write_df_to_xml(events_to_delete,meta_df, file = "deleted_events.xml")
       print(paste(nrow(events_to_delete)," events droped from database!"))
     }else{
       print("No events deleted!")
@@ -293,7 +295,7 @@ write_dataframes_to_database <- function(crawled_df, meta_df, conn) {
         crawled_df$time_end <- NULL
       }
     dbWriteTable(conn, value = crawled_df, name = "event", append = TRUE, row.names=F)
-    write_df_to_xml(crawled_df,meta_df)
+    write_df_to_xml(crawled_df,meta_df, file = "new_events.xml")
     #write.xml(crawled_df, file="new_events.xml")
     print(paste(nrow(crawled_df),"new events added to database!"))
   }

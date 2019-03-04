@@ -1,13 +1,12 @@
 library(XML)
 
-write_df_to_xml <- function(df,meta_df) {
-
+write_df_to_xml <- function(df,meta_df, file) {
   if("title" %in% names(df)){
     Titel =as.character(df["title"][,1])
   } else {
     Titel = rep("NA",nrow(df))
   }
-  if("description" %in% names(df)){
+  if("description" %in% names(df) | all(is.na(as.character(df["description"][,1])))){
     tmp = as.character(df["description"][,1])
     Kurztext = c()
     for (i in (1:length(tmp))){
@@ -30,7 +29,7 @@ write_df_to_xml <- function(df,meta_df) {
   } else {
     Kurztext = rep("NA",nrow(df))
   }
-  if("description" %in% names(df)){
+  if("description" %in% names(df) | all(is.na(df["description"][,1]))){
     Detailtext = as.character(df["description"][,1])
   } else {
     Detailtext = rep("NA",nrow(df))
@@ -129,6 +128,20 @@ write_df_to_xml <- function(df,meta_df) {
   }
   xml$closeTag()
   
-  write(substring(as(saveXML(xml,encoding = "utf8"), "character"),24), "new_events.xml",append=TRUE)
+  write(substring(as(saveXML(xml,encoding = "utf8"), "character"),24),file ,append=TRUE)
 }
 
+
+finish_xml <- function(file) {
+  start_xml = paste0("<?xml version='1.0'?>\n\n<crawlers date = '",Sys.Date(),"'>")
+  end_xml = "</crawlers>"
+  xml_document = read_file(file)
+  #xml_document = substring(xml_document,nchar(start_xml)+1)
+  xml_document = gsub("\n","\n  ",xml_document)
+  xml_document = paste0(start_xml, xml_document)
+  xml_document = substr(xml_document,1,nchar(xml_document)-2)
+  xml_document = paste0(xml_document,end_xml)
+  
+  write(xml_document,file,append=FALSE)
+  
+}

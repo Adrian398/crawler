@@ -13,7 +13,7 @@ library(lubridate)
 
 #Posthalle: FERTIG
 
-site <- 'http://www.posthalle.de/de/programm.html'
+site <- 'https://posthalle.de/programm'
 
 site %>%
   read_html() -> raw_data

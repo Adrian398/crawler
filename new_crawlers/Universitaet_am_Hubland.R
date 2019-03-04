@@ -133,7 +133,7 @@ for (cache_url in url) {
 
 # fixed data setup
 organizer = "Universität am Hubland"
-url = "https://www.uni-wuerzburg.de/aktuelles/veranstaltungen/"
+url_crawler = "https://www.uni-wuerzburg.de/aktuelles/veranstaltungen/"
 lat = rep(49.7815829, length(title))
 lng = rep(9.9707861, length(title))
 zip = rep(97070, length(title))
@@ -163,5 +163,6 @@ crawled_df <- data.frame(
                     link = link,
                     image_url = image_url)
 
-meta_df = data.frame(url = url
+meta_df = data.frame(url_crawler = url_crawler
                      , organizer = organizer)
+

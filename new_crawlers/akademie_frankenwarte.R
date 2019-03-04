@@ -93,6 +93,6 @@ crawled_df = df[c("title", "description", "link", "date_start", "date_end", "tim
 meta_df = df[c("organizer", "link")][1,]
 names(meta_df)[names(meta_df) == 'link'] <- 'url_crawler'
 
-crawled_df
+#crawled_df[1:15,]
 #write to database
 write_dataframes_to_database(crawled_df, meta_df, conn)
