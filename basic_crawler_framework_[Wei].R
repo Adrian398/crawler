@@ -9,12 +9,31 @@ library(chron)
 
 
 ### websiteName ####
+month_convertor <- function(given_date){
+  given_date = gsub(" Januar","01.",given_date)
+  given_date = gsub(" Februar","02.",given_date)
+  given_date = gsub(" März","03.",given_date)
+  given_date = gsub(" April","04.",given_date)
+  given_date = gsub(" Mai","05.",given_date)
+  given_date = gsub(" Juni","06.",given_date)
+  given_date = gsub(" Juli","07.",given_date)
+  given_date = gsub(" August","08.",given_date)
+  given_date = gsub(" September","09.",given_date)
+  given_date = gsub(" Oktober","10.",given_date)
+  given_date = gsub(" November","11.",given_date)
+  given_date = gsub(" Dezember","12.",given_date)
+  return(given_date)
+}
+
 # crawl data
 url = "http://www.igz.wuerzburg.de/angebote-und-leistungen/veranstaltungen/index.html"
 raw_read = read_html(url)
 
+html_nodes("") %>%
+  html_text(trim = T) -> title
+
 raw_read %>%
-  html_nodes("#embhl a , tr:nth-child(18) strong") %>%
+  html_nodes("") %>%
   html_attr("href") -> link
 
 link = link[!is.na(link)]
