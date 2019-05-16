@@ -1,137 +1,139 @@
 <?xml version="1.0"?>
 <document>
   <row>
-    <title>Fortbildungskalender 2018/2019</title>
-    <description>Hier finden Sie den aktuellen Fortbildungskalender des Schulzentrums. Bitte nutzen Sie das Anmeldeformular und senden Sie es per Mail oder Post an Fr. Hoyer. (Hoyer_N@&#xA0;ukw.de)</description>
-    <link>https://www.ukw.de/patienten-besucher/veranstaltungskalender/</link>
-    <date_start>17959</date_start>
-    <date_end>18261</date_end>
-    <time_end>NA</time_end>
-    <time_start>NA</time_start>
-    <street>Josef-Schneider-Stra&#xDF;e 2</street>
+    <category>Vortrag / Seminar</category>
+    <title>Meditation - Einf&#xFC;hrung und Begleitung</title>
+    <date_start>18018</date_start>
+    <date_end>18053</date_end>
+    <time_start>0.833333333333333</time_start>
+    <time_end>0.875</time_end>
+    <price>NA</price>
+    <description>In diesen Seminaren wird die M&#xF6;glichkeit gegeben,  Meditation kennenzulernen und &#xFC;ber einen l&#xE4;ngeren Zeitraum einzu&#xFC;ben. Verschiedene Meditations-Formen werden angeboten, um den pers&#xF6;nlich geeigneten Weg zu finden: wir werden &#xFC;ben, den K&#xF6;rper wahrzunehmen, den Atem zu sp&#xFC;ren, auf die Stille zu h&#xF6;ren und in Ruhe und Bewegung achtsam und wach anwesend zu sein.</description>
+    <lat>49.78972</lat>
+    <lng>9.93501</lng>
+    <street>Wilhelm-Schwinn-Platz 3</street>
+    <zip>97070</zip>
     <city>W&#xFC;rzburg</city>
-    <zip>97080</zip>
-    <lng>9.95373</lng>
-    <lat>49.8007</lat>
-    <idcrawler>12</idcrawler>
-    <idorganizer>12</idorganizer>
+    <link>https://www.schroeder-haus.de/veranstaltungsdetails/c93b8bc66831357cb27247c3a7f52479/?tx_adebisevents_list%5Bevent%5D=2116&amp;tx_adebisevents_list%5Bcontroller%5D=Event&amp;tx_adebisevents_list%5Baction%5D=show</link>
+    <idcrawler>37</idcrawler>
+    <idorganizer>10</idorganizer>
   </row>
   <row>
-    <title>Interdisziplin&#xE4;re Schmerz- und Fallkonferenz</title>
-    <description>F&#xFC;r das freiwillige Fortbildungszertifikat der Bayerischen Landes&#xE4;rztekammer ist diese Fortbildung mit 1 Punkt anrechenbar.</description>
-    <link>https://www.ukw.de/patienten-besucher/veranstaltungskalender/</link>
-    <date_start>17961</date_start>
-    <date_end>18073</date_end>
-    <time_end>NA</time_end>
-    <time_start>NA</time_start>
-    <street>Josef-Schneider-Stra&#xDF;e 2</street>
-    <city>W&#xFC;rzburg</city>
-    <zip>97080</zip>
-    <lng>9.95373</lng>
-    <lat>49.8007</lat>
-    <idcrawler>12</idcrawler>
-    <idorganizer>12</idorganizer>
-  </row>
-  <row>
-    <title>Monatliches Treffen der Selbsthilfegruppe Herzschw&#xE4;che</title>
-    <description>Bitte bringen Sie am 11. M&#xE4;rz 2019 zur Muskelentspannung nach Jacobson bequeme Kleidung, ein kleines Kissen und bei Bedarf eine Decke mit. &#xD;
-Hintergrund: Die Selbsthilfegruppe trifft sich jeden&#xA0;zweiten Montag im Monat im DZHI. Als Einstieg in die Gruppensitzung dient jeweils ein Impulsreferat zu verschiedenen Themen. Daran schlie&#xDF;t sich eine offene Gespr&#xE4;chsrunde an.&#xD;
-Weitere Informationen zur Selbsthilfegruppe Herzschw&#xE4;che W&#xFC;rzburg finden Sie hier.</description>
-    <link>https://www.ukw.de/patienten-besucher/veranstaltungskalender/</link>
-    <date_start>17966</date_start>
-    <date_end>NA</date_end>
-    <time_end>0.75</time_end>
+    <category>Vortrag / Seminar</category>
+    <title>Willkommenstag im Dekanat W&#xFC;rzburg</title>
+    <date_start>18030</date_start>
+    <date_end>18030</date_end>
     <time_start>0.666666666666667</time_start>
-    <street>Josef-Schneider-Stra&#xDF;e 2</street>
-    <city>W&#xFC;rzburg</city>
-    <zip>97080</zip>
-    <lng>9.95373</lng>
-    <lat>49.8007</lat>
-    <idcrawler>12</idcrawler>
-    <idorganizer>12</idorganizer>
-  </row>
-  <row>
-    <title>Klinische Visite in der Universit&#xE4;ts-Kinderklinik</title>
-    <description></description>
-    <link>https://www.ukw.de/patienten-besucher/veranstaltungskalender/</link>
-    <date_start>17968</date_start>
-    <date_end>NA</date_end>
-    <time_end>0.802083333333333</time_end>
-    <time_start>0.708333333333333</time_start>
-    <street>Josef-Schneider-Stra&#xDF;e 2</street>
-    <city>W&#xFC;rzburg</city>
-    <zip>97080</zip>
-    <lng>9.95373</lng>
-    <lat>49.8007</lat>
-    <idcrawler>12</idcrawler>
-    <idorganizer>12</idorganizer>
-  </row>
-  <row>
-    <title>Zuweisertreffen 2019</title>
-    <description>Die Klinik und Poliklinik der Thorax-, Herz- und Thorakalen Gef&#xE4;&#xDF;chirurgie sowie die Medizinische Klinik und Poliklinik I des Universit&#xE4;tsklinikums W&#xFC;rzburg laden herzlich zum Zuweisertreffen ein. In einem ansprechenden Rahmenprogramm referieren Referentinnen und Referenten zu den herzchirurgischen oder kardiologischen Themen:Heart Team &#x2013; Dos and Don&#x2019;tsDie AHB-Klinik als Teil des Heart Team&#xB4;s, Br&#xFC;cke zwischen Akutmedizin und Niedergelassenem KardiologenSchrittmacher-ExtraktionschirurgieAntikoagulationsrichtlinienN&#xE4;here Einzelheiten entnehmen Sie bitte dem Flyer zum W&#xFC;rzburger kardiochirurgisch-kardiologischen Treffen. &#xD;
-Aus organisatorischen Gr&#xFC;nden d&#xFC;rfen wir um eine definitive Aussage &#xFC;ber Ihre Teilnahme bis zum 13. Februar 2019 bitten.</description>
-    <link>https://www.ukw.de/patienten-besucher/veranstaltungskalender/</link>
-    <date_start>17968</date_start>
-    <date_end>NA</date_end>
     <time_end>NA</time_end>
-    <time_start>0.770833333333333</time_start>
-    <street>Josef-Schneider-Stra&#xDF;e 2</street>
+    <price>NA</price>
+    <description>Im Auftrag des Evang.-Luth. Dekanats W&#xFC;rzburg und gemeinsam mit dem Kindertagesst&#xE4;tten-Zweckverband l&#xE4;dt das Schr&#xF6;der-Haus ab 2019 zu Willkommenstagen f&#xFC;r neue Mitarbeitende der unterschiedlichsten Berufsgruppen ein.  Diese Tage haben das Ziel, alle neuen Mitarbeitenden aus Kirchengemeinden und anderen kirchlichen Einrichtungen im Dekanat W&#xFC;rzburg in Kultur, Auftrag und Wertehintergrund der evangelischen Kirche einzuf&#xFC;hren und sie innerhalb der Kirche Willkommen zu hei&#xDF;en. 
+Leitung:  Eva-Maria Hartmann, Max von Egidy 
+Anmeldung erforderlich. Gesonderte Einladung  ergeht.</description>
+    <lat>49.78972</lat>
+    <lng>9.93501</lng>
+    <street>Wilhelm-Schwinn-Platz 3</street>
+    <zip>97070</zip>
     <city>W&#xFC;rzburg</city>
-    <zip>97080</zip>
-    <lng>9.95373</lng>
-    <lat>49.8007</lat>
-    <idcrawler>12</idcrawler>
-    <idorganizer>12</idorganizer>
+    <link>https://www.schroeder-haus.de/veranstaltungsdetails/9642188660de1f99b139aa23309c55f4/?tx_adebisevents_list%5Bevent%5D=2143&amp;tx_adebisevents_list%5Bcontroller%5D=Event&amp;tx_adebisevents_list%5Baction%5D=show</link>
+    <idcrawler>37</idcrawler>
+    <idorganizer>10</idorganizer>
   </row>
   <row>
-    <title>Patientenseminar: Wegweiser zu Sozialleistungen bei Krebs</title>
-    <description>Vortragende: Vanessa Pfeuffer, Leitung Sozialdienst UKW</description>
-    <link>https://www.ukw.de/patienten-besucher/veranstaltungskalender/</link>
-    <date_start>17968</date_start>
-    <date_end>NA</date_end>
-    <time_end>0.75</time_end>
-    <time_start>0.708333333333333</time_start>
-    <street>Josef-Schneider-Stra&#xDF;e 2</street>
+    <category>Vortrag / Seminar</category>
+    <title>Mich n&#xE4;hren, meinen Raum und meine Grenzen st&#xE4;rken</title>
+    <date_start>18045</date_start>
+    <date_end>18073</date_end>
+    <time_start>0.8125</time_start>
+    <time_end>0.895833333333333</time_end>
+    <price>NA</price>
+    <description>In einer Zeit der F&#xFC;lle von Aufgaben, Erwartungen und Informationen wird es immer wichtiger, mich selbst zu sp&#xFC;ren. Wie kann ich in meinem t&#xE4;glichen Leben, gepr&#xE4;gt von Arbeit, Terminen und Familienleben gut f&#xFC;r mich sorgen? Wir &#xFC;ben eine Meditation ein, um den eigenen Raum wahrzunehmen und zu st&#xE4;rken. So setzen wir unsere nat&#xFC;rliche Grenze und errichten keine Mauern. Dadurch k&#xF6;nnen wir aus unserer Mitte heraus mit unserer Umwelt verbunden sein, ohne uns selbst zu vernachl&#xE4;ssigen. Mit Hilfe von Steinen machen wir unsere Grenzen sichtbar und sp&#xFC;ren nach, wo wir zu viel oder zu wenig Platz einnehmen. Wir lernen, uns in unserem Raum zu verankern und ihn mit Energie zu f&#xFC;llen. Au&#xDF;erdem schauen wir uns an, was uns st&#xE4;rkt und n&#xE4;hrt - und was uns Energie raubt. 
+*Bitte warme Socken mitbringen.</description>
+    <lat>49.78972</lat>
+    <lng>9.93501</lng>
+    <street>Wilhelm-Schwinn-Platz 3</street>
+    <zip>97070</zip>
     <city>W&#xFC;rzburg</city>
-    <zip>97080</zip>
-    <lng>9.95373</lng>
-    <lat>49.8007</lat>
-    <idcrawler>12</idcrawler>
-    <idorganizer>12</idorganizer>
+    <link>https://www.schroeder-haus.de/veranstaltungsdetails/33b2336726a747c015e3f0c639cde580/?tx_adebisevents_list%5Bevent%5D=2166&amp;tx_adebisevents_list%5Bcontroller%5D=Event&amp;tx_adebisevents_list%5Baction%5D=show</link>
+    <idcrawler>37</idcrawler>
+    <idorganizer>10</idorganizer>
   </row>
   <row>
-    <title>Arbeitskreis Rheumatologie 2019 / interdisziplin&#xE4;r</title>
-    <description>Sehr geehrte Kolleginnen und Kollegen,sehr geehrte  Mitglieder des Rheumazentrums W&#xFC;rzburg,&#xD;
-im Rahmen des Arbeitskreises Rheumatologie wollen wir auch in diesem Jahr wieder sechs Termine anbieten, an denen Mitglieder des Rheumazentrums, sowie interessierte Kolleginnen und Kollegen die M&#xF6;glichkeit zum interdisziplin&#xE4;ren Austausch und zur Fortbildung haben.&#xD;
-Die Themen der Vortr&#xE4;ge sollen sich auf Schnittstellen zwischen den Fachgebieten beziehn. Zusammen mit Ihnen wollen wir, ausgehend von diesen Vortr&#xE4;gen, praxisrelevante Aspekte entz&#xFC;ndlich-rheumatischer Erkrankungen er&#xF6;rtern.&#xD;
-Im Anschluss an den jeweiligen Vortrag ist eine Fallbesprechung vorgesehen. Wir wollen Sie ermuntern eigene F&#xE4;lle zur Diskussion mitzubringen. Bei sehr komplexen Fragestellungen, die spezielles interdisziplin&#xE4;res Wissen erfordern, werden wir gezielt eine besonders kundige Kollegin oder Kollegen einladen. In diesem Fall bitten wir um eine Voranmeldung der Kasuistik und eine kurze Zusammenfassung in digitaler Form. Aber auch spontane Beitr&#xE4;ge sind willkommen und bestimmt f&#xFC;r alle interessant und lehrreich.&#xD;
-F&#xFC;r die Anmeldung der Kasuistiken senden Sie bitte eine E-Mail an: schmalzing_m@&#xA0;ukw.de.&#xD;
-Bei Bedarf k&#xF6;nnen wir ebenso, unabh&#xE4;ngig von konkreten Patienten, Strategien zur Diagnostik und Behandlung diskutieren. &#xD;
-Auf Ihre aktive Mitarbeit und Diskussion freuen wir uns sehr und laden Sie herzlich zur Teilnahme ein.&#xD;
-&#xA0;
-Prof. Dr. H.-P. Tony, &#xA0; &#xA0; &#xA0; &#xA0; &#xA0; &#xA0; &#xA0; &#xA0; &#xA0; &#xA0; &#xA0; &#xA0; &#xA0; &#xA0; &#xA0; &#xA0; &#xA0; &#xA0; &#xA0; &#xA0; &#xA0; &#xA0; &#xA0; &#xA0; Dr. M. Schmalzing&#xD;
-i&#xD;
- Programm Termine  und Referenten 2019: 
-jeweils 17:00 Uhr s. t. bis 18:30 Uhr&#xD;
-13.03.2019 - Therapie der Psoriasis (Frau Dr. Kahlert, Dermatologie, UKW)08.05.2019 - Vorsorge des Zervixkarzinoms und HPV-Impfung (Herr Dr. Balafoutas, Gyn&#xE4;kologie, UKW)24.07.2019 - Therapie der Multiplen Sklerose (Herr Prof. Dr. Stoll, Neurologie, UKW)18.09.2019 - Grundlagen und Prinzipien der Uveiitistherapie (Frau Dr. Hommes, Augenklinik, UKW)16.10.2019 - Antiinflammatorische Therapie in der Kardiologie (Herr PD Dr. Herrmann, Kardiologie, Leopoldina SW)11.12.2019 - Die systemische Therapie der chronischen entz&#xFC;ndlichen Darmerkrankungen (Herr Prof. Dr. Scheurlen, Gastroenterologie, UKW) &#xD;
-&#xA0;
-&#xA0;
-Fortbildungspunkte werden bei der BLAEK beantragt und i. d. R.  mit 3 Punkten pro Abend bewertet. &#xD;
-F&#xFC;r einen kleinen Imbiss ist gesorgt. &#xD;
-Bitte bringen Sie Aufkleber mit der einheitlichen  Fortbildungsnummer mit! &#xD;
-Download Flyer &#xD;
-Wir bedanken uns bei den Sponsoren f&#xFC;r die freundliche  Unterst&#xFC;tzung des Projekts!</description>
-    <link>https://www.ukw.de/patienten-besucher/veranstaltungskalender/</link>
-    <date_start>17968</date_start>
-    <date_end>18241</date_end>
-    <time_end>0.770833333333333</time_end>
-    <time_start>0.708333333333333</time_start>
-    <street>Josef-Schneider-Stra&#xDF;e 2</street>
+    <category>Vortrag / Seminar</category>
+    <title>Ihr seid der K&#xF6;rper Christi!
+Gemeindebilder und Ethik bei...</title>
+    <date_start>18094</date_start>
+    <date_end>18094</date_end>
+    <time_start>0.791666666666667</time_start>
+    <time_end>0.854166666666667</time_end>
+    <price>NA</price>
+    <description>Das Johannesevangelium beschreibt auf ganz eigene Art und Weise den Weg Jesu in seinen letzten Tagen. W&#xE4;hrend Jesus nach den Synoptikern Brot und Wein deutet und mit seinen J&#xFC;ngern teilt, w&#xE4;scht er im Johannesevangelium ihre F&#xFC;&#xDF;e. W&#xE4;hrend Jesus nach den Synoptikern am Passafest selbst gestorben ist, wird er nach Johannes am R&#xFC;sttag gekreuzigt. Die Heilsbedeutung des Todes Jesu sieht Johannes in der Liebe, die Jesus diesen Weg bis zum bitteren Ende gehen l&#xE4;sst. Gemeinsam wollen wir johanneische Texte lesen und entdecken, wie die faszinierende, symbol- und bildhafte Sprache immer wieder neue Anst&#xF6;&#xDF;e gibt, Jesus und seine Bedeutung f&#xFC;r den Glauben zu verstehen.</description>
+    <lat>49.78972</lat>
+    <lng>9.93501</lng>
+    <street>Wilhelm-Schwinn-Platz 3</street>
+    <zip>97070</zip>
     <city>W&#xFC;rzburg</city>
-    <zip>97080</zip>
-    <lng>9.95373</lng>
-    <lat>49.8007</lat>
-    <idcrawler>12</idcrawler>
-    <idorganizer>12</idorganizer>
+    <link>https://www.schroeder-haus.de/veranstaltungsdetails/f3e7d000eacba7925e11e7fa2875f9d4/?tx_adebisevents_list%5Bevent%5D=2175&amp;tx_adebisevents_list%5Bcontroller%5D=Event&amp;tx_adebisevents_list%5Baction%5D=show</link>
+    <idcrawler>37</idcrawler>
+    <idorganizer>10</idorganizer>
+  </row>
+  <row>
+    <category>Vortrag / Seminar</category>
+    <title>Willkommenstag im Dekanat W&#xFC;rzburg</title>
+    <date_start>18073</date_start>
+    <date_end>18073</date_end>
+    <time_start>0.666666666666667</time_start>
+    <time_end>NA</time_end>
+    <price>NA</price>
+    <description>Im Auftrag des Evang.-Luth. Dekanats W&#xFC;rzburg und gemeinsam mit dem Kindertagesst&#xE4;tten-Zweckverband l&#xE4;dt das Schr&#xF6;der-Haus ab 2019 zu Willkommenstagen f&#xFC;r neue Mitarbeitende der unterschiedlichsten Berufsgruppen ein.  Diese Tage haben das Ziel, alle neuen Mitarbeitenden aus Kirchengemeinden und anderen kirchlichen Einrichtungen im Dekanat W&#xFC;rzburg in Kultur, Auftrag und Wertehintergrund der evangelischen Kirche einzuf&#xFC;hren und sie innerhalb der Kirche Willkommen zu hei&#xDF;en. 
+Leitung:  Eva-Maria Hartmann, Max von Egidy 
+Anmeldung erforderlich. Gesonderte Einladung  ergeht.</description>
+    <lat>49.78972</lat>
+    <lng>9.93501</lng>
+    <street>Wilhelm-Schwinn-Platz 3</street>
+    <zip>97070</zip>
+    <city>W&#xFC;rzburg</city>
+    <link>https://www.schroeder-haus.de/veranstaltungsdetails/3afdb23e9dd345406818be57c07117d5/?tx_adebisevents_list%5Bevent%5D=2176&amp;tx_adebisevents_list%5Bcontroller%5D=Event&amp;tx_adebisevents_list%5Baction%5D=show</link>
+    <idcrawler>37</idcrawler>
+    <idorganizer>10</idorganizer>
+  </row>
+  <row>
+    <category>Vortrag / Seminar</category>
+    <title>Willkommenstag im Dekanat W&#xFC;rzburg</title>
+    <date_start>18191</date_start>
+    <date_end>18191</date_end>
+    <time_start>0.666666666666667</time_start>
+    <time_end>NA</time_end>
+    <price>NA</price>
+    <description>Im Auftrag des Evang.-Luth. Dekanats W&#xFC;rzburg und gemeinsam mit dem Kindertagesst&#xE4;tten-Zweckverband l&#xE4;dt das Schr&#xF6;der-Haus ab 2019 zu Willkommenstagen f&#xFC;r neue Mitarbeitende der unterschiedlichsten Berufsgruppen ein.  Diese Tage haben das Ziel, alle neuen Mitarbeitenden aus Kirchengemeinden und anderen kirchlichen Einrichtungen im Dekanat W&#xFC;rzburg in Kultur, Auftrag und Wertehintergrund der evangelischen Kirche einzuf&#xFC;hren und sie innerhalb der Kirche Willkommen zu hei&#xDF;en. 
+Leitung:  Eva-Maria Hartmann, Max von Egidy 
+Anmeldung erforderlich. Gesonderte Einladung  ergeht.</description>
+    <lat>49.78972</lat>
+    <lng>9.93501</lng>
+    <street>Wilhelm-Schwinn-Platz 3</street>
+    <zip>97070</zip>
+    <city>W&#xFC;rzburg</city>
+    <link>https://www.schroeder-haus.de/veranstaltungsdetails/c8db28bb6db79e00203396f9f9742537/?tx_adebisevents_list%5Bevent%5D=2197&amp;tx_adebisevents_list%5Bcontroller%5D=Event&amp;tx_adebisevents_list%5Baction%5D=show</link>
+    <idcrawler>37</idcrawler>
+    <idorganizer>10</idorganizer>
+  </row>
+  <row>
+    <category>Vortrag / Seminar</category>
+    <title>Willkommenstag im Dekanat W&#xFC;rzburg</title>
+    <date_start>18213</date_start>
+    <date_end>18213</date_end>
+    <time_start>0.666666666666667</time_start>
+    <time_end>NA</time_end>
+    <price>NA</price>
+    <description>Im Auftrag des Evang.-Luth. Dekanats W&#xFC;rzburg und gemeinsam mit dem Kindertagesst&#xE4;tten-Zweckverband l&#xE4;dt das Schr&#xF6;der-Haus ab 2019 zu Willkommenstagen f&#xFC;r neue Mitarbeitende der unterschiedlichsten Berufsgruppen ein.  Diese Tage haben das Ziel, alle neuen Mitarbeitenden aus Kirchengemeinden und anderen kirchlichen Einrichtungen im Dekanat W&#xFC;rzburg in Kultur, Auftrag und Wertehintergrund der evangelischen Kirche einzuf&#xFC;hren und sie innerhalb der Kirche Willkommen zu hei&#xDF;en. 
+Leitung:  Eva-Maria Hartmann, Max von Egidy 
+Anmeldung erforderlich. Gesonderte Einladung  ergeht.</description>
+    <lat>49.78972</lat>
+    <lng>9.93501</lng>
+    <street>Wilhelm-Schwinn-Platz 3</street>
+    <zip>97070</zip>
+    <city>W&#xFC;rzburg</city>
+    <link>https://www.schroeder-haus.de/veranstaltungsdetails/e66c9acd597a135e3154309191c40e61/?tx_adebisevents_list%5Bevent%5D=2198&amp;tx_adebisevents_list%5Bcontroller%5D=Event&amp;tx_adebisevents_list%5Baction%5D=show</link>
+    <idcrawler>37</idcrawler>
+    <idorganizer>10</idorganizer>
   </row>
 </document>

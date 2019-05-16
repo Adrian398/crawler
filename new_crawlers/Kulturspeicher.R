@@ -92,11 +92,13 @@ date_start <- as.Date(date_start, "%d.%m.%Y")
 
 time_start <- chron(times = time_start)
 
+time_end = rep(NA, length(title))
 # build table
 crawled_df <- data.frame(
                     title = title,
                     date_start = date_start,
                     time_start = time_start,
+                    time_end = time_end,
                     price = price,
                     description = description,
                     lat = lat,
@@ -108,3 +110,8 @@ crawled_df <- data.frame(
 
 meta_df = data.frame(url = url
                      , organizer = organizer)
+
+names(meta_df)[names(meta_df) == 'url'] <- 'url_crawler'
+
+#write to database
+write_dataframes_to_database(crawled_df, meta_df, conn)
