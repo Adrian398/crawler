@@ -10,23 +10,37 @@ library(chron)
 url <- "http://weingut-am-stein.de/de/aktuelles/termine.html"
 
 # ziehe Tag
+
+
+
 url %>%
   read_html() %>%
   html_nodes(".date") %>%
   html_text() -> dates
 
-dati <- strapply(as.character(dates), "\\d{1,2}\\.\\d{2}")
-dati <- as.matrix(as.data.frame(dati))
+# get start and end date
+#get substr Right
+substrRight <- function(x, n){
+  substr(x, nchar(x)-n+1, nchar(x))
+}
 
-# ziehe Start und End-Datum und untersuche auf Fehlenden Punkt am Ende
-dati_start <- dati[1,]
-dati_end <- dati[2,]
-
-# Füge Jahreszahl dazu
-dati_start <- sapply(dati_start, function(x) paste0(x, ".2018"))
-as.Date(dati_start, format="%d.%m.%Y") -> dati_start
-dati_end <- sapply(dati_end,function(x) paste0(x, ".2018") )
-as.Date(dati_end, format="%d.%m.%Y") -> dati_end
+date_start <- c()
+date_end <- c()
+for (i in 1:length(dates)){
+  splitdate = strsplit(dates[i], " - ")
+  if(nchar(splitdate[[1]][1])==10){
+    date_start = c(date_start,splitdate[[1]][1])
+    date_end = c(date_end,splitdate[[1]][2])
+    ####fixen
+  }else{
+    print("hello")
+    date_start = c(date_start, paste0(splitdate[[1]][1], paste0(".",format(Sys.Date(), "%Y"))))
+    date_end = c(date_end,splitdate[[1]][2])
+  }
+  
+}
+date_start
+date_end
 
 ##TITLE
 url %>%

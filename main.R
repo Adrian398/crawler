@@ -5,7 +5,9 @@ source("write_xml.R")
 library(readr)
 library(foreach)
 #library(doParallel)
-
+library(tidyverse)
+library(rvest)
+library(chron)
 
 getSqlConnection <- function(){
   con <-dbConnect(

@@ -10,28 +10,28 @@ check_url <- franken_url
 event_links_all <- list()
 
 #event links are on monthly .htmls, so we have to check each month until there are no more events available
-while(has_content == "T"){
-  check_url %>%
-    read_html(encoding = "UTF-8") -> check_html
-  
-  check_html %>%
-    html_nodes("dt") %>%
-    html_nodes("a") %>%
-    html_attr("href") -> event_links
-  
-  event_links_all <- append(event_links_all, event_links)
-  
-  if(length(event_links) == 0){
-    has_content <- "F"
-  }
-  
-  check_html %>%
-    html_node(".month-next") %>%
-    html_node("a") %>%
-    html_attr("href") -> check_url_ext
-  
-  check_url <- paste0("http://museum-franken.de/",check_url_ext)
+
+check_url %>%
+  read_html(encoding = "UTF-8") -> check_html
+
+check_html %>%
+  html_nodes("dt") %>%
+  html_nodes("a") %>%
+  html_attr("href") -> event_links
+
+event_links_all <- append(event_links_all, event_links)
+
+if(length(event_links) == 0){
+  has_content <- "F"
 }
+
+check_html %>%
+  html_node(".month-next") %>%
+  html_node("a") %>%
+  html_attr("href") -> check_url_ext
+
+check_url <- paste0("http://museum-franken.de/",check_url_ext)
+
 
 #create full urls out of links
 event_links_all <- paste0("http://museum-franken.de/", event_links_all)
