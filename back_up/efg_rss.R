@@ -1,10 +1,6 @@
-library(feedeR)
-library(tidyRSS)
-url = "https://www.st-josef-grombuehl.de/"
-df = feed.extract("https://www.stift-haug.de/aktuelle-termine.rss")
-rss = tidyfeed("https://www.stift-haug.de/aktuelle-termine.rss")
-rss$item_description
-df$items
+url = "http://www.efg-wuerzburg.de/news"
+df = tidyfeed("http://www.efg-wuerzburg.de/news/feed.xml")
+
 date_start = as.Date(df$items$date)
 time_start = chron(times = strftime(df$items$date, format="%H:%M:%S"))
 # setting up the rest data
@@ -27,15 +23,4 @@ names(meta_df)[names(meta_df) == 'url'] <- 'url_crawler'
 #write to database
 write_dataframes_to_database(crawled_df, meta_df, conn)
 
-xmlTreeParse("https://www.priesterseminar-wuerzburg.de/index.html.rss")
-
-library(XML)
-script  <- getURL("https://www.priesterseminar-wuerzburg.de/index.html.rss")
-doc     <- xmlParse(script)
-
-
-xml.url <- "http://www.huffingtonpost.com/rss/liveblog/liveblog-1213.xml"
-script  <- getURL(xml.url)
-doc     <- xmlParse(script)
-
-
+df$item_description[2]

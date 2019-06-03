@@ -1,0 +1,153 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Theater Spielberg - ECPv4.9.2//NONSGML v1.0//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Theater Spielberg
+X-ORIGINAL-URL:https://www.theater-spielberg.de/wordpress
+X-WR-CALDESC:Veranstaltungen im Theater Spielberg
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Berlin:20190615T153000
+DTEND;TZID=Europe/Berlin:20190615T153000
+DTSTAMP:20190603T120616
+CREATED:20181209T155730Z
+LAST-MODIFIED:20181216T084237Z
+UID:3034-1560612600-1560612600@www.theater-spielberg.de
+SUMMARY:Kasper kann alles
+DESCRIPTION:Kasper ist ein toller Kerl\,das weiß doch jedes Kind. Doch dass er wirklich alles kann? Er behauptet es jedenfalls. Beim Tanzen ist er überzeugend\, den Teufel hält er mit dem Besen in Schach\, doch als Märchenprinz versagt er kläglich. Gretel allerdings hat ihn trotzdem lieb.\nausgedacht und gemacht hat dieses Stück\nNorbert Böll\, der vor und hinter der Guckkastenbühne agiert. \nfür Kinder von 3 bis 8 Jahren \n
+URL:https://www.theater-spielberg.de/wordpress/event/kasper-kann-alles-14/
+ATTACH;FMTTYPE=image/jpeg:https://www.theater-spielberg.de/wordpress/wp-content/uploads/2016/11/Kasper_kann_alles1128_jiw_jiw.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Berlin:20190616T153000
+DTEND;TZID=Europe/Berlin:20190616T153000
+DTSTAMP:20190603T120616
+CREATED:20181209T155730Z
+LAST-MODIFIED:20181216T084237Z
+UID:3035-1560699000-1560699000@www.theater-spielberg.de
+SUMMARY:Kasper kann alles
+DESCRIPTION:Kasper ist ein toller Kerl\,das weiß doch jedes Kind. Doch dass er wirklich alles kann? Er behauptet es jedenfalls. Beim Tanzen ist er überzeugend\, den Teufel hält er mit dem Besen in Schach\, doch als Märchenprinz versagt er kläglich. Gretel allerdings hat ihn trotzdem lieb.\nausgedacht und gemacht hat dieses Stück\nNorbert Böll\, der vor und hinter der Guckkastenbühne agiert. \nfür Kinder von 3 bis 8 Jahren \n
+URL:https://www.theater-spielberg.de/wordpress/event/kasper-kann-alles-15/
+ATTACH;FMTTYPE=image/jpeg:https://www.theater-spielberg.de/wordpress/wp-content/uploads/2016/11/Kasper_kann_alles1128_jiw_jiw.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Berlin:20190630T160000
+DTEND;TZID=Europe/Berlin:20190630T160000
+DTSTAMP:20190603T120616
+CREATED:20181209T155731Z
+LAST-MODIFIED:20190120T104537Z
+UID:3036-1561910400-1561910400@www.theater-spielberg.de
+SUMMARY:PREMIERE: Prinzessin Perle und der Drachenstuhl
+DESCRIPTION:Herr Spatz\, der Vogelkundler\, brütet über einem gefundenen Vogelei. Was mag da drinnen sein? \nDa bekommt er unerwartet ein Paket von seiner Tante Agathe. Was soll er denn mit ihren alten Königspuppen? Doch da bringt ihn die Hexe Akabea auf eine brennend neue Idee! Ein Ei wird eine Prinzessin\, ein Stuhl ein Drache und eine Perle ein wunderbar dramatischer Zündstoff. \nAber wie die Vogelprinzessin entzaubert wird\, das verraten wir noch nicht! \nEin Stückchen (über) Geduld\, Abenteuerlust und die Freude am Fliegen. \nFür Kinder ab 4 Jahren \n
+URL:https://www.theater-spielberg.de/wordpress/event/premiere-prinzessin-perle-und-der-drachenstuhl/
+CATEGORIES:im Walderlebniszentrum Gramschatzer Wald,www.walderlebniszentrum-gramschatzer-wald.de
+ATTACH;FMTTYPE=image/jpeg:https://www.theater-spielberg.de/wordpress/wp-content/uploads/2018/12/Foto-Prinzessin-Perle-Foto-Gabi-Siegler_ji.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Berlin:20190703T091500
+DTEND;TZID=Europe/Berlin:20190703T091500
+DTSTAMP:20190603T120616
+CREATED:20181209T155731Z
+LAST-MODIFIED:20190120T104514Z
+UID:3037-1562145300-1562145300@www.theater-spielberg.de
+SUMMARY:Prinzessin Perle und der Drachenstuhl
+DESCRIPTION:Herr Spatz\, der Vogelkundler\, brütet über einem gefundenen Vogelei. Was mag da drinnen sein? \nDa bekommt er unerwartet ein Paket von seiner Tante Agathe. Was soll er denn mit ihren alten Königspuppen? Doch da bringt ihn die Hexe Akabea auf eine brennend neue Idee! Ein Ei wird eine Prinzessin\, ein Stuhl ein Drache und eine Perle ein wunderbar dramatischer Zündstoff. \nAber wie die Vogelprinzessin entzaubert wird\, das verraten wir noch nicht! \nEin Stückchen (über) Geduld\, Abenteuerlust und die Freude am Fliegen. \nFür Kinder ab 4 Jahren \n
+URL:https://www.theater-spielberg.de/wordpress/event/prinzessin-perle-und-der-drachenstuhl/
+ATTACH;FMTTYPE=image/jpeg:https://www.theater-spielberg.de/wordpress/wp-content/uploads/2018/12/Foto-Prinzessin-Perle-Foto-Gabi-Siegler_ji.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Berlin:20190703T103000
+DTEND;TZID=Europe/Berlin:20190703T103000
+DTSTAMP:20190603T120616
+CREATED:20181209T155732Z
+LAST-MODIFIED:20190120T104452Z
+UID:3038-1562149800-1562149800@www.theater-spielberg.de
+SUMMARY:Prinzessin Perle und der Drachenstuhl
+DESCRIPTION:Herr Spatz\, der Vogelkundler\, brütet über einem gefundenen Vogelei. Was mag da drinnen sein? \nDa bekommt er unerwartet ein Paket von seiner Tante Agathe. Was soll er denn mit ihren alten Königspuppen? Doch da bringt ihn die Hexe Akabea auf eine brennend neue Idee! Ein Ei wird eine Prinzessin\, ein Stuhl ein Drache und eine Perle ein wunderbar dramatischer Zündstoff. \nAber wie die Vogelprinzessin entzaubert wird\, das verraten wir noch nicht! \nEin Stückchen (über) Geduld\, Abenteuerlust und die Freude am Fliegen. \nFür Kinder ab 4 Jahren \n
+URL:https://www.theater-spielberg.de/wordpress/event/prinzessin-perle-und-der-drachenstuhl-2/
+ATTACH;FMTTYPE=image/jpeg:https://www.theater-spielberg.de/wordpress/wp-content/uploads/2018/12/Foto-Prinzessin-Perle-Foto-Gabi-Siegler_ji.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Berlin:20190703T160000
+DTEND;TZID=Europe/Berlin:20190703T160000
+DTSTAMP:20190603T120616
+CREATED:20181209T155732Z
+LAST-MODIFIED:20190120T104430Z
+UID:3039-1562169600-1562169600@www.theater-spielberg.de
+SUMMARY:Prinzessin Perle und der Drachenstuhl
+DESCRIPTION:Herr Spatz\, der Vogelkundler\, brütet über einem gefundenen Vogelei. Was mag da drinnen sein? \nDa bekommt er unerwartet ein Paket von seiner Tante Agathe. Was soll er denn mit ihren alten Königspuppen? Doch da bringt ihn die Hexe Akabea auf eine brennend neue Idee! Ein Ei wird eine Prinzessin\, ein Stuhl ein Drache und eine Perle ein wunderbar dramatischer Zündstoff. \nAber wie die Vogelprinzessin entzaubert wird\, das verraten wir noch nicht! \nEin Stückchen (über) Geduld\, Abenteuerlust und die Freude am Fliegen. \nFür Kinder ab 4 Jahren \n
+URL:https://www.theater-spielberg.de/wordpress/event/prinzessin-perle-und-der-drachenstuhl-3/
+ATTACH;FMTTYPE=image/jpeg:https://www.theater-spielberg.de/wordpress/wp-content/uploads/2018/12/Foto-Prinzessin-Perle-Foto-Gabi-Siegler_ji.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Berlin:20190707T160000
+DTEND;TZID=Europe/Berlin:20190707T160000
+DTSTAMP:20190603T120616
+CREATED:20181209T155732Z
+LAST-MODIFIED:20190120T104408Z
+UID:3040-1562515200-1562515200@www.theater-spielberg.de
+SUMMARY:Prinzessin Perle und der Drachenstuhl
+DESCRIPTION:Herr Spatz\, der Vogelkundler\, brütet über einem gefundenen Vogelei. Was mag da drinnen sein? \nDa bekommt er unerwartet ein Paket von seiner Tante Agathe. Was soll er denn mit ihren alten Königspuppen? Doch da bringt ihn die Hexe Akabea auf eine brennend neue Idee! Ein Ei wird eine Prinzessin\, ein Stuhl ein Drache und eine Perle ein wunderbar dramatischer Zündstoff. \nAber wie die Vogelprinzessin entzaubert wird\, das verraten wir noch nicht! \nEin Stückchen (über) Geduld\, Abenteuerlust und die Freude am Fliegen. \nFür Kinder ab 4 Jahren \n
+URL:https://www.theater-spielberg.de/wordpress/event/prinzessin-perle-und-der-drachenstuhl-4/
+ATTACH;FMTTYPE=image/jpeg:https://www.theater-spielberg.de/wordpress/wp-content/uploads/2018/12/Foto-Prinzessin-Perle-Foto-Gabi-Siegler_ji.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Berlin:20190713T160000
+DTEND;TZID=Europe/Berlin:20190713T160000
+DTSTAMP:20190603T120616
+CREATED:20181209T155733Z
+LAST-MODIFIED:20190120T104336Z
+UID:3041-1563033600-1563033600@www.theater-spielberg.de
+SUMMARY:Prinzessin Perle und der Drachenstuhl
+DESCRIPTION:Herr Spatz\, der Vogelkundler\, brütet über einem gefundenen Vogelei. Was mag da drinnen sein? \nDa bekommt er unerwartet ein Paket von seiner Tante Agathe. Was soll er denn mit ihren alten Königspuppen? Doch da bringt ihn die Hexe Akabea auf eine brennend neue Idee! Ein Ei wird eine Prinzessin\, ein Stuhl ein Drache und eine Perle ein wunderbar dramatischer Zündstoff. \nAber wie die Vogelprinzessin entzaubert wird\, das verraten wir noch nicht! \nEin Stückchen (über) Geduld\, Abenteuerlust und die Freude am Fliegen. \nFür Kinder ab 4 Jahren \n
+URL:https://www.theater-spielberg.de/wordpress/event/prinzessin-perle-und-der-drachenstuhl-5/
+ATTACH;FMTTYPE=image/jpeg:https://www.theater-spielberg.de/wordpress/wp-content/uploads/2018/12/Foto-Prinzessin-Perle-Foto-Gabi-Siegler_ji.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Berlin:20190717T091500
+DTEND;TZID=Europe/Berlin:20190717T091500
+DTSTAMP:20190603T120616
+CREATED:20181209T155733Z
+LAST-MODIFIED:20190120T104313Z
+UID:3042-1563354900-1563354900@www.theater-spielberg.de
+SUMMARY:Prinzessin Perle und der Drachenstuhl
+DESCRIPTION:Herr Spatz\, der Vogelkundler\, brütet über einem gefundenen Vogelei. Was mag da drinnen sein? \nDa bekommt er unerwartet ein Paket von seiner Tante Agathe. Was soll er denn mit ihren alten Königspuppen? Doch da bringt ihn die Hexe Akabea auf eine brennend neue Idee! Ein Ei wird eine Prinzessin\, ein Stuhl ein Drache und eine Perle ein wunderbar dramatischer Zündstoff. \nAber wie die Vogelprinzessin entzaubert wird\, das verraten wir noch nicht! \nEin Stückchen (über) Geduld\, Abenteuerlust und die Freude am Fliegen. \nFür Kinder ab 4 Jahren \n
+URL:https://www.theater-spielberg.de/wordpress/event/prinzessin-perle-und-der-drachenstuhl-6/
+ATTACH;FMTTYPE=image/jpeg:https://www.theater-spielberg.de/wordpress/wp-content/uploads/2018/12/Foto-Prinzessin-Perle-Foto-Gabi-Siegler_ji.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Berlin:20190717T103000
+DTEND;TZID=Europe/Berlin:20190717T103000
+DTSTAMP:20190603T120616
+CREATED:20181209T155733Z
+LAST-MODIFIED:20190120T104248Z
+UID:3043-1563359400-1563359400@www.theater-spielberg.de
+SUMMARY:Prinzessin Perle und der Drachenstuhl
+DESCRIPTION:Herr Spatz\, der Vogelkundler\, brütet über einem gefundenen Vogelei. Was mag da drinnen sein? \nDa bekommt er unerwartet ein Paket von seiner Tante Agathe. Was soll er denn mit ihren alten Königspuppen? Doch da bringt ihn die Hexe Akabea auf eine brennend neue Idee! Ein Ei wird eine Prinzessin\, ein Stuhl ein Drache und eine Perle ein wunderbar dramatischer Zündstoff. \nAber wie die Vogelprinzessin entzaubert wird\, das verraten wir noch nicht! \nEin Stückchen (über) Geduld\, Abenteuerlust und die Freude am Fliegen. \nFür Kinder ab 4 Jahren \n
+URL:https://www.theater-spielberg.de/wordpress/event/prinzessin-perle-und-der-drachenstuhl-7/
+ATTACH;FMTTYPE=image/jpeg:https://www.theater-spielberg.de/wordpress/wp-content/uploads/2018/12/Foto-Prinzessin-Perle-Foto-Gabi-Siegler_ji.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Berlin:20190717T160000
+DTEND;TZID=Europe/Berlin:20190717T160000
+DTSTAMP:20190603T120616
+CREATED:20181209T155733Z
+LAST-MODIFIED:20190120T104220Z
+UID:3044-1563379200-1563379200@www.theater-spielberg.de
+SUMMARY:Prinzessin Perle und der Drachenstuhl
+DESCRIPTION:Herr Spatz\, der Vogelkundler\, brütet über einem gefundenen Vogelei. Was mag da drinnen sein? \nDa bekommt er unerwartet ein Paket von seiner Tante Agathe. Was soll er denn mit ihren alten Königspuppen? Doch da bringt ihn die Hexe Akabea auf eine brennend neue Idee! Ein Ei wird eine Prinzessin\, ein Stuhl ein Drache und eine Perle ein wunderbar dramatischer Zündstoff. \nAber wie die Vogelprinzessin entzaubert wird\, das verraten wir noch nicht! \nEin Stückchen (über) Geduld\, Abenteuerlust und die Freude am Fliegen. \nFür Kinder ab 4 Jahren \n
+URL:https://www.theater-spielberg.de/wordpress/event/prinzessin-perle-und-der-drachenstuhl-8/
+ATTACH;FMTTYPE=image/jpeg:https://www.theater-spielberg.de/wordpress/wp-content/uploads/2018/12/Foto-Prinzessin-Perle-Foto-Gabi-Siegler_ji.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Berlin:20190721T160000
+DTEND;TZID=Europe/Berlin:20190721T160000
+DTSTAMP:20190603T120616
+CREATED:20181209T155733Z
+LAST-MODIFIED:20190120T104026Z
+UID:3045-1563724800-1563724800@www.theater-spielberg.de
+SUMMARY:Prinzessin Perle und der Drachenstuhl
+DESCRIPTION:Herr Spatz\, der Vogelkundler\, brütet über einem gefundenen Vogelei. Was mag da drinnen sein? \nDa bekommt er unerwartet ein Paket von seiner Tante Agathe. Was soll er denn mit ihren alten Königspuppen? Doch da bringt ihn die Hexe Akabea auf eine brennend neue Idee! Ein Ei wird eine Prinzessin\, ein Stuhl ein Drache und eine Perle ein wunderbar dramatischer Zündstoff. \nAber wie die Vogelprinzessin entzaubert wird\, das verraten wir noch nicht! \nEin Stückchen (über) Geduld\, Abenteuerlust und die Freude am Fliegen. \nFür Kinder ab 4 Jahren \n\n
+URL:https://www.theater-spielberg.de/wordpress/event/prinzessin-perle-und-der-drachenstuhl-9/
+END:VEVENT
+END:VCALENDAR
