@@ -118,7 +118,7 @@ write_df_to_xml <- function(df,meta_df, file) {
   
   xml <- xmlTree() 
   # names(xml)
-  xml$addTag("crawler", close=FALSE, attrs=c(crawler_url=as.character(meta_df["url_crawler"][1,1]), Veranstalter = as.character(meta_df["organizer"][1,1])))
+  xml$addTag("crawler", close=FALSE, attrs=c(crawler_url=as.character(meta_df["url_crawler"][1,1]), Veranstalter = as.character(meta_df["organizer"][1,1]), ID_Ort = as.character(meta_df["idlocation"][1,1])))
   for (i in 1:nrow(xml_df)) {
     xml$addTag("event", close=FALSE)
     for (j in names(xml_df)) {

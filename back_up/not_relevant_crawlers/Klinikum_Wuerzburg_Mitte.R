@@ -122,9 +122,9 @@ crawled_df <- data.frame(
                     link = link,
                     image_url = image_url)
 
-meta_df = data.frame(url = url
-                     , organizer = organizer)
-
+#add metadf idlocation
+idlocation = 5424 #falsch nicht gefunden
+meta_df = data.frame(organizer, url, idlocation)
 names(meta_df)[names(meta_df) == 'url'] <- 'url_crawler'
 
 #write to database

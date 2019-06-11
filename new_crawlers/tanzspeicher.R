@@ -68,36 +68,19 @@ lng <- "9.9102"
 lat <- "49.8158"
 link = url
 date_end = NA
+date_end = as.Date(date_end)
 time_start = NA
 time_end = NA
 
 
-# Dataframe erzeugen
-df <- data.frame(title, url=links, description=Beschreibung, lng, lat, city, street, zip, date_start=datum_von, date_end=datum_bis, time_start=zeit, time_end=NA, price, organizer)
-
-
-# Anpassung Datenformate
-as.character(df$organizer)->df$organizer
-as.character(df$title)->df$title
-as.character(df$city)->df$city
-as.character(df$street)->df$street
-as.character(df$zip)->df$zip
-as.numeric(df$zip)->df$zip
-as.Date(df$date_start)->df$date_start
-as.Date(df$date_end)->df$date_end
-as.character(df$description)->df$description
-as.character(df$url)->df$url
-as.character(df$lat)->df$lat
-as.numeric(df$lat)->df$lat
-as.character(df$lng)->df$lng
-as.numeric(df$lng)->df$lng
-df$time_start <- times(paste0(df$time_start, ":00"))
-
 
 #set up to write to database
 crawled_df = data.frame(title, description, link, date_start, date_end, time_end, time_start, street, city, zip, lng, lat)
-meta_df = data.frame(organizer, link)
-names(meta_df)[names(meta_df) == 'link'] <- 'url_crawler'
+
+#add metadf idlocation
+idlocation = 4775
+meta_df = data.frame(organizer, url, idlocation)
+names(meta_df)[names(meta_df) == 'url'] <- 'url_crawler'
 
 #write to database
 write_dataframes_to_database(crawled_df, meta_df, conn)

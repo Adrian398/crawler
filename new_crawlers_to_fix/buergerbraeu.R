@@ -81,7 +81,6 @@ city = rep("Würzburg", length(title))
 # data type conversion
 date_start <- as.Date(date_start, "%d.%m.%Y")
 time_start <- chron(times = time_start)
-
 # build table
 crawled_df <- data.frame(
                     category = category,
@@ -96,9 +95,11 @@ crawled_df <- data.frame(
                     city = city,
                     link = link,
                     image_url = image_url)
+#add metadf idlocation
+idlocation = 403565
+meta_df = data.frame(organizer, url, idlocation)
+names(meta_df)[names(meta_df) == 'url'] <- 'url_crawler'
 
-meta_df = data.frame(url_crawler = url
-                     , organizer = organizer)
 
 #write to database
 write_dataframes_to_database(crawled_df, meta_df, conn)

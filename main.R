@@ -8,6 +8,7 @@ library(foreach)
 library(tidyverse)
 library(rvest)
 library(chron)
+source("write_to_database.R")
 
 getSqlConnection <- function(){
   con <-dbConnect(
@@ -36,7 +37,7 @@ for (file_name in list.files("new_crawlers")){
     source(paste0("new_crawlers/", file_name))
   }, error = function(e) {
     message(paste("Error in crawler:", file_name))
-    message("Here's the original error message:")
+    message("Here is the original error message:")
     message(e)
     return(NA)
   }, finally = {

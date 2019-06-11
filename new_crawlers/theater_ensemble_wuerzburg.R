@@ -58,6 +58,7 @@ raw_read %>%
   html_text(trim = T) -> price
 
 price = gsub(".*\n\t\t\t", "", price)
+price = str_extract(price, "[0-9]+")
 
 description = c()
 image_url = c()
@@ -103,14 +104,21 @@ city = rep("Würzburg", length(title))
 
 # data type conversion
 date_start <- as.Date(date_start, "%d.%m.%Y")
+date_end = NA
+date_end = as.Date(date_end, "%d.%m.%Y")
 time_start <- chron(times = time_start)
+time_end = NA
+
+price = as.numeric(price)
 
 # build table
 crawled_df <- data.frame(
                     category = category,
                     title = title,
                     date_start = date_start,
+                    date_end = date_end,
                     time_start = time_start,
+                    time_end = time_end,
                     price = price,
                     description = description,
                     lat = lat,
@@ -121,8 +129,10 @@ crawled_df <- data.frame(
                     link = link,
                     image_url = image_url)
 
-meta_df = data.frame(url_crawler = url
-                     , organizer = organizer)
+#add metadf idlocation
+idlocation = 4118
+meta_df = data.frame(organizer, url, idlocation)
+names(meta_df)[names(meta_df) == 'url'] <- 'url_crawler'
 
 
 #write to database

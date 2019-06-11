@@ -81,6 +81,11 @@ names(meta_df)[names(meta_df) == 'url'] <- 'url_crawler'
 names(v2)[names(v2) == 'url'] <- 'link'
 
 v2[[3]] = as.character(v2[[3]])
+
+#add idlocation
+idlocation = 7397
+meta_df["idlocation"] = idlocation
+
 #write to database
 write_dataframes_to_database(v2, meta_df, conn)
 

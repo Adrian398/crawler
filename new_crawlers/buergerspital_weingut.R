@@ -1,3 +1,4 @@
+
 ##### Import Packages ####
 library(rvest)
 library(tidyverse)
@@ -50,12 +51,11 @@ for (cache_link in link) {
     html_text(trim = T) -> cache_description
   
   cache_description = paste(cache_description, collapse = " ")
-  cache_price = gsub("Preis:\\s", "", str_extract(cache_description, "Preis:\\s[0-9]+\\s€"))
+  cache_price = gsub("Preis:\\s", "", str_extract(cache_description, "Preis:\\s[0-9]+"))
   
   description = c(description, cache_description)
   price = c(price, cache_price)
 }
-
 
 # fixed data setup
 organizer = "Bürgerspital Weingut"
@@ -69,6 +69,8 @@ city = rep("Würzburg", length(title))
 
 # data type conversion
 date_start <- as.Date(date_start, "%d.%m.%Y")
+date_end = NA
+date_end = as.Date(date_end, "%d.%m.%Y")
 
 time_start = paste(time_start, ":00", sep = "")
 time_start = chron(times = time_start)
@@ -78,7 +80,9 @@ crawled_df <- data.frame(
                     category = category,
                     title = title,
                     date_start = date_start,
+                    date_end = date_end,
                     time_start = time_start,
+                    time_end = time_end,
                     price = price,
                     description = description,
                     lat = lat,
@@ -88,8 +92,11 @@ crawled_df <- data.frame(
                     city = city,
                     link = link)
 
-meta_df = data.frame(url_crawler = url
-                     , organizer = organizer)
+#add metadf idlocation
+idlocation = 403100
+meta_df = data.frame(organizer, url, idlocation)
+names(meta_df)[names(meta_df) == 'url'] <- 'url_crawler'
+
 
 
 #write to database

@@ -83,6 +83,8 @@ html_nodes(html_text, ".wp_theatre_event_datetime") %>%
 date_start = map(as.character(event_date), get_Date)
 date_start = sapply( date_start, paste0, collapse="")
 
+date_end = as.Date(date_end, "%d.%m.%Y")
+
 df = data.frame(title, link, description, lng, lat, city, zip, street, date_start, date_end, time_start, time_end, price, organizer, image_url)
 
 
@@ -90,24 +92,14 @@ df = df %>%
   separate(date_start, c("date_start", "time_start"), " ")
 
 
-mutate(df,
-    date_start = as.Date(date_start, "%Y-%m-%d"),
-    time_start = chron(times = time_start),
-    title = as.character(title),
-    link = as.character(link),
-    description = as.character(description),
-    city = as.character(city),
-    street = as.character(street),
-    organizer = as.character(organizer),
-    date_end = NULL,
-    time_end = NULL,
-    price = NULL
-  )
 
 #set up to write to database
 crawled_df = df[c("title", "description", "link", "date_start", "date_end", "time_end", "time_start", "street", "city", "zip", "lng", "lat","image_url")]
-meta_df = df[c("organizer", "link")][1,]
-names(meta_df)[names(meta_df) == 'link'] <- 'url_crawler'
+
+#add metadf idlocation
+idlocation = 6238
+meta_df = data.frame(organizer, url, idlocation)
+names(meta_df)[names(meta_df) == 'url'] <- 'url_crawler'
 
 #write to database
 write_dataframes_to_database(crawled_df, meta_df, conn)

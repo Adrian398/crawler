@@ -1,1 +1,196 @@
+<?xml version='1.0'?>
 
+<crawlers date = '2019-06-11'>
+  <crawler crawler_url="https://www.buergerspital.de/" Veranstalter="Bürgerspital Weingut" ID_Ort="403100">
+    <event>
+      <Titel>Hofschoppenfest der Bürgerspital Weinstuben</Titel>
+      <Kurztext>Bürgerspital-Weinfest vom 13. - 22. Juni 2019 im historischen Innenhof Lassen Sie sich von erstklassigen Schoppen, auserwählten Flaschenweinen und fränkischen ...</Kurztext>
+      <Detailtext>Bürgerspital-Weinfest vom 13. - 22. Juni 2019 im historischen Innenhof Lassen Sie sich von erstklassigen Schoppen, auserwählten Flaschenweinen und fränkischen Spezialitäten verwöhnen. Weitere Infos: Bürgerspital Weinstuben Hofschoppenfest Der Eintritt ist frei.</Detailtext>
+      <Link>https://www.buergerspital.de/aktuelles/termine/index.html?ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=11.06.2019&amp;ev%5Bend%5D=10.08.2019&amp;ev%5Bsubcat%5D=&amp;ev%5Bid%5D=1234&amp;ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=11.06.2019&amp;ev%5Bend%5D=10.08.2019&amp;ev%5Bsubcat%5D=</Link>
+      <Startdatum>2019-06-13</Startdatum>
+      <Enddatum>NA</Enddatum>
+      <Startzeit>15:00:00</Startzeit>
+      <Endzeit>22:00:00</Endzeit>
+      <Straße>Theaterstraße 19</Straße>
+      <Stadt>Würzburg</Stadt>
+      <PLZ>97070</PLZ>
+      <lng>9.9354671</lng>
+      <lat>49.7953775</lat>
+      <Vorverkauf>NA</Vorverkauf>
+      <Abendkasse>NA</Abendkasse>
+      <Kategorie>NA</Kategorie>
+      <Bild_url>NA</Bild_url>
+    </event>
+    <event>
+      <Titel>Mozartfest Würzburg zu Gast im Bürgerspital</Titel>
+      <Kurztext> An zwei Abenden fasziniert und verführt Mozarts Musik Menschen jeden Alters in unserer Kelterhalle.Programm und Karten nur über mozartfest-wuerzburg.de.</Kurztext>
+      <Detailtext> An zwei Abenden fasziniert und verführt Mozarts Musik Menschen jeden Alters in unserer Kelterhalle.Programm und Karten nur über mozartfest-wuerzburg.de.</Detailtext>
+      <Link>https://www.buergerspital.de/aktuelles/termine/index.html?ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=11.06.2019&amp;ev%5Bend%5D=10.08.2019&amp;ev%5Bsubcat%5D=&amp;ev%5Bid%5D=1513&amp;ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=11.06.2019&amp;ev%5Bend%5D=10.08.2019&amp;ev%5Bsubcat%5D=</Link>
+      <Startdatum>2019-06-14</Startdatum>
+      <Enddatum>NA</Enddatum>
+      <Startzeit>20:30:00</Startzeit>
+      <Endzeit>23:59:00</Endzeit>
+      <Straße>Theaterstraße 19</Straße>
+      <Stadt>Würzburg</Stadt>
+      <PLZ>97070</PLZ>
+      <lng>9.9354671</lng>
+      <lat>49.7953775</lat>
+      <Vorverkauf>NA</Vorverkauf>
+      <Abendkasse>NA</Abendkasse>
+      <Kategorie>NA</Kategorie>
+      <Bild_url>NA</Bild_url>
+    </event>
+    <event>
+      <Titel>Mozartfest Würzburg zu Gast im Bürgerspital</Titel>
+      <Kurztext> An zwei Abenden fasziniert und verführt Mozarts Musik Menschen jeden Alters in unserer Kelterhalle.Programm und Karten nur über mozartfest-wuerzburg.de.</Kurztext>
+      <Detailtext> An zwei Abenden fasziniert und verführt Mozarts Musik Menschen jeden Alters in unserer Kelterhalle.Programm und Karten nur über mozartfest-wuerzburg.de.</Detailtext>
+      <Link>https://www.buergerspital.de/aktuelles/termine/index.html?ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=11.06.2019&amp;ev%5Bend%5D=10.08.2019&amp;ev%5Bsubcat%5D=&amp;ev%5Bid%5D=1514&amp;ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=11.06.2019&amp;ev%5Bend%5D=10.08.2019&amp;ev%5Bsubcat%5D=</Link>
+      <Startdatum>2019-06-15</Startdatum>
+      <Enddatum>NA</Enddatum>
+      <Startzeit>20:30:00</Startzeit>
+      <Endzeit>23:59:00</Endzeit>
+      <Straße>Theaterstraße 19</Straße>
+      <Stadt>Würzburg</Stadt>
+      <PLZ>97070</PLZ>
+      <lng>9.9354671</lng>
+      <lat>49.7953775</lat>
+      <Vorverkauf>NA</Vorverkauf>
+      <Abendkasse>NA</Abendkasse>
+      <Kategorie>NA</Kategorie>
+      <Bild_url>NA</Bild_url>
+    </event>
+    <event>
+      <Titel>Tag der offenen Tür im Robert Krick-Wohnstift und im Ehehaltenhaus/St. Nikolaus</Titel>
+      <Kurztext>Machen Sie sich ein Bild vom Robert Krick-Wohnstift,	und unserem Seniorenheim Ehehaltenhaus/St. Nikolaus. Hausführungen, persönliche Gespräche und ein unterhaltsames Programm geben ...</Kurztext>
+      <Detailtext>Machen Sie sich ein Bild vom Robert Krick-Wohnstift,	und unserem Seniorenheim Ehehaltenhaus/St. Nikolaus. Hausführungen, persönliche Gespräche und ein unterhaltsames Programm geben Einblicke in unsere Einrichtungen.  Weitere Informationen erhalten Sie über unsere Seniorenberatung:	Claudia Faust, 0931 3503-421, faust@buergerspital.de Wir freuen uns auf Sie!</Detailtext>
+      <Link>https://www.buergerspital.de/aktuelles/termine/index.html?ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=11.06.2019&amp;ev%5Bend%5D=10.08.2019&amp;ev%5Bsubcat%5D=&amp;ev%5Bid%5D=1826&amp;ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=11.06.2019&amp;ev%5Bend%5D=10.08.2019&amp;ev%5Bsubcat%5D=</Link>
+      <Startdatum>2019-06-29</Startdatum>
+      <Enddatum>NA</Enddatum>
+      <Startzeit>12:00:00</Startzeit>
+      <Endzeit>17:00:00</Endzeit>
+      <Straße>Theaterstraße 19</Straße>
+      <Stadt>Würzburg</Stadt>
+      <PLZ>97070</PLZ>
+      <lng>9.9354671</lng>
+      <lat>49.7953775</lat>
+      <Vorverkauf>NA</Vorverkauf>
+      <Abendkasse>NA</Abendkasse>
+      <Kategorie>NA</Kategorie>
+      <Bild_url>NA</Bild_url>
+    </event>
+    <event>
+      <Titel>Freitagsprobe im Turmkeller</Titel>
+      <Kurztext>Tauchen Sie ein in die wunderbare Weinwelt des Bürgerspitals. Auch als Geschenk für Weinliebhaber in Ihrer Familie oder Genießer unter ...</Kurztext>
+      <Detailtext>Tauchen Sie ein in die wunderbare Weinwelt des Bürgerspitals. Auch als Geschenk für Weinliebhaber in Ihrer Familie oder Genießer unter Ihren Freunden und Bekannten ist diese geführte, fachliche Weinprobe mit vorhergehender Führung durch unseren Holzfasskeller sehr beliebt und ein unvergessliches Erlebnis. Sie beinhaltet ein Sekt und fünf Weine, begleitet mit Mineralwasser und fränkischem Bauernbrot. Preis: 26 € pro PersonDauer: ca. 3 Stunden Ticketkauf für diese Veranstaltung </Detailtext>
+      <Link>https://www.buergerspital.de/aktuelles/termine/index.html?ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=11.06.2019&amp;ev%5Bend%5D=10.08.2019&amp;ev%5Bsubcat%5D=&amp;ev%5Bid%5D=1877&amp;ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=11.06.2019&amp;ev%5Bend%5D=10.08.2019&amp;ev%5Bsubcat%5D=</Link>
+      <Startdatum>2019-07-12</Startdatum>
+      <Enddatum>NA</Enddatum>
+      <Startzeit>19:00:00</Startzeit>
+      <Endzeit>22:00:00</Endzeit>
+      <Straße>Theaterstraße 19</Straße>
+      <Stadt>Würzburg</Stadt>
+      <PLZ>97070</PLZ>
+      <lng>9.9354671</lng>
+      <lat>49.7953775</lat>
+      <Vorverkauf>NA</Vorverkauf>
+      <Abendkasse>NA</Abendkasse>
+      <Kategorie>NA</Kategorie>
+      <Bild_url>NA</Bild_url>
+    </event>
+    <event>
+      <Titel>Tag der offenen Tür im Wohnstift Frauenland, im Seniorenheim St. Maria und in der Tagespflege "Villa Schenk"</Titel>
+      <Kurztext>Machen Sie sich ein Bild vom Seniorenwohnstift Frauenland, unserem Seniorenheim St. Maria und unserer Tagespflege "Villa Schenk". Hausführungen, persönliche Gespräche ...</Kurztext>
+      <Detailtext>Machen Sie sich ein Bild vom Seniorenwohnstift Frauenland, unserem Seniorenheim St. Maria und unserer Tagespflege "Villa Schenk". Hausführungen, persönliche Gespräche und ein unterhaltsames Programm geben Einblicke in unsere Einrichtungen:	Seniorenwohnstift Frauenland, Valentin-Becker-Str. 9,	Seniorenheim St. Maria	und Tagespflege „Villa Schenk“, Dürerstraße 12, 97072 Würzburg.  Weitere Informationen erhalten Sie über unsere Seniorenberatung:	Claudia Faust, 0931 3503-421, faust@buergerspital.de Wir freuen uns auf Sie!</Detailtext>
+      <Link>https://www.buergerspital.de/aktuelles/termine/index.html?ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=11.06.2019&amp;ev%5Bend%5D=10.08.2019&amp;ev%5Bsubcat%5D=&amp;ev%5Bid%5D=1828&amp;ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=11.06.2019&amp;ev%5Bend%5D=10.08.2019&amp;ev%5Bsubcat%5D=</Link>
+      <Startdatum>2019-07-20</Startdatum>
+      <Enddatum>NA</Enddatum>
+      <Startzeit>14:00:00</Startzeit>
+      <Endzeit>17:00:00</Endzeit>
+      <Straße>Theaterstraße 19</Straße>
+      <Stadt>Würzburg</Stadt>
+      <PLZ>97070</PLZ>
+      <lng>9.9354671</lng>
+      <lat>49.7953775</lat>
+      <Vorverkauf>NA</Vorverkauf>
+      <Abendkasse>NA</Abendkasse>
+      <Kategorie>NA</Kategorie>
+      <Bild_url>NA</Bild_url>
+    </event>
+    <event>
+      <Titel>Drum Circle 50+</Titel>
+      <Kurztext>Dieser Kurs ist explizit dafür ausgelegt, auch Nichtmusiker an das aktive Erleben musikalischer Phänomene, z.B. des Gruppenbewusstseins oder des Gemeinschaftserlebnisses ...</Kurztext>
+      <Detailtext>Dieser Kurs ist explizit dafür ausgelegt, auch Nichtmusiker an das aktive Erleben musikalischer Phänomene, z.B. des Gruppenbewusstseins oder des Gemeinschaftserlebnisses heran zu führen. Die Teilnehmer improvisieren gemeinsam und schaffen so miteinander ein großartiges Musikereignis. Durch den ungezwungenen spielerischen Charakter können Koordination, Merkfähigkeit und Konzentration trainiert werden. Das gemeinsame Trommeln führt  zu einer Stressreduktion und stärkt das Selbstbewusstsein. Rhythmische  Übungen verbessern beispielsweise den Bewegungsablauf von Menschen mit Parkinson. Der Drum Circle ist der Beweis, dass es keine unmusikalischen Menschen gibt. Kursbeginn:	Mittwoch, 25.07.2019 (1×)	16:00 – 17:00 Uhr Kursleiterin: Anna Kraus, Musiktherapeutin M. A.	Ort: Kreativraum, Geriatriezentrum, Semmelstraße 2-4	Teilnehmer: 12	Kursgebühr: 25 €	Mitzubringen:bequeme Kleidung Anmeldung erforderlich unter 0931 3503-401</Detailtext>
+      <Link>https://www.buergerspital.de/aktuelles/termine/index.html?ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=11.06.2019&amp;ev%5Bend%5D=10.08.2019&amp;ev%5Bsubcat%5D=&amp;ev%5Bid%5D=1885&amp;ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=11.06.2019&amp;ev%5Bend%5D=10.08.2019&amp;ev%5Bsubcat%5D=</Link>
+      <Startdatum>2019-07-25</Startdatum>
+      <Enddatum>NA</Enddatum>
+      <Startzeit>16:00:00</Startzeit>
+      <Endzeit>17:00:00</Endzeit>
+      <Straße>Theaterstraße 19</Straße>
+      <Stadt>Würzburg</Stadt>
+      <PLZ>97070</PLZ>
+      <lng>9.9354671</lng>
+      <lat>49.7953775</lat>
+      <Vorverkauf>NA</Vorverkauf>
+      <Abendkasse>NA</Abendkasse>
+      <Kategorie>NA</Kategorie>
+      <Bild_url>NA</Bild_url>
+    </event>
+    <event>
+      <Titel>WEIN.PARTY AM PFAFFENBERG</Titel>
+      <Kurztext>Das Sommer-Open-Air im Bürgerspital Betriebshof Es ist wieder soweit: Unsere WEIN.PARTY AM PFAFFENBERG steigt. Egal ob Jung oder Alt, tanzwütig ...</Kurztext>
+      <Detailtext>Das Sommer-Open-Air im Bürgerspital Betriebshof Es ist wieder soweit: Unsere WEIN.PARTY AM PFAFFENBERG steigt. Egal ob Jung oder Alt, tanzwütig oder gemütlich, Weinverliebt oder Cocktailliebhaber, alle feiern sie gemeinsam die Kultparty in unserem Betriebshof in der Dürrbachau. Mit von der Partie sind natürlich Top-Bürgerspital-Weine und dazu leckere Speisen, zwei Live-Bands, ein gemütlicher Loungebereich, die Sommerbar und ein hochmotiviertes und partyfreudiges Weingut-Team.	Der Shuttle-Bus pendelt im Halbstundentakt vom Busbahnhof zum Partygelände und	zurück. Feiern Sie mit uns zwei einzigartige Open Air-Nächte.	Eintritt frei</Detailtext>
+      <Link>https://www.buergerspital.de/aktuelles/termine/index.html?ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=11.06.2019&amp;ev%5Bend%5D=10.08.2019&amp;ev%5Bsubcat%5D=&amp;ev%5Bid%5D=1405&amp;ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=11.06.2019&amp;ev%5Bend%5D=10.08.2019&amp;ev%5Bsubcat%5D=</Link>
+      <Startdatum>2019-07-26</Startdatum>
+      <Enddatum>NA</Enddatum>
+      <Startzeit>18:00:00</Startzeit>
+      <Endzeit>23:59:00</Endzeit>
+      <Straße>Theaterstraße 19</Straße>
+      <Stadt>Würzburg</Stadt>
+      <PLZ>97070</PLZ>
+      <lng>9.9354671</lng>
+      <lat>49.7953775</lat>
+      <Vorverkauf>NA</Vorverkauf>
+      <Abendkasse>NA</Abendkasse>
+      <Kategorie>NA</Kategorie>
+      <Bild_url>NA</Bild_url>
+    </event>
+    <event>
+      <Titel>WEIN.PARTY AM PFAFFENBERG</Titel>
+      <Kurztext>Das Sommer-Open-Air im Bürgerspital Betriebshof Es ist wieder soweit: Unsere WEIN.PARTY AM PFAFFENBERG steigt. Egal ob Jung oder Alt, tanzwütig ...</Kurztext>
+      <Detailtext>Das Sommer-Open-Air im Bürgerspital Betriebshof Es ist wieder soweit: Unsere WEIN.PARTY AM PFAFFENBERG steigt. Egal ob Jung oder Alt, tanzwütig oder gemütlich, Weinverliebt oder Cocktailliebhaber, alle feiern sie gemeinsam die Kultparty in unserem Betriebshof in der Dürrbachau. Mit von der Partie sind natürlich Top-Bürgerspital-Weine und dazu leckere Speisen, zwei Live-Bands, ein gemütlicher Loungebereich, die Sommerbar und ein hochmotiviertes und partyfreudiges Weingut-Team.	Der Shuttle-Bus pendelt im Halbstundentakt vom Busbahnhof zum Partygelände und	zurück. Feiern Sie mit uns zwei einzigartige Open Air-Nächte.	Eintritt frei</Detailtext>
+      <Link>https://www.buergerspital.de/aktuelles/termine/index.html?ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=11.06.2019&amp;ev%5Bend%5D=10.08.2019&amp;ev%5Bsubcat%5D=&amp;ev%5Bid%5D=1406&amp;ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=11.06.2019&amp;ev%5Bend%5D=10.08.2019&amp;ev%5Bsubcat%5D=</Link>
+      <Startdatum>2019-07-27</Startdatum>
+      <Enddatum>NA</Enddatum>
+      <Startzeit>18:00:00</Startzeit>
+      <Endzeit>23:59:00</Endzeit>
+      <Straße>Theaterstraße 19</Straße>
+      <Stadt>Würzburg</Stadt>
+      <PLZ>97070</PLZ>
+      <lng>9.9354671</lng>
+      <lat>49.7953775</lat>
+      <Vorverkauf>NA</Vorverkauf>
+      <Abendkasse>NA</Abendkasse>
+      <Kategorie>NA</Kategorie>
+      <Bild_url>NA</Bild_url>
+    </event>
+    <event>
+      <Titel>Freitagsprobe im Turmkeller</Titel>
+      <Kurztext>Tauchen Sie ein in die wunderbare Weinwelt des Bürgerspitals. Auch als Geschenk für Weinliebhaber in Ihrer Familie oder Genießer unter ...</Kurztext>
+      <Detailtext>Tauchen Sie ein in die wunderbare Weinwelt des Bürgerspitals. Auch als Geschenk für Weinliebhaber in Ihrer Familie oder Genießer unter Ihren Freunden und Bekannten ist diese geführte, fachliche Weinprobe mit vorhergehender Führung durch unseren Holzfasskeller sehr beliebt und ein unvergessliches Erlebnis. Sie beinhaltet ein Sekt und fünf Weine, begleitet mit Mineralwasser und fränkischem Bauernbrot. Preis: 26 € pro PersonDauer: ca. 3 Stunden Ticketkauf für diese Veranstaltung </Detailtext>
+      <Link>https://www.buergerspital.de/aktuelles/termine/index.html?ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=11.06.2019&amp;ev%5Bend%5D=10.08.2019&amp;ev%5Bsubcat%5D=&amp;ev%5Bid%5D=1748&amp;ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=11.06.2019&amp;ev%5Bend%5D=10.08.2019&amp;ev%5Bsubcat%5D=</Link>
+      <Startdatum>2019-08-09</Startdatum>
+      <Enddatum>NA</Enddatum>
+      <Startzeit>19:00:00</Startzeit>
+      <Endzeit>22:00:00</Endzeit>
+      <Straße>Theaterstraße 19</Straße>
+      <Stadt>Würzburg</Stadt>
+      <PLZ>97070</PLZ>
+      <lng>9.9354671</lng>
+      <lat>49.7953775</lat>
+      <Vorverkauf>NA</Vorverkauf>
+      <Abendkasse>NA</Abendkasse>
+      <Kategorie>NA</Kategorie>
+      <Bild_url>NA</Bild_url>
+    </event>
+  </crawler>
+</crawlers>

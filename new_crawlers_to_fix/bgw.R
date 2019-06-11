@@ -1,15 +1,14 @@
-
-url <- "http://www.umweltbildung-unterfranken.de/index.php"
+url = "http://www.bgw.uni-wuerzburg.de/fuehrungen-und-veranstaltungen/veranstaltungen/page/1/"
 
 url %>%
   read_html() -> raw_read
 
 raw_read %>%
-  html_nodes(".mod_events_latest_content a") %>%
+  html_nodes(".news-list__item-header a") %>%
   html_text(trim = T) -> title
 
 raw_read %>%
-  html_nodes(".mod_events_latest_content a") %>%
+  html_nodes(".news-list__item-header a") %>%
   html_attr("href") -> link
 
 raw_read %>%
@@ -63,8 +62,28 @@ description = NA
 
 #set up to write to database
 crawled_df = data.frame(title, description, link, date_start, date_end, time_end, time_start, street, city, zip, lng, lat)
-meta_df = data.frame(organizer, url)
+
+#add metadf idlocation
+idlocation = 4868
+meta_df = data.frame(organizer, url, idlocation)
 names(meta_df)[names(meta_df) == 'url'] <- 'url_crawler'
 
 #write to database
 write_dataframes_to_database(crawled_df, meta_df, conn)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

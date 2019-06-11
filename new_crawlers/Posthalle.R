@@ -63,14 +63,21 @@ city = rep("Würzburg", length(title))
 
 # data type conversion
 date_start <- as.Date(date_start, "%d.%m.%Y")
+date_end = NA
+date_end = as.Date(date_start, "%d.%m.%Y")
+
 time_start <- chron(times = time_start)
+time_end = NA
+#time_end = chron(times = time_end)
 
 # build table
 crawled_df <- data.frame(
                     category = category,
                     title = title,
                     date_start = date_start,
+                    date_end = date_start,
                     time_start = time_start,
+                    time_end = time_end,
                     description = description,
                     lat = lat,
                     lng = lng,
@@ -80,5 +87,10 @@ crawled_df <- data.frame(
                     link = link,
                     image_url = image_url)
 
-meta_df = data.frame(url = url
-                     , organizer = organizer)
+#add metadf idlocation
+idlocation = 12843
+meta_df = data.frame(organizer, url, idlocation)
+names(meta_df)[names(meta_df) == 'url'] <- 'url_crawler'
+
+#write to database
+write_dataframes_to_database(crawled_df, meta_df, conn)

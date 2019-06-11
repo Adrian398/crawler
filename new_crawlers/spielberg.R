@@ -111,7 +111,6 @@ for (date_time in date_times){
   date_month = date[[1]][2]
   date_month= month_convertor(date_month)
   date = paste0(paste(date_day,date_month,sep = "."), format(Sys.Date(), "%Y"))
-  print(date)
   date_start = c(date_start, date)
   time_start = c(time_start,time)
 }
@@ -124,7 +123,9 @@ date_start = as.Date(date_start,"%d.%m.%Y")
 
 #set up to write to database
 crawled_df = data.frame(title, description, link, date_start, date_end, time_end, time_start, street, city, zip, lng, lat)
-meta_df = data.frame(organizer, url)
+#add metadf idlocation
+idlocation = 4147
+meta_df = data.frame(organizer, url, idlocation)
 names(meta_df)[names(meta_df) == 'url'] <- 'url_crawler'
 
 #write to database

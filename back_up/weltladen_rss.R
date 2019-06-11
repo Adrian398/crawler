@@ -27,8 +27,12 @@ title = df$item_title
 
 #set up to write to database
 crawled_df = data.frame(title, description, link, date_start, date_end, time_end, time_start, street, city, zip, lng, lat)
-meta_df = data.frame(organizer, url)
+
+#add metadf idlocation
+idlocation = 403026
+meta_df = data.frame(organizer, url, idlocation)
 names(meta_df)[names(meta_df) == 'url'] <- 'url_crawler'
+crawled_df
 
 #write to database
 write_dataframes_to_database(crawled_df, meta_df, conn)

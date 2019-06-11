@@ -39,23 +39,27 @@ time_end = gsub("^:00", "", time_end)
 
 link = paste("https:", link, sep = "")
 
-description = c()
-image_url = c()
-for (cache_link in link) {
+raw_read %>%
+  html_nodes(".itemcontent") %>%
+  html_text(trim = T)-> description
+description = gsub("\r\n\t\t\t\t\t\n\t\t\t\t\t\tMEHR", "", description)
 
-  cache_read = read_html(cache_link)
+#image_url = c()
+#for (cache_link in link) {
+
+  #cache_read = read_html(cache_link)
   
-  cache_read %>%
-    html_nodes(".subtitle") %>%
-    html_text(trim = T) -> cache_description
+  #cache_read %>%
+    #html_nodes(".subtitle") %>%
+    #html_text(trim = T) -> cache_description
   
-  cache_read %>%
-    html_nodes(".imagethumb") %>%
-    html_attr("src") -> cache_image_url
+  #cache_read %>%
+    #html_nodes(".imagethumb") %>%
+    #html_attr("src") -> cache_image_url
   
-  image_url = c(image_url, cache_image_url[1])
-  description = c(description, cache_description)
-}
+  #image_url = c(image_url, cache_image_url[1])
+  #description = c(description, cache_description)
+#}
 
 # fixed data setup
 organizer = "Weltladen"
@@ -72,7 +76,7 @@ date_start <- as.Date(date_start, "%d.%m.%Y")
 date_end <- as.Date(date_end, "%d.%m.%Y")
 
 time_start <- chron(times = time_start)
-time_end <- chron(times = time_end)
+time_end <- NA
 
 # build table
 crawled_df <- data.frame(
@@ -88,11 +92,13 @@ crawled_df <- data.frame(
                     street = street,
                     zip = zip,
                     city = city,
-                    link = link,
-                    image_url = image_url)
+                    link = link)
 
-meta_df = data.frame(url_crawler = url
-                     , organizer = organizer)
+#add metadf idlocation
+idlocation = 403026
+meta_df = data.frame(organizer, url, idlocation)
+names(meta_df)[names(meta_df) == 'url'] <- 'url_crawler'
+
 
 
 #write to database

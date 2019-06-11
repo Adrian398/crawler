@@ -78,7 +78,7 @@ write_dataframes_to_database <- function(crawled_df, meta_df, conn) {
     }
   }
   
-    ## if url_crawler doesnt exist write url_crawler in database
+    ## if no url_crawler in database write one url_crawler in database
   if(!any(db_url_crawlers==as.character(meta_df["url_crawler"][1,1]))){
     dbWriteTable(conn, value = meta_df["url_crawler"], name = "crawler", append = TRUE, row.names=F )
     print(paste("New Crawler url added:", as.character(meta_df["url_crawler"][1,1])))
@@ -94,9 +94,9 @@ write_dataframes_to_database <- function(crawled_df, meta_df, conn) {
     }
   }
   
-    ## if organizer doesnt exist write him in database
+    ## if no organizer in database write one in database
   if(!any(db_organizer_names==as.character(meta_df["organizer"][1,1]))){
-    dbWriteTable(conn, value = meta_df["organizer"], name = "organizer", append = TRUE, row.names=F )
+    dbWriteTable(conn, value = meta_df %>% select(organizer, idlocation), name = "organizer", append = TRUE, row.names=F )
     print(paste("New Organizer added:", as.character(meta_df["organizer"][1,1])))
   }
   

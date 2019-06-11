@@ -48,6 +48,8 @@ date_start <- as.Date(date_start, "%d.%m.%Y")
 date_end <- as.Date(date_end, "%d.%m.%Y")
 
 time_start <- chron(times = time_start)
+time_end = NA
+description = NA
 
 # build table
 crawled_df <- data.frame(
@@ -56,6 +58,8 @@ crawled_df <- data.frame(
                     date_start = date_start,
                     date_end = date_end, 
                     time_start = time_start,
+                    time_end = time_end,
+                    description = description,
                     lat = lat,
                     lng = lng,
                     street = street,
@@ -63,8 +67,10 @@ crawled_df <- data.frame(
                     city = city,
                     link = link)
 
-meta_df = data.frame(url_crawler = url
-                     , organizer = organizer)
+#add metadf idlocation
+idlocation = 12710
+meta_df = data.frame(organizer, url, idlocation)
+names(meta_df)[names(meta_df) == 'url'] <- 'url_crawler'
 
 
 #write to database
