@@ -3,8 +3,6 @@ library(DBI)
 library(kulife)
 source("write_xml.R")
 library(readr)
-library(foreach)
-#library(doParallel)
 library(tidyverse)
 library(rvest)
 library(chron)
@@ -15,7 +13,6 @@ getSqlConnection <- function(){
     RMySQL::MySQL(),
     username = 'crawler',
     password = 'crawler2018',
-    
     
     host = 'a1.cj8zdbsk8kip.eu-central-1.rds.amazonaws.com',
     port = 3306,
@@ -29,7 +26,7 @@ conn <- getSqlConnection()
 write("","new_events.xml",append=FALSE)
 write("","deleted_events.xml",append=FALSE)
 
-
+countit <<- 1 
 ## try catch for continuing the process when interrupted by an error
 for (file_name in list.files("new_crawlers")){
   tryCatch({

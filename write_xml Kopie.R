@@ -3,9 +3,39 @@ library(hashmap)
 
 write_df_to_xml <- function(df,meta_df, file) {
   
-  ID_Event = seq(countit,countit+nrow(df)-1)
-  countit <<- countit + nrow(df) -1 
-
+    
+    ID_Event = c()  
+    db_organizer_names = as.data.frame(tbl(conn, "organizer"))
+    
+   for (i in colnames(db_organizer_names)){
+     if(is.character(db_organizer_names[[i]])){
+       db_organizer_names[[i]] = iconv(db_organizer_names[[i]], "windows-1252", "UTF-8")
+     }
+   }                                 
+  
+  idorganizer = as.numeric(db_organizer_names %>% 
+    filter(organizer == "Weltladen") %>% 
+    select(idorganizer))
+  
+  db_events_current_crawler = as.data.frame(tbl(conn, "event") %>%
+                                              filter(idorganizer == idorganizer))
+  
+  ##fix encoding error
+  for (i in colnames(db_events_current_crawler)){
+    if(is.character(db_events_current_crawler[[i]])){
+      db_events_current_crawler[[i]] = iconv(db_events_current_crawler[[i]], "windows-1252", "UTF-8")
+    }
+  }
+  inner_join(df, db_events_current_crawler,by=c("title", "link","date_start", "date_end", "time_start", "time_end"))
+  for(i in 1:nrow(df)){
+    id = db_events_current_crawler %>%
+      filter(title == df$title[i] & link == df$link[i] & date_start == df$date_start[i] & time_start == df$time_start[i]) %>%
+      select(idevent)
+    
+    ID_Event = c(ID_Event, id[1,])
+  }
+  
+  
   if("title" %in% names(df)){
     Titel =as.character(df["title"][,1])
   } else {
@@ -169,7 +199,7 @@ write_df_to_xml <- function(df,meta_df, file) {
   } else {
     Bild_url = rep("NA",nrow(df))
   }
-  xml_df = data.frame(ID_Event,Titel,Kurztext,Detailtext, Link,Startdatum,Enddatum,Startzeit,Endzeit,Straße,Stadt, PLZ, lng,lat,Vorverkauf,Abendkasse, Kategorie, ID_Kategorie,Bild_url)
+  xml_df = data.frame(Titel,Kurztext,Detailtext, Link,Startdatum,Enddatum,Startzeit,Endzeit,Straße,Stadt, PLZ, lng,lat,Vorverkauf,Abendkasse, Kategorie, ID_Kategorie,Bild_url)
   
   xml <- xmlTree() 
   # names(xml)

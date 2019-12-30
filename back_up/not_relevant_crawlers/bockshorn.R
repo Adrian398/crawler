@@ -50,7 +50,7 @@ getBockshornEventDetails = function(page)
 
 
 
-bockshorn = map_df(info_links, getBockshornEventDetails)
+.   = map_df(info_links, getBockshornEventDetails)
 
 bockshorn$start_time = unlist(str_extract_all(bockshorn$uhrzeit, "[0-9]?[0-9]\\:[0-9][0-9]"))
 
@@ -87,9 +87,7 @@ uhrzeit_bock <- str_extract_all(table_bock[[3]]$X2,reg_uhrzeit) %>%
 uhrzeit_bock <- uhrzeit_bock[!is.na(uhrzeit_bock)]
 uhrzeit_bock <- times(paste0(uhrzeit_bock, ":00"))
 
-time_end_bock <- rep(NA,length(uhrzeit_bock)) %>%
-  as.numeric() %>%
-  times()
+time_end_bock <- NA
 
 reg_ort <- "\\bOrt[\\:/]\\s[A-z]+"
 ort_bock <- str_extract_all(table_bock[[3]]$X1,reg_ort) %>%

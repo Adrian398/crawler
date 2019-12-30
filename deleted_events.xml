@@ -1,16 +1,17 @@
 <?xml version='1.0'?>
 
-<crawlers date = '2019-06-11'>
+<crawlers date = '2019-11-25'>
   <crawler crawler_url="https://www.buergerspital.de/" Veranstalter="Bürgerspital Weingut" ID_Ort="403100">
     <event>
-      <Titel>Hofschoppenfest der Bürgerspital Weinstuben</Titel>
-      <Kurztext>Bürgerspital-Weinfest vom 13. - 22. Juni 2019 im historischen Innenhof Lassen Sie sich von erstklassigen Schoppen, auserwählten Flaschenweinen und fränkischen ...</Kurztext>
-      <Detailtext>Bürgerspital-Weinfest vom 13. - 22. Juni 2019 im historischen Innenhof Lassen Sie sich von erstklassigen Schoppen, auserwählten Flaschenweinen und fränkischen Spezialitäten verwöhnen. Weitere Infos: Bürgerspital Weinstuben Hofschoppenfest Der Eintritt ist frei.</Detailtext>
-      <Link>https://www.buergerspital.de/aktuelles/termine/index.html?ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=11.06.2019&amp;ev%5Bend%5D=10.08.2019&amp;ev%5Bsubcat%5D=&amp;ev%5Bid%5D=1234&amp;ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=11.06.2019&amp;ev%5Bend%5D=10.08.2019&amp;ev%5Bsubcat%5D=</Link>
-      <Startdatum>2019-06-13</Startdatum>
+      <ID_Event>124</ID_Event>
+      <Titel>GesundheitsAkademie 50plus: Nach der Rente kommt die Reha</Titel>
+      <Kurztext>Ihr Recht als Rentner auf Gesundheit Vortrag Sie wissen, was Ihr gutes Recht ist. In vielen Fällen machen Sie sicher ...</Kurztext>
+      <Detailtext>Ihr Recht als Rentner auf Gesundheit Vortrag Sie wissen, was Ihr gutes Recht ist. In vielen Fällen machen Sie sicher und natürlich davon Gebrauch. In dem besonders wichtigen Bereich der Gesundheit dagegen herrscht vielerorts Unkenntnis über die rechtlichen Regelungen und Möglichkeiten. Mit dem Grundsatz "Rehabilitation vor Pflege" ist das deutsche Sozialrecht führend auf der Welt. Bei medizinischer Notwendigkeit steht jedem älteren Menschen eine Intensivbehandlung im Rahmen der Geriatrischen Rehabilitation per Gesetz zu. Die Palette der Geriatrischen Rehabilitation ist breit. Sie umfasst die Stationäre Geriatrische Rehabilitation verbunden mit einem Klinikaufenthalt, die Ambulante Geriatrische Rehabilitation als "Reha ohne Koffer" mit einer Behandlung im Ambulanzzetrum einschließlich Fahrdienst, bis hin zur Rehabilitation in den eigenen vier Wänden im Rahmen der Mobilen Geriatrischen Rahabilitation zu Hause oder auch im Seniorenheiim. Der Vortrag informiert, bei welchen Erkrankungen mit welcher Rehabilitationsform wann und wie geholfen werden kann. Zudem gibt es Tipps aus der Praxis, wie Sie im Bedarfsfall zu Ihrem guten Recht auf Gesundheit kommen. Das Angebot richtet sich an interessierte Senioren, Angehörige sowie an professionelle und ehrenamtliche Helfer.Referent: Dr. Michael Schwab, Chefarzt des Geriatriezentrums und Altersmediziner Ort: Seminrraum 1 im Geriatriezentrum, Semmelstraße 2-4 Anmeldung erforderlich unter 0931 3503-147 </Detailtext>
+      <Link>https://www.buergerspital.de/aktuelles/termine/index.html?ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=25.11.2019&amp;ev%5Bend%5D=24.01.2020&amp;ev%5Bsubcat%5D=&amp;ev%5Bid%5D=1837</Link>
+      <Startdatum>2019-11-27</Startdatum>
       <Enddatum>NA</Enddatum>
       <Startzeit>15:00:00</Startzeit>
-      <Endzeit>22:00:00</Endzeit>
+      <Endzeit>16:00:00</Endzeit>
       <Straße>Theaterstraße 19</Straße>
       <Stadt>Würzburg</Stadt>
       <PLZ>97070</PLZ>
@@ -19,17 +20,19 @@
       <Vorverkauf>NA</Vorverkauf>
       <Abendkasse>NA</Abendkasse>
       <Kategorie>NA</Kategorie>
+      <ID_Kategorie>NA</ID_Kategorie>
       <Bild_url>NA</Bild_url>
     </event>
     <event>
-      <Titel>Mozartfest Würzburg zu Gast im Bürgerspital</Titel>
-      <Kurztext> An zwei Abenden fasziniert und verführt Mozarts Musik Menschen jeden Alters in unserer Kelterhalle.Programm und Karten nur über mozartfest-wuerzburg.de.</Kurztext>
-      <Detailtext> An zwei Abenden fasziniert und verführt Mozarts Musik Menschen jeden Alters in unserer Kelterhalle.Programm und Karten nur über mozartfest-wuerzburg.de.</Detailtext>
-      <Link>https://www.buergerspital.de/aktuelles/termine/index.html?ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=11.06.2019&amp;ev%5Bend%5D=10.08.2019&amp;ev%5Bsubcat%5D=&amp;ev%5Bid%5D=1513&amp;ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=11.06.2019&amp;ev%5Bend%5D=10.08.2019&amp;ev%5Bsubcat%5D=</Link>
-      <Startdatum>2019-06-14</Startdatum>
+      <ID_Event>125</ID_Event>
+      <Titel>GesundheitsAkademie 50plus:Sturzprophylaxe - zur Verbesserung von Kraft und Balance ab 70</Titel>
+      <Kurztext>Der Kurs richtet sich an ältere Menschen, die Kraft und Balance erhalten bzw. wiedererlangen wollen. Weitere Themen sind Umgang mit ...</Kurztext>
+      <Detailtext>Der Kurs richtet sich an ältere Menschen, die Kraft und Balance erhalten bzw. wiedererlangen wollen. Weitere Themen sind Umgang mit Schwindel, Angst vor Stürzen und Hilfsmittel zur Sturzprävention. In jeder Übungsstunde stehen die praktischen Übungen im Vordergrund. Abgerundet wird der Kurs durch ein Hausaufgabenprogramm. Kursbeginn:	Montag, 02.12.2019 (10×)	15:00 – 16:00 Uhr Kursleiterin: Anke Beyer, Physiotherapeutin	Ort: Gymnastikraum, Geriatriezentrum, Semmelstraße 2-4	Teilnehmer: 12	Kursgebühr: 100 € , erstattungsfähig bei der Krankenkasse	Mitzubringen: bequeme Kleidung, flache Schuhe Anmeldung erforderlich unter 0931 3503-147  </Detailtext>
+      <Link>https://www.buergerspital.de/aktuelles/termine/index.html?ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=25.11.2019&amp;ev%5Bend%5D=24.01.2020&amp;ev%5Bsubcat%5D=&amp;ev%5Bid%5D=1809</Link>
+      <Startdatum>2019-12-02</Startdatum>
       <Enddatum>NA</Enddatum>
-      <Startzeit>20:30:00</Startzeit>
-      <Endzeit>23:59:00</Endzeit>
+      <Startzeit>15:00:00</Startzeit>
+      <Endzeit>16:00:00</Endzeit>
       <Straße>Theaterstraße 19</Straße>
       <Stadt>Würzburg</Stadt>
       <PLZ>97070</PLZ>
@@ -38,52 +41,16 @@
       <Vorverkauf>NA</Vorverkauf>
       <Abendkasse>NA</Abendkasse>
       <Kategorie>NA</Kategorie>
+      <ID_Kategorie>NA</ID_Kategorie>
       <Bild_url>NA</Bild_url>
     </event>
     <event>
-      <Titel>Mozartfest Würzburg zu Gast im Bürgerspital</Titel>
-      <Kurztext> An zwei Abenden fasziniert und verführt Mozarts Musik Menschen jeden Alters in unserer Kelterhalle.Programm und Karten nur über mozartfest-wuerzburg.de.</Kurztext>
-      <Detailtext> An zwei Abenden fasziniert und verführt Mozarts Musik Menschen jeden Alters in unserer Kelterhalle.Programm und Karten nur über mozartfest-wuerzburg.de.</Detailtext>
-      <Link>https://www.buergerspital.de/aktuelles/termine/index.html?ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=11.06.2019&amp;ev%5Bend%5D=10.08.2019&amp;ev%5Bsubcat%5D=&amp;ev%5Bid%5D=1514&amp;ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=11.06.2019&amp;ev%5Bend%5D=10.08.2019&amp;ev%5Bsubcat%5D=</Link>
-      <Startdatum>2019-06-15</Startdatum>
-      <Enddatum>NA</Enddatum>
-      <Startzeit>20:30:00</Startzeit>
-      <Endzeit>23:59:00</Endzeit>
-      <Straße>Theaterstraße 19</Straße>
-      <Stadt>Würzburg</Stadt>
-      <PLZ>97070</PLZ>
-      <lng>9.9354671</lng>
-      <lat>49.7953775</lat>
-      <Vorverkauf>NA</Vorverkauf>
-      <Abendkasse>NA</Abendkasse>
-      <Kategorie>NA</Kategorie>
-      <Bild_url>NA</Bild_url>
-    </event>
-    <event>
-      <Titel>Tag der offenen Tür im Robert Krick-Wohnstift und im Ehehaltenhaus/St. Nikolaus</Titel>
-      <Kurztext>Machen Sie sich ein Bild vom Robert Krick-Wohnstift,	und unserem Seniorenheim Ehehaltenhaus/St. Nikolaus. Hausführungen, persönliche Gespräche und ein unterhaltsames Programm geben ...</Kurztext>
-      <Detailtext>Machen Sie sich ein Bild vom Robert Krick-Wohnstift,	und unserem Seniorenheim Ehehaltenhaus/St. Nikolaus. Hausführungen, persönliche Gespräche und ein unterhaltsames Programm geben Einblicke in unsere Einrichtungen.  Weitere Informationen erhalten Sie über unsere Seniorenberatung:	Claudia Faust, 0931 3503-421, faust@buergerspital.de Wir freuen uns auf Sie!</Detailtext>
-      <Link>https://www.buergerspital.de/aktuelles/termine/index.html?ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=11.06.2019&amp;ev%5Bend%5D=10.08.2019&amp;ev%5Bsubcat%5D=&amp;ev%5Bid%5D=1826&amp;ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=11.06.2019&amp;ev%5Bend%5D=10.08.2019&amp;ev%5Bsubcat%5D=</Link>
-      <Startdatum>2019-06-29</Startdatum>
-      <Enddatum>NA</Enddatum>
-      <Startzeit>12:00:00</Startzeit>
-      <Endzeit>17:00:00</Endzeit>
-      <Straße>Theaterstraße 19</Straße>
-      <Stadt>Würzburg</Stadt>
-      <PLZ>97070</PLZ>
-      <lng>9.9354671</lng>
-      <lat>49.7953775</lat>
-      <Vorverkauf>NA</Vorverkauf>
-      <Abendkasse>NA</Abendkasse>
-      <Kategorie>NA</Kategorie>
-      <Bild_url>NA</Bild_url>
-    </event>
-    <event>
+      <ID_Event>126</ID_Event>
       <Titel>Freitagsprobe im Turmkeller</Titel>
       <Kurztext>Tauchen Sie ein in die wunderbare Weinwelt des Bürgerspitals. Auch als Geschenk für Weinliebhaber in Ihrer Familie oder Genießer unter ...</Kurztext>
       <Detailtext>Tauchen Sie ein in die wunderbare Weinwelt des Bürgerspitals. Auch als Geschenk für Weinliebhaber in Ihrer Familie oder Genießer unter Ihren Freunden und Bekannten ist diese geführte, fachliche Weinprobe mit vorhergehender Führung durch unseren Holzfasskeller sehr beliebt und ein unvergessliches Erlebnis. Sie beinhaltet ein Sekt und fünf Weine, begleitet mit Mineralwasser und fränkischem Bauernbrot. Preis: 26 € pro PersonDauer: ca. 3 Stunden Ticketkauf für diese Veranstaltung </Detailtext>
-      <Link>https://www.buergerspital.de/aktuelles/termine/index.html?ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=11.06.2019&amp;ev%5Bend%5D=10.08.2019&amp;ev%5Bsubcat%5D=&amp;ev%5Bid%5D=1877&amp;ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=11.06.2019&amp;ev%5Bend%5D=10.08.2019&amp;ev%5Bsubcat%5D=</Link>
-      <Startdatum>2019-07-12</Startdatum>
+      <Link>https://www.buergerspital.de/aktuelles/termine/index.html?ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=25.11.2019&amp;ev%5Bend%5D=24.01.2020&amp;ev%5Bsubcat%5D=&amp;ev%5Bid%5D=1875</Link>
+      <Startdatum>2019-12-13</Startdatum>
       <Enddatum>NA</Enddatum>
       <Startzeit>19:00:00</Startzeit>
       <Endzeit>22:00:00</Endzeit>
@@ -95,17 +62,19 @@
       <Vorverkauf>NA</Vorverkauf>
       <Abendkasse>NA</Abendkasse>
       <Kategorie>NA</Kategorie>
+      <ID_Kategorie>NA</ID_Kategorie>
       <Bild_url>NA</Bild_url>
     </event>
     <event>
-      <Titel>Tag der offenen Tür im Wohnstift Frauenland, im Seniorenheim St. Maria und in der Tagespflege "Villa Schenk"</Titel>
-      <Kurztext>Machen Sie sich ein Bild vom Seniorenwohnstift Frauenland, unserem Seniorenheim St. Maria und unserer Tagespflege "Villa Schenk". Hausführungen, persönliche Gespräche ...</Kurztext>
-      <Detailtext>Machen Sie sich ein Bild vom Seniorenwohnstift Frauenland, unserem Seniorenheim St. Maria und unserer Tagespflege "Villa Schenk". Hausführungen, persönliche Gespräche und ein unterhaltsames Programm geben Einblicke in unsere Einrichtungen:	Seniorenwohnstift Frauenland, Valentin-Becker-Str. 9,	Seniorenheim St. Maria	und Tagespflege „Villa Schenk“, Dürerstraße 12, 97072 Würzburg.  Weitere Informationen erhalten Sie über unsere Seniorenberatung:	Claudia Faust, 0931 3503-421, faust@buergerspital.de Wir freuen uns auf Sie!</Detailtext>
-      <Link>https://www.buergerspital.de/aktuelles/termine/index.html?ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=11.06.2019&amp;ev%5Bend%5D=10.08.2019&amp;ev%5Bsubcat%5D=&amp;ev%5Bid%5D=1828&amp;ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=11.06.2019&amp;ev%5Bend%5D=10.08.2019&amp;ev%5Bsubcat%5D=</Link>
-      <Startdatum>2019-07-20</Startdatum>
+      <ID_Event>127</ID_Event>
+      <Titel>GesundheitsAkademie 50plus:Sturzprophylaxe - zur Verbesserung von Kraft und Balance ab 70</Titel>
+      <Kurztext>Der Kurs richtet sich an ältere Menschen, die Kraft und Balance erhalten bzw. wiedererlangen wollen. Weitere Themen sind Umgang mit ...</Kurztext>
+      <Detailtext>Der Kurs richtet sich an ältere Menschen, die Kraft und Balance erhalten bzw. wiedererlangen wollen. Weitere Themen sind Umgang mit Schwindel, Angst vor Stürzen und Hilfsmittel zur Sturzprävention. In jeder Übungsstunde stehen die praktischen Übungen im Vordergrund. Abgerundet wird der Kurs durch ein Hausaufgabenprogramm. Kursbeginn:	Mittwoch, 08.01.2020 (10×)	11:00 – 12:00 Uhr Kursleiterin: Anke Beyer, Physiotherapeutin	Ort: Gymnastikraum, Geriatriezentrum, Semmelstraße 2-4	Teilnehmer: 12	Kursgebühr: 100 €	Erstattungsfähig bei der Krankenkasse	Mitzubringen: bequeme Kleidung, flache Schuhe Anmeldung erforderlich unter 0931 3503-147  </Detailtext>
+      <Link>https://www.buergerspital.de/aktuelles/termine/index.html?ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=25.11.2019&amp;ev%5Bend%5D=24.01.2020&amp;ev%5Bsubcat%5D=&amp;ev%5Bid%5D=1859</Link>
+      <Startdatum>2020-01-08</Startdatum>
       <Enddatum>NA</Enddatum>
-      <Startzeit>14:00:00</Startzeit>
-      <Endzeit>17:00:00</Endzeit>
+      <Startzeit>11:00:00</Startzeit>
+      <Endzeit>12:00:00</Endzeit>
       <Straße>Theaterstraße 19</Straße>
       <Stadt>Würzburg</Stadt>
       <PLZ>97070</PLZ>
@@ -114,82 +83,366 @@
       <Vorverkauf>NA</Vorverkauf>
       <Abendkasse>NA</Abendkasse>
       <Kategorie>NA</Kategorie>
+      <ID_Kategorie>NA</ID_Kategorie>
       <Bild_url>NA</Bild_url>
     </event>
     <event>
-      <Titel>Drum Circle 50+</Titel>
-      <Kurztext>Dieser Kurs ist explizit dafür ausgelegt, auch Nichtmusiker an das aktive Erleben musikalischer Phänomene, z.B. des Gruppenbewusstseins oder des Gemeinschaftserlebnisses ...</Kurztext>
-      <Detailtext>Dieser Kurs ist explizit dafür ausgelegt, auch Nichtmusiker an das aktive Erleben musikalischer Phänomene, z.B. des Gruppenbewusstseins oder des Gemeinschaftserlebnisses heran zu führen. Die Teilnehmer improvisieren gemeinsam und schaffen so miteinander ein großartiges Musikereignis. Durch den ungezwungenen spielerischen Charakter können Koordination, Merkfähigkeit und Konzentration trainiert werden. Das gemeinsame Trommeln führt  zu einer Stressreduktion und stärkt das Selbstbewusstsein. Rhythmische  Übungen verbessern beispielsweise den Bewegungsablauf von Menschen mit Parkinson. Der Drum Circle ist der Beweis, dass es keine unmusikalischen Menschen gibt. Kursbeginn:	Mittwoch, 25.07.2019 (1×)	16:00 – 17:00 Uhr Kursleiterin: Anna Kraus, Musiktherapeutin M. A.	Ort: Kreativraum, Geriatriezentrum, Semmelstraße 2-4	Teilnehmer: 12	Kursgebühr: 25 €	Mitzubringen:bequeme Kleidung Anmeldung erforderlich unter 0931 3503-401</Detailtext>
-      <Link>https://www.buergerspital.de/aktuelles/termine/index.html?ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=11.06.2019&amp;ev%5Bend%5D=10.08.2019&amp;ev%5Bsubcat%5D=&amp;ev%5Bid%5D=1885&amp;ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=11.06.2019&amp;ev%5Bend%5D=10.08.2019&amp;ev%5Bsubcat%5D=</Link>
-      <Startdatum>2019-07-25</Startdatum>
+      <ID_Event>128</ID_Event>
+      <Titel>Freitagsprobe im Turmkeller</Titel>
+      <Kurztext>Erhalten Sie Einblicke in unseren eindrucksvollen Weinkeller und genießen Sie eine geführte Probe mit einem Sekt und fünf Weinen.	Auch als ...</Kurztext>
+      <Detailtext>Erhalten Sie Einblicke in unseren eindrucksvollen Weinkeller und genießen Sie eine geführte Probe mit einem Sekt und fünf Weinen.	Auch als Geschenk für Weinliebhaber in Ihrer Familie oder Genießer unter Ihren Freunden und Bekannten ist diese fachliche Weinprobe sehr beliebt und ein unvergessliches Erlebnis. Preis: 26 € pro Person	Inkl. Mineralwasser und fränkischem BauernbrotDauer: ca. 3 Stunden Ticketkauf für diese Veranstaltung </Detailtext>
+      <Link>https://www.buergerspital.de/aktuelles/termine/index.html?ev%5Bsearch%5D=&amp;ev%5Bcat</Link>
+      <Startdatum>2020-01-10</Startdatum>
+      <Enddatum>NA</Enddatum>
+      <Startzeit>19:00:00</Startzeit>
+      <Endzeit>22:00:00</Endzeit>
+      <Straße>Theaterstraße 19</Straße>
+      <Stadt>Würzburg</Stadt>
+      <PLZ>97070</PLZ>
+      <lng>9.9354671</lng>
+      <lat>49.7953775</lat>
+      <Vorverkauf>NA</Vorverkauf>
+      <Abendkasse>NA</Abendkasse>
+      <Kategorie>NA</Kategorie>
+      <ID_Kategorie>NA</ID_Kategorie>
+      <Bild_url>NA</Bild_url>
+    </event>
+    <event>
+      <ID_Event>129</ID_Event>
+      <Titel>GesundheitsAkademie 50plus: Yoga 50plus</Titel>
+      <Kurztext>Yoga ist ein ganzheitliches System zur Gesunderhaltung von Körper, Geist und Seele. Unabhängig vom Alter ist Yoga für jeden Menschen ...</Kurztext>
+      <Detailtext>Yoga ist ein ganzheitliches System zur Gesunderhaltung von Körper, Geist und Seele. Unabhängig vom Alter ist Yoga für jeden Menschen geeignet. In diesem Kurs werden die Yogaübungen besonders auf die Bedürfnisse des älteren Menschen abgestimmt. Die angepassten Übungen aktivieren Energie, regen den Kreislauf an, stärken die Gelenke und fördern die Beweglichkeit, das Körpergefühl wird verbessert, die Muskulatur gekräftigt und gedehnt. Atemübungen und Meditation fördern innere Harmonie, ein positives Selbstwertgefühl und Ruhe im Geist. „Nicht der Mensch muss sich dem Yoga anpassen, Yoga soll sich dem Menschen anpassen“	T. Krishnamacharya Kursbeginn:	Montag, 13.01.2020 (10×)	15:45 – 16:45 Uhr Kursleiterin: Ursula Hümpfner, Yoga-Lehrerin Ort: Seminarraum 1, Geriatriezentrum, Semmelstraße 2-4	Teilnehmer: 10 Personen (ab 50 Jahren)	Kursgebühr: 90 €	Mitzubringen: bequeme Kleidung, flache Schuhe Anmeldung erforderlich unter 0931 3503-147</Detailtext>
+      <Link>https://www.buergerspital.de/aktuelles/termine/index.html?ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=25.11.2019&amp;ev%5Bend%5D=24.01.2020&amp;ev%5Bsubcat%5D=&amp;ev%5Bid%5D=1913</Link>
+      <Startdatum>2020-01-13</Startdatum>
+      <Enddatum>NA</Enddatum>
+      <Startzeit>15:45:00</Startzeit>
+      <Endzeit>16:45:00</Endzeit>
+      <Straße>Theaterstraße 19</Straße>
+      <Stadt>Würzburg</Stadt>
+      <PLZ>97070</PLZ>
+      <lng>9.9354671</lng>
+      <lat>49.7953775</lat>
+      <Vorverkauf>NA</Vorverkauf>
+      <Abendkasse>NA</Abendkasse>
+      <Kategorie>NA</Kategorie>
+      <ID_Kategorie>NA</ID_Kategorie>
+      <Bild_url>NA</Bild_url>
+    </event>
+    <event>
+      <ID_Event>130</ID_Event>
+      <Titel>GesundheitsAkademie 50plus: Yoga 50plus</Titel>
+      <Kurztext>Yoga ist ein ganzheitliches System zur Gesunderhaltung von Körper, Geist und Seele. Unabhängig vom Alter ist Yoga für jeden Menschen ...</Kurztext>
+      <Detailtext>Yoga ist ein ganzheitliches System zur Gesunderhaltung von Körper, Geist und Seele. Unabhängig vom Alter ist Yoga für jeden Menschen geeignet. In diesem Kurs werden die Yogaübungen besonders auf die Bedürfnisse des älteren Menschen abgestimmt. Die angepassten Übungen aktivieren Energie, regen den Kreislauf an, stärken die Gelenke und fördern die Beweglichkeit, das Körpergefühl wird verbessert, die Muskulatur gekräftigt und gedehnt. Atemübungen und Meditation fördern innere Harmonie, ein positives Selbstwertgefühl und Ruhe im Geist. „Nicht der Mensch muss sich dem Yoga anpassen, Yoga soll sich dem Menschen anpassen“	T. Krishnamacharya Kursbeginn:	Montag, 13.01.2020 (10×)	17:00 - 18:00 Uhr Kursleiterin: Ursula Hümpfner, Yoga-Lehrerin Ort: Seminarraum 1, Geriatriezentrum, Semmelstraße 2-4	Teilnehmer: 10 Personen (ab 50 Jahren)	Kursgebühr: 90 €	Mitzubringen: bequeme Kleidung, flache Schuhe Anmeldung erforderlich unter 0931 3503-147</Detailtext>
+      <Link>https://www.buergerspital.de/aktuelles/termine/index.html?ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=25.11.2019&amp;ev%5Bend%5D=24.01.2020&amp;ev%5Bsubcat%5D=&amp;ev%5Bid%5D=1914</Link>
+      <Startdatum>2020-01-13</Startdatum>
+      <Enddatum>NA</Enddatum>
+      <Startzeit>17:00:00</Startzeit>
+      <Endzeit>18:00:00</Endzeit>
+      <Straße>Theaterstraße 19</Straße>
+      <Stadt>Würzburg</Stadt>
+      <PLZ>97070</PLZ>
+      <lng>9.9354671</lng>
+      <lat>49.7953775</lat>
+      <Vorverkauf>NA</Vorverkauf>
+      <Abendkasse>NA</Abendkasse>
+      <Kategorie>NA</Kategorie>
+      <ID_Kategorie>NA</ID_Kategorie>
+      <Bild_url>NA</Bild_url>
+    </event>
+    <event>
+      <ID_Event>131</ID_Event>
+      <Titel>Wein &amp; Käse - Themenweinprobe im Genusskreis</Titel>
+      <Kurztext>Dieser Abend ist ganz dem Traumpaar Wein und Käse gewidmet. Beide verbindet eine jahrhundertealte Tradition und unglaubliche V</Kurztext>
+      <Detailtext>Dieser Abend ist ganz dem Traumpaar Wein und Käse gewidmet. Beide verbindet eine jahrhundertealte Tradition und unglaubliche Vielfalt. Sie sind deshalb auch Kulturgüter. Wie unsere Weine, unterscheiden sich auch die Käse durch ihre Herkunft und den Reifungsprozess. Genießen Sie an diesem Abend eine nuancenreiche Kombination	aus verschiedenen Weinen und dazu ausgewählten Käsesorten. Preis: 45 € pro Person	inkl. Käse und MineralwasserDauer: ca. 2,5 Stunden Anmeldung Für Rücksprachen steht Ihnen gerne unser Weinhaus-Team unter der Telefonnummer 0931 3503-403 zur Verfügung.</Detailtext>
+      <Link>https://www.buergerspital.de/aktuelles/termine/index.html?ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=25.11.2019&amp;ev%5Bend%5D=24.01.2020&amp;ev%5Bsubcat%5D=&amp;ev%5Bid%5D=1272</Link>
+      <Startdatum>2020-01-16</Startdatum>
+      <Enddatum>NA</Enddatum>
+      <Startzeit>19:00:00</Startzeit>
+      <Endzeit>21:30:00</Endzeit>
+      <Straße>Theaterstraße 19</Straße>
+      <Stadt>Würzburg</Stadt>
+      <PLZ>97070</PLZ>
+      <lng>9.9354671</lng>
+      <lat>49.7953775</lat>
+      <Vorverkauf>NA</Vorverkauf>
+      <Abendkasse>NA</Abendkasse>
+      <Kategorie>NA</Kategorie>
+      <ID_Kategorie>NA</ID_Kategorie>
+      <Bild_url>NA</Bild_url>
+    </event>
+  </crawler>
+  <crawler crawler_url="http://www.theater-hobbit.de/" Veranstalter="Theater am Neunerplatz" ID_Ort="6238">
+    <event>
+      <ID_Event>965</ID_Event>
+      <Titel>BOBO UND DER SAFRANKÖNIG</Titel>
+      <Kurztext>BOBO UND DER SAFRANKÖNIG</Kurztext>
+      <Detailtext>BOBO UND DER SAFRANKÖNIG</Detailtext>
+      <Link>http://www.theater-hobbit.de/</Link>
+      <Startdatum>2019-11-30</Startdatum>
+      <Enddatum>NA</Enddatum>
+      <Startzeit>15:00:00</Startzeit>
+      <Endzeit>NA</Endzeit>
+      <Straße>Münzstraße 1</Straße>
+      <Stadt>Würzburg</Stadt>
+      <PLZ>97070</PLZ>
+      <lng>9.93252</lng>
+      <lat>49.78884</lat>
+      <Vorverkauf>NA</Vorverkauf>
+      <Abendkasse>NA</Abendkasse>
+      <Kategorie>Bühne</Kategorie>
+      <ID_Kategorie>10145</ID_Kategorie>
+      <Bild_url>NA</Bild_url>
+    </event>
+    <event>
+      <ID_Event>966</ID_Event>
+      <Titel>BOBO UND DER SAFRANKÖNIG</Titel>
+      <Kurztext>BOBO UND DER SAFRANKÖNIG</Kurztext>
+      <Detailtext>BOBO UND DER SAFRANKÖNIG</Detailtext>
+      <Link>http://www.theater-hobbit.de/</Link>
+      <Startdatum>2019-12-28</Startdatum>
+      <Enddatum>NA</Enddatum>
+      <Startzeit>15:00:00</Startzeit>
+      <Endzeit>NA</Endzeit>
+      <Straße>Münzstraße 1</Straße>
+      <Stadt>Würzburg</Stadt>
+      <PLZ>97070</PLZ>
+      <lng>9.93252</lng>
+      <lat>49.78884</lat>
+      <Vorverkauf>NA</Vorverkauf>
+      <Abendkasse>NA</Abendkasse>
+      <Kategorie>Bühne</Kategorie>
+      <ID_Kategorie>10145</ID_Kategorie>
+      <Bild_url>NA</Bild_url>
+    </event>
+    <event>
+      <ID_Event>967</ID_Event>
+      <Titel>BOBO UND DER SAFRANKÖNIG</Titel>
+      <Kurztext>BOBO UND DER SAFRANKÖNIG</Kurztext>
+      <Detailtext>BOBO UND DER SAFRANKÖNIG</Detailtext>
+      <Link>http://www.theater-hobbit.de/</Link>
+      <Startdatum>2019-12-29</Startdatum>
+      <Enddatum>NA</Enddatum>
+      <Startzeit>15:00:00</Startzeit>
+      <Endzeit>NA</Endzeit>
+      <Straße>Münzstraße 1</Straße>
+      <Stadt>Würzburg</Stadt>
+      <PLZ>97070</PLZ>
+      <lng>9.93252</lng>
+      <lat>49.78884</lat>
+      <Vorverkauf>NA</Vorverkauf>
+      <Abendkasse>NA</Abendkasse>
+      <Kategorie>Bühne</Kategorie>
+      <ID_Kategorie>10145</ID_Kategorie>
+      <Bild_url>NA</Bild_url>
+    </event>
+    <event>
+      <ID_Event>968</ID_Event>
+      <Titel>BOBO UND DER SAFRANKÖNIG</Titel>
+      <Kurztext>BOBO UND DER SAFRANKÖNIG</Kurztext>
+      <Detailtext>BOBO UND DER SAFRANKÖNIG</Detailtext>
+      <Link>http://www.theater-hobbit.de/</Link>
+      <Startdatum>2019-12-31</Startdatum>
+      <Enddatum>NA</Enddatum>
+      <Startzeit>15:00:00</Startzeit>
+      <Endzeit>NA</Endzeit>
+      <Straße>Münzstraße 1</Straße>
+      <Stadt>Würzburg</Stadt>
+      <PLZ>97070</PLZ>
+      <lng>9.93252</lng>
+      <lat>49.78884</lat>
+      <Vorverkauf>NA</Vorverkauf>
+      <Abendkasse>NA</Abendkasse>
+      <Kategorie>Bühne</Kategorie>
+      <ID_Kategorie>10145</ID_Kategorie>
+      <Bild_url>NA</Bild_url>
+    </event>
+    <event>
+      <ID_Event>969</ID_Event>
+      <Titel>LIZZY UND DAS ENGELSHAAR</Titel>
+      <Kurztext>Besonders groß und besonders schwierig ist die Mission, die Bobo bewältigen muss. Auch die Schnecke kann kaum weiter helfen, denn ...</Kurztext>
+      <Detailtext>Besonders groß und besonders schwierig ist die Mission, die Bobo bewältigen muss. Auch die Schnecke kann kaum weiter helfen, denn Metalleramanni tut alles um den Zauberer aufzuhalten. Unterhaltsames Marionettenspiel mit Musik. Spiel: Jörg Peter &amp; Ramon Cohen</Detailtext>
+      <Link>http://www.theater-hobbit.de/</Link>
+      <Startdatum>2019-12-01</Startdatum>
+      <Enddatum>NA</Enddatum>
+      <Startzeit>11:00:00</Startzeit>
+      <Endzeit>NA</Endzeit>
+      <Straße>Münzstraße 1</Straße>
+      <Stadt>Würzburg</Stadt>
+      <PLZ>97070</PLZ>
+      <lng>9.93252</lng>
+      <lat>49.78884</lat>
+      <Vorverkauf>NA</Vorverkauf>
+      <Abendkasse>NA</Abendkasse>
+      <Kategorie>Bühne</Kategorie>
+      <ID_Kategorie>10145</ID_Kategorie>
+      <Bild_url>NA</Bild_url>
+    </event>
+    <event>
+      <ID_Event>970</ID_Event>
+      <Titel>LIZZY UND DAS ENGELSHAAR</Titel>
+      <Kurztext>Besonders groß und besonders schwierig ist die Mission, die Bobo bewältigen muss. Auch die Schnecke kann kaum wei</Kurztext>
+      <Detailtext>Besonders groß und besonders schwierig ist die Mission, die Bobo bewältigen muss. Auch die Schnecke kann kaum weiter helfen, denn Metalleramanni tut alles um den Zauberer aufzuhalten. Unterhaltsames Marionettenspiel mit Musik. Spiel: Jörg Peter &amp; Ramon Cohen</Detailtext>
+      <Link>http://www.theater-hobbit.de/</Link>
+      <Startdatum>2019-12-07</Startdatum>
       <Enddatum>NA</Enddatum>
       <Startzeit>16:00:00</Startzeit>
-      <Endzeit>17:00:00</Endzeit>
-      <Straße>Theaterstraße 19</Straße>
+      <Endzeit>NA</Endzeit>
+      <Straße>Münzstraße 1</Straße>
       <Stadt>Würzburg</Stadt>
       <PLZ>97070</PLZ>
-      <lng>9.9354671</lng>
-      <lat>49.7953775</lat>
+      <lng>9.93252</lng>
+      <lat>49.78884</lat>
       <Vorverkauf>NA</Vorverkauf>
       <Abendkasse>NA</Abendkasse>
-      <Kategorie>NA</Kategorie>
+      <Kategorie>Bühne</Kategorie>
+      <ID_Kategorie>10145</ID_Kategorie>
       <Bild_url>NA</Bild_url>
     </event>
     <event>
-      <Titel>WEIN.PARTY AM PFAFFENBERG</Titel>
-      <Kurztext>Das Sommer-Open-Air im Bürgerspital Betriebshof Es ist wieder soweit: Unsere WEIN.PARTY AM PFAFFENBERG steigt. Egal ob Jung oder Alt, tanzwütig ...</Kurztext>
-      <Detailtext>Das Sommer-Open-Air im Bürgerspital Betriebshof Es ist wieder soweit: Unsere WEIN.PARTY AM PFAFFENBERG steigt. Egal ob Jung oder Alt, tanzwütig oder gemütlich, Weinverliebt oder Cocktailliebhaber, alle feiern sie gemeinsam die Kultparty in unserem Betriebshof in der Dürrbachau. Mit von der Partie sind natürlich Top-Bürgerspital-Weine und dazu leckere Speisen, zwei Live-Bands, ein gemütlicher Loungebereich, die Sommerbar und ein hochmotiviertes und partyfreudiges Weingut-Team.	Der Shuttle-Bus pendelt im Halbstundentakt vom Busbahnhof zum Partygelände und	zurück. Feiern Sie mit uns zwei einzigartige Open Air-Nächte.	Eintritt frei</Detailtext>
-      <Link>https://www.buergerspital.de/aktuelles/termine/index.html?ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=11.06.2019&amp;ev%5Bend%5D=10.08.2019&amp;ev%5Bsubcat%5D=&amp;ev%5Bid%5D=1405&amp;ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=11.06.2019&amp;ev%5Bend%5D=10.08.2019&amp;ev%5Bsubcat%5D=</Link>
-      <Startdatum>2019-07-26</Startdatum>
+      <ID_Event>971</ID_Event>
+      <Titel>LIZZY UND DAS ENGELSHAAR</Titel>
+      <Kurztext>Besonders groß und besonders schwierig ist die Mission, die Bobo bewältigen muss. Auch die Schnecke kann kaum weiter helfen, denn ...</Kurztext>
+      <Detailtext>Besonders groß und besonders schwierig ist die Mission, die Bobo bewältigen muss. Auch die Schnecke kann kaum weiter helfen, denn Metalleramanni tut alles um den Zauberer aufzuhalten. Unterhaltsames Marionettenspiel mit Musik. Spiel: Jörg Peter &amp; Ramon Cohen</Detailtext>
+      <Link>http://www.theater-hobbit.de/</Link>
+      <Startdatum>2019-12-08</Startdatum>
       <Enddatum>NA</Enddatum>
-      <Startzeit>18:00:00</Startzeit>
-      <Endzeit>23:59:00</Endzeit>
-      <Straße>Theaterstraße 19</Straße>
+      <Startzeit>11:00:00</Startzeit>
+      <Endzeit>NA</Endzeit>
+      <Straße>Münzstraße 1</Straße>
       <Stadt>Würzburg</Stadt>
       <PLZ>97070</PLZ>
-      <lng>9.9354671</lng>
-      <lat>49.7953775</lat>
+      <lng>9.93252</lng>
+      <lat>49.78884</lat>
       <Vorverkauf>NA</Vorverkauf>
       <Abendkasse>NA</Abendkasse>
-      <Kategorie>NA</Kategorie>
+      <Kategorie>Bühne</Kategorie>
+      <ID_Kategorie>10145</ID_Kategorie>
       <Bild_url>NA</Bild_url>
     </event>
     <event>
-      <Titel>WEIN.PARTY AM PFAFFENBERG</Titel>
-      <Kurztext>Das Sommer-Open-Air im Bürgerspital Betriebshof Es ist wieder soweit: Unsere WEIN.PARTY AM PFAFFENBERG steigt. Egal ob Jung oder Alt, tanzwütig ...</Kurztext>
-      <Detailtext>Das Sommer-Open-Air im Bürgerspital Betriebshof Es ist wieder soweit: Unsere WEIN.PARTY AM PFAFFENBERG steigt. Egal ob Jung oder Alt, tanzwütig oder gemütlich, Weinverliebt oder Cocktailliebhaber, alle feiern sie gemeinsam die Kultparty in unserem Betriebshof in der Dürrbachau. Mit von der Partie sind natürlich Top-Bürgerspital-Weine und dazu leckere Speisen, zwei Live-Bands, ein gemütlicher Loungebereich, die Sommerbar und ein hochmotiviertes und partyfreudiges Weingut-Team.	Der Shuttle-Bus pendelt im Halbstundentakt vom Busbahnhof zum Partygelände und	zurück. Feiern Sie mit uns zwei einzigartige Open Air-Nächte.	Eintritt frei</Detailtext>
-      <Link>https://www.buergerspital.de/aktuelles/termine/index.html?ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=11.06.2019&amp;ev%5Bend%5D=10.08.2019&amp;ev%5Bsubcat%5D=&amp;ev%5Bid%5D=1406&amp;ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=11.06.2019&amp;ev%5Bend%5D=10.08.2019&amp;ev%5Bsubcat%5D=</Link>
-      <Startdatum>2019-07-27</Startdatum>
+      <ID_Event>972</ID_Event>
+      <Titel>PETERCHENS MONDFAHRT</Titel>
+      <Kurztext>Ein Engelshaar entdeckt wirklich nicht jeder. Aber Lizzy, die bezaubernde Marionette, die im Plastischen Theater Hobbit zu einem Figuren-Trio gehört, ...</Kurztext>
+      <Detailtext>Ein Engelshaar entdeckt wirklich nicht jeder. Aber Lizzy, die bezaubernde Marionette, die im Plastischen Theater Hobbit zu einem Figuren-Trio gehört, das für Kinder ab 2 Jahren auf die Bühne tritt, hat das Glück! Am Samstag, dem 1. Dezember um 15 Uhr findet die Premiere der dritten Geschichte mit Lizzy, Habbel und Babbel statt. Auch “Lizzy und das Engelshaar“ ist feinfühlig inszeniert und orientiert sich  an den Bedürfnissen des jüngsten Publikums. Den guten Babbel hat eine Erkältung erwischt - kein Wunder bei dem kühler werdenden Wetter.  Aber zu seinem Glück kennt sich die kluge Habbel bestens aus. Sie weiß, was notwendig ist und in solchen Fällen ganz schnell hilft. So macht sie sich sofort auf den Weg… Und Lizzy hat natürlich auch schon die ein oder andere Erfahrung gemacht, was zu tun ist, wenn es darum geht, für Wärme zu sorgen. Babbel erhält also Hilfe auf ganz verschiedenen Ebenen: Dass da einem Engelshaar auch eine besondere Wirkung zukommen mag, liegt fast auf der Hand. Ob am Ende alles gut zusammen wirkt und Babbel wieder ganz gesund wird? Bestimmt.</Detailtext>
+      <Link>http://www.theater-hobbit.de/</Link>
+      <Startdatum>2019-12-14</Startdatum>
       <Enddatum>NA</Enddatum>
-      <Startzeit>18:00:00</Startzeit>
-      <Endzeit>23:59:00</Endzeit>
-      <Straße>Theaterstraße 19</Straße>
+      <Startzeit>15:00:00</Startzeit>
+      <Endzeit>NA</Endzeit>
+      <Straße>Münzstraße 1</Straße>
       <Stadt>Würzburg</Stadt>
       <PLZ>97070</PLZ>
-      <lng>9.9354671</lng>
-      <lat>49.7953775</lat>
+      <lng>9.93252</lng>
+      <lat>49.78884</lat>
       <Vorverkauf>NA</Vorverkauf>
       <Abendkasse>NA</Abendkasse>
-      <Kategorie>NA</Kategorie>
+      <Kategorie>Bühne</Kategorie>
+      <ID_Kategorie>10145</ID_Kategorie>
       <Bild_url>NA</Bild_url>
     </event>
     <event>
-      <Titel>Freitagsprobe im Turmkeller</Titel>
-      <Kurztext>Tauchen Sie ein in die wunderbare Weinwelt des Bürgerspitals. Auch als Geschenk für Weinliebhaber in Ihrer Familie oder Genießer unter ...</Kurztext>
-      <Detailtext>Tauchen Sie ein in die wunderbare Weinwelt des Bürgerspitals. Auch als Geschenk für Weinliebhaber in Ihrer Familie oder Genießer unter Ihren Freunden und Bekannten ist diese geführte, fachliche Weinprobe mit vorhergehender Führung durch unseren Holzfasskeller sehr beliebt und ein unvergessliches Erlebnis. Sie beinhaltet ein Sekt und fünf Weine, begleitet mit Mineralwasser und fränkischem Bauernbrot. Preis: 26 € pro PersonDauer: ca. 3 Stunden Ticketkauf für diese Veranstaltung </Detailtext>
-      <Link>https://www.buergerspital.de/aktuelles/termine/index.html?ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=11.06.2019&amp;ev%5Bend%5D=10.08.2019&amp;ev%5Bsubcat%5D=&amp;ev%5Bid%5D=1748&amp;ev%5Bsearch%5D=&amp;ev%5Bcat%5D=&amp;ev%5Bstart%5D=11.06.2019&amp;ev%5Bend%5D=10.08.2019&amp;ev%5Bsubcat%5D=</Link>
-      <Startdatum>2019-08-09</Startdatum>
+      <ID_Event>973</ID_Event>
+      <Titel>PETERCHENS MONDFAHRT</Titel>
+      <Kurztext>Ein Engelshaar entdeckt wirklich nicht jeder. Aber Lizzy, die bezaubernde Marionette, die im Plastischen Theater Hobbit zu einem Figuren-Trio gehört, ...</Kurztext>
+      <Detailtext>Ein Engelshaar entdeckt wirklich nicht jeder. Aber Lizzy, die bezaubernde Marionette, die im Plastischen Theater Hobbit zu eine</Detailtext>
+      <Link>http://www.theater-hobbit.de/</Link>
+      <Startdatum>2019-12-15</Startdatum>
       <Enddatum>NA</Enddatum>
-      <Startzeit>19:00:00</Startzeit>
-      <Endzeit>22:00:00</Endzeit>
-      <Straße>Theaterstraße 19</Straße>
+      <Startzeit>15:00:00</Startzeit>
+      <Endzeit>NA</Endzeit>
+      <Straße>Münzstraße 1</Straße>
       <Stadt>Würzburg</Stadt>
       <PLZ>97070</PLZ>
-      <lng>9.9354671</lng>
-      <lat>49.7953775</lat>
+      <lng>9.93252</lng>
+      <lat>49.78884</lat>
       <Vorverkauf>NA</Vorverkauf>
       <Abendkasse>NA</Abendkasse>
-      <Kategorie>NA</Kategorie>
+      <Kategorie>Bühne</Kategorie>
+      <ID_Kategorie>10145</ID_Kategorie>
+      <Bild_url>NA</Bild_url>
+    </event>
+    <event>
+      <ID_Event>974</ID_Event>
+      <Titel>PETERCHENS MONDFAHRT</Titel>
+      <Kurztext>Ein Engelshaar entdeckt wirklich nicht jeder. Aber Lizzy, die bezaubernde Marionette, die im Plastischen Theater Hobbit zu einem Figuren-Trio gehört, ...</Kurztext>
+      <Detailtext>Ein Engelshaar entdeckt wirklich nicht jeder. Aber Lizzy, die bezaubernde Marionette, die im Plastischen Theater Hobbit zu einem Figuren-Trio gehört, das für Kinder ab 2 Jahren auf die Bühne tritt, hat das Glück! Am Samstag, dem 1. Dezember um 15 Uhr findet die Premiere der dritten Geschichte mit Lizzy, Habbel und Babbel statt. Auch “Lizzy und das Engelshaar“ ist feinfühlig inszeniert und orientiert sich  an den Bedürfnissen des jüngsten Publikums. Den guten Babbel hat eine Erkältung erwischt - kein Wunder bei dem kühler werdenden Wetter.  Aber zu seinem Glück kennt sich die kluge Habbel bestens aus. Sie weiß, was notwendig ist und in solchen Fällen ganz schnell hilft. So macht sie sich sofort auf den Weg… Und Lizzy hat natürlich auch schon die ein oder andere Erfahrung gemacht, was zu tun ist, wenn es darum geht, für Wärme zu sorgen. Babbel erhält also Hilfe auf ganz verschiedenen Ebenen: Dass da einem Engelshaar auch eine besondere Wirkung zukommen mag, liegt fast auf der Hand. Ob am Ende alles gut zusammen wirkt und Babbel wieder ganz gesund wird? Bestimmt.</Detailtext>
+      <Link>http://www.theater-hobbit.de/</Link>
+      <Startdatum>2019-12-21</Startdatum>
+      <Enddatum>NA</Enddatum>
+      <Startzeit>15:00:00</Startzeit>
+      <Endzeit>NA</Endzeit>
+      <Straße>Münzstraße 1</Straße>
+      <Stadt>Würzburg</Stadt>
+      <PLZ>97070</PLZ>
+      <lng>9.93252</lng>
+      <lat>49.78884</lat>
+      <Vorverkauf>NA</Vorverkauf>
+      <Abendkasse>NA</Abendkasse>
+      <Kategorie>Bühne</Kategorie>
+      <ID_Kategorie>10145</ID_Kategorie>
+      <Bild_url>NA</Bild_url>
+    </event>
+    <event>
+      <ID_Event>975</ID_Event>
+      <Titel>PETERCHENS MONDFAHRT</Titel>
+      <Kurztext>Ein Engelshaar entdeckt wirklich nicht jeder. Aber Lizzy, die bezaubernde Marionette, die im Plastischen Theater Hobbit zu einem Figuren-Trio gehört, ...</Kurztext>
+      <Detailtext>Ein Engelshaar entdeckt wirklich nicht jeder. Aber Lizzy, die bezaubernde Marionette, die im Plastischen Theater Hobbit zu einem Figuren-Trio gehört, das für Kinder ab 2 Jahren auf die Bühne tritt, hat das Glück! Am Samstag, dem 1. Dezember um 15 Uhr findet die Premiere der dritten Geschichte mit Lizzy, Habbel und Babbel statt. Auch “Lizzy und das Engelshaar“ ist feinfühlig inszeniert und orientiert sich  an den Bedürfnissen des jüngsten Publikums. Den guten Babbel hat eine Erkältung erwischt - kein Wunder bei dem kühler werdenden Wetter.  Aber zu seinem Glück kennt sich die kluge Habbel bestens aus. Sie weiß, was notwendig ist und in solchen Fällen ganz schnell hilft. So macht sie sich sofort auf den Weg… Und Lizzy hat natürlich auch schon die ein oder andere Erfahrung gemacht, was zu tun ist, wenn es darum geht, für Wärme zu sorgen. Babbel erhält also Hilfe auf ganz verschiedenen Ebenen: Dass da einem Engelshaar auch eine besondere Wirkung zukommen mag, liegt fast auf der Hand. Ob am Ende alles gut zusammen wirkt und Babbel wieder ganz gesund wird? Bestimmt.</Detailtext>
+      <Link>http://www.theater-hobbit.de/</Link>
+      <Startdatum>2019-12-22</Startdatum>
+      <Enddatum>NA</Enddatum>
+      <Startzeit>15:00:00</Startzeit>
+      <Endzeit>NA</Endzeit>
+      <Straße>Münzstraße 1</Straße>
+      <Stadt>Würzburg</Stadt>
+      <PLZ>97070</PLZ>
+      <lng>9.93252</lng>
+      <lat>49.78884</lat>
+      <Vorverkauf>NA</Vorverkauf>
+      <Abendkasse>NA</Abendkasse>
+      <Kategorie>Bühne</Kategorie>
+      <ID_Kategorie>10145</ID_Kategorie>
+      <Bild_url>NA</Bild_url>
+    </event>
+    <event>
+      <ID_Event>976</ID_Event>
+      <Titel>PETERCHENS MONDFAHRT</Titel>
+      <Kurztext>Ein Engelshaar entdeckt wirklich nicht jeder. Aber Lizzy, die bezaubernde Marionette, die im Plastischen Theater Hobbit zu einem Figuren-Trio gehört, ...</Kurztext>
+      <Detailtext>Ein Engelshaar entdeckt wirklich nicht jeder. Aber Lizzy, die bezaubernde Marionette, die im Plastischen Theater Hobbit zu einem Figuren-Trio gehört, das für Kinder ab 2 Jahren auf die Bühne tritt, hat das Glück! Am Samstag, dem 1. Dezember um 15 Uhr findet die Premiere der dritten Geschichte mit Lizzy, Habbel und Babbel statt. Auch “Lizzy und das Engelshaar“ ist feinfühlig inszeniert und orientiert sich  an den Bedürfnissen des jüngsten Publikums. Den guten Babbel hat eine Erkältung erwischt - k</Detailtext>
+      <Link>http://www.theater-hobbit.de/</Link>
+      <Startdatum>2019-12-23</Startdatum>
+      <Enddatum>NA</Enddatum>
+      <Startzeit>15:00:00</Startzeit>
+      <Endzeit>NA</Endzeit>
+      <Straße>Münzstraße 1</Straße>
+      <Stadt>Würzburg</Stadt>
+      <PLZ>97070</PLZ>
+      <lng>9.93252</lng>
+      <lat>49.78884</lat>
+      <Vorverkauf>NA</Vorverkauf>
+      <Abendkasse>NA</Abendkasse>
+      <Kategorie>Bühne</Kategorie>
+      <ID_Kategorie>10145</ID_Kategorie>
+      <Bild_url>NA</Bild_url>
+    </event>
+    <event>
+      <ID_Event>977</ID_Event>
+      <Titel>PETERCHENS MONDFAHRT</Titel>
+      <Kurztext>Ein Engelshaar entdeckt wirklich nicht jeder. Aber Lizzy, die bezaubernde Marionette, die im Plastischen Theater Hobbit zu einem Figuren-Trio gehört, ...</Kurztext>
+      <Detailtext>Ein Engelshaar entdeckt wirklich nicht jeder. Aber Lizzy, die bezaubernde Marionette, die im Plastischen Theater Hobbit zu einem Figuren-Trio gehört, das für Kinder ab 2 Jahren auf die Bühne tritt, hat das Glück! Am Samstag, dem 1. Dezember um 15 Uhr findet die Premiere der dritten Geschichte mit Lizzy, Habbel und Babbel statt. Auch “Lizzy und das Engelshaar“ ist feinfühlig inszeniert und orientiert sich  an den Bedürfnissen des jüngsten Publikums. Den guten Babbel hat eine Erkältung erwischt - kein Wunder bei dem kühler werdenden Wetter.  Aber zu seinem Glück kennt sich die kluge Habbel bestens aus. Sie weiß, was notwendig ist und in solchen Fällen ganz schnell hilft. So macht sie sich sofort auf den Weg… Und Lizzy hat natürlich auch schon die ein oder andere Erfahrung gemacht, was zu tun ist, wenn es darum geht, für Wärme zu sorgen. Babbel erhält also Hilfe auf ganz verschiedenen Ebenen: Dass da einem Engelshaar auch eine besondere Wirkung zukommen mag, liegt fast auf der Hand. Ob am Ende alles gut zusammen wirkt und Babbel wieder ganz gesund wird? Bestimmt.</Detailtext>
+      <Link>http://www.theater-hobbit.de/</Link>
+      <Startdatum>2019-12-26</Startdatum>
+      <Enddatum>NA</Enddatum>
+      <Startzeit>15:00:00</Startzeit>
+      <Endzeit>NA</Endzeit>
+      <Straße>Münzstraße 1</Straße>
+      <Stadt>Würzburg</Stadt>
+      <PLZ>97070</PLZ>
+      <lng>9.93252</lng>
+      <lat>49.78884</lat>
+      <Vorverkauf>NA</Vorverkauf>
+      <Abendkasse>NA</Abendkasse>
+      <Kategorie>Bühne</Kategorie>
+      <ID_Kategorie>10145</ID_Kategorie>
       <Bild_url>NA</Bild_url>
     </event>
   </crawler>

@@ -20,6 +20,8 @@ raw_read %>%
 # remove ticket shop link
 link = link[link!="http://www.astor-cinemalounge.de/tickets-kaufen.html"]
 link = link[link!="https://www.astor-cinemalounge.de/tickets-kaufen.html"]
+link = link[link!="https://www.astor-cinemalounge.de/filmprogramm.html"]
+
 
 link = paste("https://www.bayerischerhof.de/", link, sep = "")
 
@@ -60,6 +62,10 @@ for (cache_link in link) {
   } else {
     cache_time_end = ""
   }
+  cache_time_start = cache_time_start[1]
+  cache_time_end = cache_time_end[1]
+  cache_date_start = cache_date_start[1]
+  cache_date_end = cache_date_end[1]
   
   title = c(title, cache_title)
   description = c(description, cache_description)
@@ -70,17 +76,14 @@ for (cache_link in link) {
   
 }
 
-link
-cache_link = "https://www.bayerischerhof.de/de/erleben-geniessen/eventkalender/faschingamhotelbayerischerhof.html"
-
 # fixed data setup
 organizer = "Palais-Keller (im Würtzburg-Palais)"
 url = "https://www.bayerischerhof.de/de.html"
-lat = rep(49.7479214, length(title))
-lng = rep(9.8594372, length(title))
-street = rep("Am Congress Centrum", length(title))
-zip = rep(97070, length(title))
-city = rep("Würzburg", length(title))
+lat = 49.7479214
+lng = 9.8594372
+street = "Am Congress Centrum"
+zip = 97070
+city = "Würzburg"
 
 # data type conversion
 date_start <- as.Date(date_start, "%d.%m.%Y")
@@ -93,22 +96,18 @@ time_end <- chron(times = time_end)
 
 # build table
 crawled_df <- data.frame(
-                    category = category,
                     title = title,
                     date_start = date_start,
                     date_end = date_end, 
                     time_start = time_start,
                     time_end = time_end,
-                    price = price,
-                    advanced_price = advanced_price,
                     description = description,
                     lat = lat,
                     lng = lng,
                     street = street,
                     zip = zip,
                     city = city,
-                    link = link,
-                    image_url = image_url)
+                    link = link)
 
 meta_df = data.frame(url = url
                      , organizer = organizer)

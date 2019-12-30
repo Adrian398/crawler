@@ -89,9 +89,8 @@ crawled_df <- data.frame(
                     city = city,
                     link = link)
 
-meta_df = data.frame(url = url
-                     , organizer = organizer)
-
+idlocation = 4755
+meta_df = data.frame(organizer, url, idlocation)
 names(meta_df)[names(meta_df) == 'url'] <- 'url_crawler'
 
 #write to database

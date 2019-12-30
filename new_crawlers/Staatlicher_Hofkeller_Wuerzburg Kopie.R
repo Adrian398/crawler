@@ -20,7 +20,7 @@ raw_read %>%
   html_text(trim = T) -> raw_title
 
 raw_read %>%
-  html_nodes(".std") %>%
+  html_nodes("#products-list .std") %>%
   html_text(trim = T) -> description
 
 title = str_extract(raw_title, "[[:alpha:]].*")
@@ -56,6 +56,7 @@ city = rep("Würzburg", length(title))
 
 # data type conversion
 date_start <- as.Date(date_start, "%d.%m.%Y")
+date_end = as.Date(NA, "%d.%m.%Y")
 
 time_start <- chron(times = time_start)
 time_end <- chron(times = time_end)
@@ -65,6 +66,7 @@ crawled_df <- data.frame(
                     category = category,
                     title = title,
                     date_start = date_start,
+                    date_end = date_end,
                     time_start = time_start,
                     time_end = time_end,
                     price = price,
@@ -83,4 +85,4 @@ names(meta_df)[names(meta_df) == 'url'] <- 'url_crawler'
 
 
 #write to database
-#write_dataframes_to_database(crawled_df, meta_df, conn)
+write_dataframes_to_database(crawled_df, meta_df, conn)

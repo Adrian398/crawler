@@ -35,19 +35,22 @@ dates = map(dates,month_convertor)
 dates = unlist(dates)
 dates = gsub(" ",".",dates)
 date_start = as.Date(dates,"%d.%m.%Y")
+if(length(date_start) == 0) date_start = as.Date(NA,"%d.%m.%Y")
+date_end = as.Date(NA,"%d.%m.%Y")
 
 
 raw_read %>%
   html_nodes(".icon-time+ .mod_events_latest_date") %>%
   html_text(trim = T) -> time_start
 time_start = paste0(time_start,":00")
-time_start <- chron(times = time_start)
+#time_start <- chron(times = time_start)
+time_start = NA
 
 raw_read %>%
   html_nodes(".mod_events_latest_date+ .mod_events_latest_date") %>%
   html_text(trim = T) -> time_end
 time_end = paste0(time_end,":00")
-time_end <- chron(times = time_end)
+time_end <- NA
 
 
 # setting up the rest data

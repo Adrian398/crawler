@@ -47,7 +47,7 @@ for (cache_url in url) {
     html_attr('href') -> single_page_links
   
   raw_read %>%
-    html_nodes(".news-single__item-value") %>%
+    html_nodes(".news-list__item-date") %>%
     html_text(trim = T) -> date
   
   cache_date_start = str_extract(date, "[0-9]+\\.[0-9]+\\.[0-9]{4}")
@@ -57,7 +57,7 @@ for (cache_url in url) {
   cache_time_end = paste(str_extract_all(date, "[0-9]+:[0-9]+", simplify = T)[,2], ":00", sep = "")
   
   raw_read %>%
-    html_nodes(".news-list__item-event-category .news-list__item-value") %>%
+    html_nodes("tr:nth-child(1) .news-list__item-value") %>%
     html_text(trim = T) -> cache_category
   
   raw_read %>%
@@ -92,43 +92,43 @@ for (cache_url in url) {
   link = c(link, loop_links)
   
   # collect descriptions and image_url
-  for (cache_link in loop_links) {
-    cache_link %>%
-      read_html() -> cache_read
-    
-    cache_read %>%
-      html_nodes(".intro") %>%
-      html_text(trim = T) -> cache_intro
-    
-    cache_read %>%
-      html_nodes(".news-single__item-content") %>%
-      html_text(trim = T) -> cache_description
-    
-    if (!is_empty(cache_intro)){
-      cache_description = paste(cache_intro, cache_description, sep = " ")
-    }
-    
-    if (!is_empty(cache_description)){
-      if (nchar(cache_description) > 0){
-        description = c(description, cache_description)
-      } else {
-        description = c(description, NA)
-      }
-    } else {
-      description = c(description, NA)
-    }
-    
-    cache_read %>%
-      html_nodes(".news-single__item-big-image a") %>%
-      html_attr('href') -> cache_image_url
-    
-    if (is_empty(cache_image_url)){
-      image_url = c(image_url, NA)
-    } else {
-      cache_image_url = paste("https://www.uni-wuerzburg.de", cache_image_url, sep = "")
-      image_url = c(image_url, cache_image_url)
-    }
-  }
+  # for (cache_link in loop_links) {
+  #   cache_link %>%
+  #     read_html() -> cache_read
+  #   
+  #   cache_read %>%
+  #     html_nodes(".intro") %>%
+  #     html_text(trim = T) -> cache_intro
+  #   
+  #   cache_read %>%
+  #     html_nodes(".news-single__item-content") %>%
+  #     html_text(trim = T) -> cache_description
+  #   
+  #   if (!is_empty(cache_intro)){
+  #     cache_description = paste(cache_intro, cache_description, sep = " ")
+  #   }
+  #   
+  #   if (!is_empty(cache_description)){
+  #     if (nchar(cache_description) > 0){
+  #       description = c(description, cache_description)
+  #     } else {
+  #       description = c(description, NA)
+  #     }
+  #   } else {
+  #     description = c(description, NA)
+  #   }
+  #   
+  #   cache_read %>%
+  #     html_nodes(".news-single__item-big-image a") %>%
+  #     html_attr('href') -> cache_image_url
+  #   
+  #   if (is_empty(cache_image_url)){
+  #     image_url = c(image_url, NA)
+  #   } else {
+  #     cache_image_url = paste("https://www.uni-wuerzburg.de", cache_image_url, sep = "")
+  #     image_url = c(image_url, cache_image_url)
+  #   }
+  # }
 }
 
 # fixed data setup
@@ -145,7 +145,7 @@ date_end <- as.Date(date_end, "%d.%m.%Y")
 
 time_start <- chron(times = time_start)
 time_end <- chron(times = time_end)
-
+description = as.character(NA) #fix later with the commented code above
 # build table
 crawled_df <- data.frame(
                     category = category,
@@ -160,10 +160,10 @@ crawled_df <- data.frame(
                     street = street,
                     zip = zip,
                     city = city,
-                    link = link,
-                    image_url = image_url)
+                    link = link)
 
 #add metadf idlocation
+url = "https://www.uni-wuerzburg.de/aktuelles/veranstaltungen/"
 idlocation = 4770
 meta_df = data.frame(organizer, url, idlocation)
 names(meta_df)[names(meta_df) == 'url'] <- 'url_crawler'

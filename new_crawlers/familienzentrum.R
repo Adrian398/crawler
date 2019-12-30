@@ -72,7 +72,6 @@ v2 %>%
 v2$data = NULL
 v2$data1 = NULL
 
-v2
 
 meta_df = data.frame(url = url
                      , organizer = organizer)

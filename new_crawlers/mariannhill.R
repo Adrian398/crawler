@@ -53,23 +53,23 @@ raw_read %>%
   html_text(trim = T) -> description
 
 # Fixed data setup
-date_end = rep(NA, length(title))
-time_end = rep(NA, length(title))
-organizer = rep("Kirchenmusik Mariannhill Würzburg", length(title))
-lat = rep(49.79348, length(title))
-lng = rep(9.9545, length(title))
-street = rep("Mariannhillstraße 1", length(title))
-zip = rep(97074, length(title))
-city = rep("Würzburg", length(title))
-link = rep("http://www.kirchenmusik-mariannhill.de", length(title))
+date_end = NA
+time_end = NA
+organizer = "Kirchenmusik Mariannhill Würzburg"
+lat = 49.79348
+lng = 9.9545
+street = "Mariannhillstraße 1"
+zip = 97074
+city = "Würzburg"
+link = "http://www.kirchenmusik-mariannhill.de"
 
 # data type conversion
 date_start = as.Date(date_start, "%d.%m.%Y")
 date_end = as.Date(date_end, "%d.%m.%Y")
 
 time_start = chron(times = time_start)
-time_end = chron(times = time_end)
 
+description = NA 
 # Build table
 df <- data.frame(title = title,
                  date_start = date_start,
@@ -77,7 +77,6 @@ df <- data.frame(title = title,
                  time_start = time_start,
                  time_end = time_end,
                  description = description,
-                 organizer = organizer,
                  lat = lat,
                  lng = lng,
                  street = street,
@@ -88,8 +87,10 @@ df <- data.frame(title = title,
 
 #set up to write to database
 crawled_df = df[c("title", "description", "link", "date_start", "date_end", "time_end", "time_start", "street", "city", "zip", "lng", "lat")]
-meta_df = df[c("organizer", "link")][1,]
-names(meta_df)[names(meta_df) == 'link'] <- 'url_crawler'
+
+idlocation = 8689
+meta_df = data.frame(organizer, url, idlocation)
+names(meta_df)[names(meta_df) == 'url'] <- 'url_crawler'
 
 #write to database
 write_dataframes_to_database(crawled_df, meta_df, conn)

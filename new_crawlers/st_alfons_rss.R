@@ -17,7 +17,7 @@ time_start = NA
 time_end = NA
 
 #set up to write to database
-crawled_df = data.frame(df$items$title, description, df$items$link, date_start, date_end, time_end, time_start, street, city, zip, lng, lat)
+crawled_df = data.frame(title = df$items$title, description, link = df$items$link, date_start, date_end, time_end, time_start, street, city, zip, lng, lat)
 idlocation = 4807
 meta_df = data.frame(organizer, url, idlocation)
 names(meta_df)[names(meta_df) == 'url'] <- 'url_crawler'

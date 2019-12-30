@@ -51,11 +51,9 @@ get_Date <- function(arg1){
   date = paste0(c(day, month, year), seq="", collapse = "/" )
   time1 = "00"
   
-  datetime = paste0(c(date, subDate[4], time1), seq="", collapse = ":" )
+
   
-  mydatetime = strptime(datetime,format='%d/%m/%Y:%H:%M:%S')
-  
-  return(mydatetime)
+  return(c(date,subDate[4]))
 }
 
 #get description
@@ -72,7 +70,6 @@ zip = 97082
 organizer = "Theater am Neunerplatz"
 price = NA
 street = "Adelgundenweg 2a"
-time_start = NA
 date_end = NA
 time_end = NA
 #create Dataframe
@@ -80,16 +77,22 @@ time_end = NA
 html_nodes(html_text, ".wp_theatre_event_datetime") %>%
   html_text(trim = T) -> event_date
 
-date_start = map(as.character(event_date), get_Date)
-date_start = sapply( date_start, paste0, collapse="")
+date_time= map(as.character(event_date), get_Date)
+date_time = unlist(date_time)
 
+
+
+date_start = date_time[seq(1,length(date_time),2)]
+time_start = date_time[seq(2,length(date_time),2)]
+
+
+time_start = paste0(time_start,":00")
+time_start <- chron(times = time_start)
+
+date_start = as.Date(date_start, "%d/%m/%Y")
 date_end = as.Date(date_end, "%d.%m.%Y")
 
 df = data.frame(title, link, description, lng, lat, city, zip, street, date_start, date_end, time_start, time_end, price, organizer, image_url)
-
-
-df = df %>%
-  separate(date_start, c("date_start", "time_start"), " ")
 
 
 

@@ -28,14 +28,14 @@ raw_read %>%
   html_attr("href") -> link
 
 date_start = str_extract_all(date, "[0-9]+\\.[0-9]+\\.[0-9]{4}", simplify = T)[, 1] 
-date_end = str_extract_all(date, "[0-9]+\\.[0-9]+\\.[0-9]{4}", simplify = T)[, 2] 
+date_end = NA
 
 time_start = str_extract_all(date, "[0-9]{2}:[0-9]{2}", simplify = T)[, 1]
-time_end = str_extract_all(date, "[0-9]{2}:[0-9]{2}", simplify = T)[, 2]
+time_end = NA
 
 time_start = paste(time_start, ":00", sep = "")
-time_end = paste(time_end, ":00", sep = "")
-time_end = gsub("^:00", "", time_end)
+#time_end = paste(time_end, ":00", sep = "")
+#time_end = gsub("^:00", "", time_end)
 
 link = paste("https:", link, sep = "")
 
@@ -75,7 +75,7 @@ city = rep("Würzburg", length(title))
 date_start <- as.Date(date_start, "%d.%m.%Y")
 date_end <- as.Date(date_end, "%d.%m.%Y")
 
-time_start <- chron(times = time_start)
+time_start <- chron::chron(times = time_start)
 time_end <- NA
 
 # build table

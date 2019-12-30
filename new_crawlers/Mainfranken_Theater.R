@@ -8,18 +8,18 @@ source("write_to_database.R")
 ### Mainfranken Theater  ####
 # functions initialization #
 month_convertor <- function(given_date){
-  given_date = gsub(" Januar ","01.",given_date)
-  given_date = gsub(" Februar ","02.",given_date)
-  given_date = gsub(" März ","03.",given_date)
-  given_date = gsub(" April ","04.",given_date)
-  given_date = gsub(" Mai ","05.",given_date)
-  given_date = gsub(" Juni ","06.",given_date)
-  given_date = gsub(" Juli ","07.",given_date)
-  given_date = gsub(" August ","08.",given_date)
-  given_date = gsub(" September ","09.",given_date)
-  given_date = gsub(" Oktober ","10.",given_date)
-  given_date = gsub(" November ","11.",given_date)
-  given_date = gsub(" Dezember ","12.",given_date)
+  given_date = gsub("Januar","01.",given_date)
+  given_date = gsub("Februar","02.",given_date)
+  given_date = gsub("März","03.",given_date)
+  given_date = gsub("April","04.",given_date)
+  given_date = gsub("Mai","05.",given_date)
+  given_date = gsub("Juni","06.",given_date)
+  given_date = gsub("Juli","07.",given_date)
+  given_date = gsub("August","08.",given_date)
+  given_date = gsub("September","09.",given_date)
+  given_date = gsub("Oktober","10.",given_date)
+  given_date = gsub("November","11.",given_date)
+  given_date = gsub("Dezember","12.",given_date)
   return(given_date)
 }
 
@@ -40,27 +40,26 @@ description = c()
 
 for (temp_url in link){
   temp_url %>%
-    read_html() %>%
-    html_nodes("#content") -> raw_read
+    read_html() -> raw_read
   
   raw_read %>%
-    html_node("h1") %>%
+    html_node(".headline__headline") %>%
     html_text(trim = T)-> temp_title
   
   raw_read %>%
-    html_node("h2+ strong") %>%
+    html_node(".productionschedule__infoheadline") %>%
     html_text(trim = T) %>%
-    str_extract("[0-9]{2}\\.[0-9]{2}\\.[0-9]{4}") -> temp_date_start
+    strsplit(" ")  %>%
+    unlist() -> temp_date_start
+  
+  day = temp_date_start[1]
+  month = month_convertor(temp_date_start[2])
+  year = temp_date_start[3]
+  
+  temp_date_start = paste0(paste0(day,month),year)
   
   raw_read %>%
-    html_node("h2+ strong") %>%
-    html_text(trim = T) %>%
-    str_extract("-\\s[0-9]{2}\\.[0-9]{2}\\.[0-9]{4}") -> temp_date_end
-  
-  temp_date_end = gsub("-\\s", "", temp_date_end)
-  
-  raw_read %>%
-    html_node("#ktml") %>%
+    html_node(".--margintop-none") %>%
     html_text(trim = T)-> temp_description
   
   title = c(title, temp_title)
@@ -71,21 +70,19 @@ for (temp_url in link){
 }
 
 # fixed data setup
-time_start = rep(NA, length(title))
-time_end = rep(NA, length(title))
-organizer = rep("Salon 77", length(title))
+time_start = NA
+time_end = NA
+organizer = "Mainfranken Theater Würzburg"
 lat = rep(49.79304, length(title))
 lng = rep(9.95808, length(title))
 street = rep("Richard-Wagner-Straße 60", length(title))
 zip = rep(97074, length(title))
-city = rep("Würzburg", length(title))
+city = "Würzburg"
 
 # data type conversion
 date_start <- as.Date(date_start, "%d.%m.%Y")
-date_end <- as.Date(date_end, "%d.%m.%Y")
+date_end <- as.Date(NA, "%d.%m.%Y")
 
-time_start <- chron(times = time_start)
-time_end <- chron(times = time_end)
 
 # build table
 df <- data.frame(title = title,
@@ -94,7 +91,6 @@ df <- data.frame(title = title,
                  time_start = time_start,
                  time_end = time_end,
                  description = description,
-                 organizer = organizer,
                  lat = lat,
                  lng = lng,
                  street = street,
@@ -104,8 +100,9 @@ df <- data.frame(title = title,
 
 #set up to write to database
 crawled_df = df[c("title", "description", "link", "date_start", "date_end", "time_end", "time_start", "street", "city", "zip", "lng", "lat")]
-meta_df = df[c("organizer", "link")][1,]
-names(meta_df)[names(meta_df) == 'link'] <- 'url_crawler'
+idlocation = 4153
+meta_df = data.frame(organizer, url, idlocation)
+names(meta_df)[names(meta_df) == 'url'] <- 'url_crawler'
 
 #write to database
 write_dataframes_to_database(crawled_df, meta_df, conn)
