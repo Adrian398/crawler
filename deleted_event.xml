@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <document>
   <row>
-    <idevent>1229</idevent>
+    <idevent>1178</idevent>
     <title>BOBO UND DER SAFRANK&#xD6;NIG</title>
     <description>BOBO UND DER SAFRANK&#xD6;NIG</description>
     <link>http://www.theater-hobbit.de/</link>
-    <date_start>18230</date_start>
+    <date_start>18626</date_start>
     <date_end>NA</date_end>
     <idgroup>NA</idgroup>
     <advance_price>NA</advance_price>
@@ -25,11 +25,11 @@
     <booking_office>NA</booking_office>
   </row>
   <row>
-    <idevent>1230</idevent>
+    <idevent>1179</idevent>
     <title>BOBO UND DER SAFRANK&#xD6;NIG</title>
     <description>BOBO UND DER SAFRANK&#xD6;NIG</description>
     <link>http://www.theater-hobbit.de/</link>
-    <date_start>18258</date_start>
+    <date_start>18627</date_start>
     <date_end>NA</date_end>
     <idgroup>NA</idgroup>
     <advance_price>NA</advance_price>
@@ -49,11 +49,11 @@
     <booking_office>NA</booking_office>
   </row>
   <row>
-    <idevent>1231</idevent>
+    <idevent>1180</idevent>
     <title>BOBO UND DER SAFRANK&#xD6;NIG</title>
     <description>BOBO UND DER SAFRANK&#xD6;NIG</description>
     <link>http://www.theater-hobbit.de/</link>
-    <date_start>18259</date_start>
+    <date_start>18262</date_start>
     <date_end>NA</date_end>
     <idgroup>NA</idgroup>
     <advance_price>NA</advance_price>
@@ -73,59 +73,11 @@
     <booking_office>NA</booking_office>
   </row>
   <row>
-    <idevent>1232</idevent>
-    <title>BOBO UND DER SAFRANK&#xD6;NIG</title>
-    <description>BOBO UND DER SAFRANK&#xD6;NIG</description>
-    <link>http://www.theater-hobbit.de/</link>
-    <date_start>18261</date_start>
-    <date_end>NA</date_end>
-    <idgroup>NA</idgroup>
-    <advance_price>NA</advance_price>
-    <price>NA</price>
-    <event_site>NA</event_site>
-    <idorganizer>30</idorganizer>
-    <image_url>NA</image_url>
-    <category>B&#xFC;hne</category>
-    <time_start>0.625</time_start>
-    <time_end>NA</time_end>
-    <idcrawler>28</idcrawler>
-    <street>M&#xFC;nzstra&#xDF;e 1</street>
-    <city>W&#xFC;rzburg</city>
-    <zip>97070</zip>
-    <lng>9.93252</lng>
-    <lat>49.78884</lat>
-    <booking_office>NA</booking_office>
-  </row>
-  <row>
-    <idevent>1233</idevent>
-    <title>LIZZY UND DAS ENGELSHAAR</title>
+    <idevent>1181</idevent>
+    <title>LIZZY BAUT EINEN TURM</title>
     <description>Besonders gro&#xDF; und besonders schwierig ist die Mission, die Bobo bew&#xE4;ltigen muss. Auch die Schnecke kann kaum weiter helfen, denn Metalleramanni tut alles um den Zauberer aufzuhalten. Unterhaltsames Marionettenspiel mit Musik. Spiel: J&#xF6;rg Peter &amp; Ramon Cohen</description>
     <link>http://www.theater-hobbit.de/</link>
-    <date_start>18231</date_start>
-    <date_end>NA</date_end>
-    <idgroup>NA</idgroup>
-    <advance_price>NA</advance_price>
-    <price>NA</price>
-    <event_site>NA</event_site>
-    <idorganizer>30</idorganizer>
-    <image_url>NA</image_url>
-    <category>B&#xFC;hne</category>
-    <time_start>0.458333333333333</time_start>
-    <time_end>NA</time_end>
-    <idcrawler>28</idcrawler>
-    <street>M&#xFC;nzstra&#xDF;e 1</street>
-    <city>W&#xFC;rzburg</city>
-    <zip>97070</zip>
-    <lng>9.93252</lng>
-    <lat>49.78884</lat>
-    <booking_office>NA</booking_office>
-  </row>
-  <row>
-    <idevent>1234</idevent>
-    <title>LIZZY UND DAS ENGELSHAAR</title>
-    <description>Besonders gro&#xDF; und besonders schwierig ist die Mission, die Bobo bew&#xE4;ltigen muss. Auch die Schnecke kann kaum weiter helfen, denn Metalleramanni tut alles um den Zauberer aufzuhalten. Unterhaltsames Marionettenspiel mit Musik. Spiel: J&#xF6;rg Peter &amp; Ramon Cohen</description>
-    <link>http://www.theater-hobbit.de/</link>
-    <date_start>18237</date_start>
+    <date_start>18265</date_start>
     <date_end>NA</date_end>
     <idgroup>NA</idgroup>
     <advance_price>NA</advance_price>
@@ -145,11 +97,35 @@
     <booking_office>NA</booking_office>
   </row>
   <row>
-    <idevent>1235</idevent>
-    <title>LIZZY UND DAS ENGELSHAAR</title>
+    <idevent>1182</idevent>
+    <title>LIZZY BAUT EINEN TURM</title>
     <description>Besonders gro&#xDF; und besonders schwierig ist die Mission, die Bobo bew&#xE4;ltigen muss. Auch die Schnecke kann kaum weiter helfen, denn Metalleramanni tut alles um den Zauberer aufzuhalten. Unterhaltsames Marionettenspiel mit Musik. Spiel: J&#xF6;rg Peter &amp; Ramon Cohen</description>
     <link>http://www.theater-hobbit.de/</link>
-    <date_start>18238</date_start>
+    <date_start>18267</date_start>
+    <date_end>NA</date_end>
+    <idgroup>NA</idgroup>
+    <advance_price>NA</advance_price>
+    <price>NA</price>
+    <event_site>NA</event_site>
+    <idorganizer>30</idorganizer>
+    <image_url>NA</image_url>
+    <category>B&#xFC;hne</category>
+    <time_start>0.666666666666667</time_start>
+    <time_end>NA</time_end>
+    <idcrawler>28</idcrawler>
+    <street>M&#xFC;nzstra&#xDF;e 1</street>
+    <city>W&#xFC;rzburg</city>
+    <zip>97070</zip>
+    <lng>9.93252</lng>
+    <lat>49.78884</lat>
+    <booking_office>NA</booking_office>
+  </row>
+  <row>
+    <idevent>1183</idevent>
+    <title>LIZZY, HABBEL UND BABBEL</title>
+    <description>Kinder lieben es T&#xFC;rme zu bauen. Gespannt und konzentriert verfolgen sie, wie er h&#xF6;her und h&#xF6;her wird... Bumm! Dann f&#xE4;llt er um. Zwar schade, aber auch kein Problem. Es geht einfach wieder von vorne los und macht Spa&#xDF;. Genauso ist auch bei &#x201E;Lizzy baut einen Turm&#x201C;, der zweiten Geschichte mit Lizzy, Habbel und Babbel, die am 10. M&#xE4;rz um 15 Uhr im Plastischen Theater Hobbit Premiere hat. Auch dieses Mal richtet sich das St&#xFC;ck an die ganz Kleinen ab 2 bis 3 Jahren. Ruhig, doch frohgemut und behutsam werden die Kinder mit einem Thema willkommen gehei&#xDF;en, das sie gut kennen: geh&#xF6;rt das Turmbauen doch zum Repertoire klassischen Kinderspiels. Mit Babbel und Lizzy erlebt das junge Publikum Vertrautes, kann freudig entspannt mitgehen, den Prozess nachvollziehen und mitfiebern, ob das mit dem kleinen und dem gro&#xDF;en Turm wohl klappen wird. Und die allzeit gelassene Habbel tr&#xE4;gt nicht nur etwas Wichtiges zum Turmbau bei, sondern bringt auch eine sehr poetische Stimmung in das St&#xFC;ck. &#x201E;Lizzy baut einen Turm&#x201C; ist ein feinsinniges Marionetten- und Stabpuppenspiel, das ganz dem Alter der Kinder entsprechend behutsam ohne Reiz&#xFC;berflutung inszeniert ist. Lizzy, Babbel und Habbel lassen das Publikum heitere drei&#xDF;ig Minuten erleben, in denen der dicke, warme Winterfilz der theatereigenen mongolischen Jurte und gem&#xFC;tliche Kissen zum unkomplizierten Sitzen auf dem Boden einladen.</description>
+    <link>http://www.theater-hobbit.de/</link>
+    <date_start>18266</date_start>
     <date_end>NA</date_end>
     <idgroup>NA</idgroup>
     <advance_price>NA</advance_price>
@@ -169,11 +145,11 @@
     <booking_office>NA</booking_office>
   </row>
   <row>
-    <idevent>1236</idevent>
-    <title>PETERCHENS MONDFAHRT</title>
-    <description>Ein Engelshaar entdeckt wirklich nicht jeder. Aber Lizzy, die bezaubernde Marionette, die im Plastischen Theater Hobbit zu einem Figuren-Trio geh&#xF6;rt, das f&#xFC;r Kinder ab 2 Jahren auf die B&#xFC;hne tritt, hat das Gl&#xFC;ck! Am Samstag, dem 1. Dezember um 15 Uhr findet die Premiere der dritten Geschichte mit Lizzy, Habbel und Babbel statt. Auch &#x201C;Lizzy und das Engelshaar&#x201C; ist feinf&#xFC;hlig inszeniert und orientiert sich  an den Bed&#xFC;rfnissen des j&#xFC;ngsten Publikums. Den guten Babbel hat eine Erk&#xE4;ltung erwischt - kein Wunder bei dem k&#xFC;hler werdenden Wetter.  Aber zu seinem Gl&#xFC;ck kennt sich die kluge Habbel bestens aus. Sie wei&#xDF;, was notwendig ist und in solchen F&#xE4;llen ganz schnell hilft. So macht sie sich sofort auf den Weg&#x2026; Und Lizzy hat nat&#xFC;rlich auch schon die ein oder andere Erfahrung gemacht, was zu tun ist, wenn es darum geht, f&#xFC;r W&#xE4;rme zu sorgen. Babbel erh&#xE4;lt also Hilfe auf ganz verschiedenen Ebenen: Dass da einem Engelshaar auch eine besondere Wirkung zukommen mag, liegt fast auf der Hand. Ob am Ende alles gut zusammen wirkt und Babbel wieder ganz gesund wird? Bestimmt.</description>
+    <idevent>1184</idevent>
+    <title>INS BLAUE</title>
+    <description>Ein St&#xFC;ck, das die Kleinen von zwei bis vier Jahren in der Welt des Theaters willkommen hei&#xDF;t und Kindern, Eltern, Gro&#xDF;eltern, Geschwistern und allen anderen eine halbe Stunde Freude, Entspannung , Abwechslung und ein farbenfrohes, lebendiges Erlebnis schenken will. Eine zauberhafte Weile, in der der dicke, weiche Winterfilz unserer mongolischen Jurte, mit gelbgoldenem Samt und Kissen bedeckt, zum unkomplizierten Sitzen auf dem Boden einl&#xE4;dt. Eine zauberhafte Weile, in der uns Lizzys Leichtigkeit beschwingt und wir ihre nicht ganz so leichte Suche nach ihrer Musik miterleben. Und eine zauberhafte Weile, in der wir auch Else Habbel, die Stille und Eberhard Babbel, den Lichtmeister mit leicht poetischer Ader kennenlernen werden.</description>
     <link>http://www.theater-hobbit.de/</link>
-    <date_start>18244</date_start>
+    <date_start>18272</date_start>
     <date_end>NA</date_end>
     <idgroup>NA</idgroup>
     <advance_price>NA</advance_price>
@@ -193,107 +169,11 @@
     <booking_office>NA</booking_office>
   </row>
   <row>
-    <idevent>1237</idevent>
-    <title>PETERCHENS MONDFAHRT</title>
-    <description>Ein Engelshaar entdeckt wirklich nicht jeder. Aber Lizzy, die bezaubernde Marionette, die im Plastischen Theater Hobbit zu einem Figuren-Trio geh&#xF6;rt, das f&#xFC;r Kinder ab 2 Jahren auf die B&#xFC;hne tritt, hat das Gl&#xFC;ck! Am Samstag, dem 1. Dezember um 15 Uhr findet die Premiere der dritten Geschichte mit Lizzy, Habbel und Babbel statt. Auch &#x201C;Lizzy und das Engelshaar&#x201C; ist feinf&#xFC;hlig inszeniert und orientiert sich  an den Bed&#xFC;rfnissen des j&#xFC;ngsten Publikums. Den guten Babbel hat eine Erk&#xE4;ltung erwischt - kein Wunder bei dem k&#xFC;hler werdenden Wetter.  Aber zu seinem Gl&#xFC;ck kennt sich die kluge Habbel bestens aus. Sie wei&#xDF;, was notwendig ist und in solchen F&#xE4;llen ganz schnell hilft. So macht sie sich sofort auf den Weg&#x2026; Und Lizzy hat nat&#xFC;rlich auch schon die ein oder andere Erfahrung gemacht, was zu tun ist, wenn es darum geht, f&#xFC;r W&#xE4;rme zu sorgen. Babbel erh&#xE4;lt also Hilfe auf ganz verschiedenen Ebenen: Dass da einem Engelshaar auch eine besondere Wirkung zukommen mag, liegt fast auf der Hand. Ob am Ende alles gut zusammen wirkt und Babbel wieder ganz gesund wird? Bestimmt.</description>
+    <idevent>1185</idevent>
+    <title>INS BLAUE</title>
+    <description>Ein St&#xFC;ck, das die Kleinen von zwei bis vier Jahren in der Welt des Theaters willkommen hei&#xDF;t und Kindern, Eltern, Gro&#xDF;eltern, Geschwistern und allen anderen eine halbe Stunde Freude, Entspannung , Abwechslung und ein farbenfrohes, lebendiges Erlebnis schenken will. Eine zauberhafte Weile, in der der dicke, weiche Winterfilz unserer mongolischen Jurte, mit gelbgoldenem Samt und Kissen bedeckt, zum unkomplizierten Sitzen auf dem Boden einl&#xE4;dt. Eine zauberhafte Weile, in der uns Lizzys Leichtigkeit beschwingt und wir ihre nicht ganz so leichte Suche nach ihrer Musik miterleben. Und eine zauberhafte Weile, in der wir auch Else Habbel, die Stille und Eberhard Babbel, den Lichtmeister mit leicht poetischer Ader kennenlernen werden.</description>
     <link>http://www.theater-hobbit.de/</link>
-    <date_start>18245</date_start>
-    <date_end>NA</date_end>
-    <idgroup>NA</idgroup>
-    <advance_price>NA</advance_price>
-    <price>NA</price>
-    <event_site>NA</event_site>
-    <idorganizer>30</idorganizer>
-    <image_url>NA</image_url>
-    <category>B&#xFC;hne</category>
-    <time_start>0.625</time_start>
-    <time_end>NA</time_end>
-    <idcrawler>28</idcrawler>
-    <street>M&#xFC;nzstra&#xDF;e 1</street>
-    <city>W&#xFC;rzburg</city>
-    <zip>97070</zip>
-    <lng>9.93252</lng>
-    <lat>49.78884</lat>
-    <booking_office>NA</booking_office>
-  </row>
-  <row>
-    <idevent>1238</idevent>
-    <title>PETERCHENS MONDFAHRT</title>
-    <description>Ein Engelshaar entdeckt wirklich nicht jeder. Aber Lizzy, die bezaubernde Marionette, die im Plastischen Theater Hobbit zu einem Figuren-Trio geh&#xF6;rt, das f&#xFC;r Kinder ab 2 Jahren auf die B&#xFC;hne tritt, hat das Gl&#xFC;ck! Am Samstag, dem 1. Dezember um 15 Uhr findet die Premiere der dritten Geschichte mit Lizzy, Habbel und Babbel statt. Auch &#x201C;Lizzy und das Engelshaar&#x201C; ist feinf&#xFC;hlig inszeniert und orientiert sich  an den Bed&#xFC;rfnissen des j&#xFC;ngsten Publikums. Den guten Babbel hat eine Erk&#xE4;ltung erwischt - kein Wunder bei dem k&#xFC;hler werdenden Wetter.  Aber zu seinem Gl&#xFC;ck kennt sich die kluge Habbel bestens aus. Sie wei&#xDF;, was notwendig ist und in solchen F&#xE4;llen ganz schnell hilft. So macht sie sich sofort auf den Weg&#x2026; Und Lizzy hat nat&#xFC;rlich auch schon die ein oder andere Erfahrung gemacht, was zu tun ist, wenn es darum geht, f&#xFC;r W&#xE4;rme zu sorgen. Babbel erh&#xE4;lt also Hilfe auf ganz verschiedenen Ebenen: Dass da einem Engelshaar auch eine besondere Wirkung zukommen mag, liegt fast auf der Hand. Ob am Ende alles gut zusammen wirkt und Babbel wieder ganz gesund wird? Bestimmt.</description>
-    <link>http://www.theater-hobbit.de/</link>
-    <date_start>18251</date_start>
-    <date_end>NA</date_end>
-    <idgroup>NA</idgroup>
-    <advance_price>NA</advance_price>
-    <price>NA</price>
-    <event_site>NA</event_site>
-    <idorganizer>30</idorganizer>
-    <image_url>NA</image_url>
-    <category>B&#xFC;hne</category>
-    <time_start>0.625</time_start>
-    <time_end>NA</time_end>
-    <idcrawler>28</idcrawler>
-    <street>M&#xFC;nzstra&#xDF;e 1</street>
-    <city>W&#xFC;rzburg</city>
-    <zip>97070</zip>
-    <lng>9.93252</lng>
-    <lat>49.78884</lat>
-    <booking_office>NA</booking_office>
-  </row>
-  <row>
-    <idevent>1239</idevent>
-    <title>PETERCHENS MONDFAHRT</title>
-    <description>Ein Engelshaar entdeckt wirklich nicht jeder. Aber Lizzy, die bezaubernde Marionette, die im Plastischen Theater Hobbit zu einem Figuren-Trio geh&#xF6;rt, das f&#xFC;r Kinder ab 2 Jahren auf die B&#xFC;hne tritt, hat das Gl&#xFC;ck! Am Samstag, dem 1. Dezember um 15 Uhr findet die Premiere der dritten Geschichte mit Lizzy, Habbel und Babbel statt. Auch &#x201C;Lizzy und das Engelshaar&#x201C; ist feinf&#xFC;hlig inszeniert und orientiert sich  an den Bed&#xFC;rfnissen des j&#xFC;ngsten Publikums. Den guten Babbel hat eine Erk&#xE4;ltung erwischt - kein Wunder bei dem k&#xFC;hler werdenden Wetter.  Aber zu seinem Gl&#xFC;ck kennt sich die kluge Habbel bestens aus. Sie wei&#xDF;, was notwendig ist und in solchen F&#xE4;llen ganz schnell hilft. So macht sie sich sofort auf den Weg&#x2026; Und Lizzy hat nat&#xFC;rlich auch schon die ein oder andere Erfahrung gemacht, was zu tun ist, wenn es darum geht, f&#xFC;r W&#xE4;rme zu sorgen. Babbel erh&#xE4;lt also Hilfe auf ganz verschiedenen Ebenen: Dass da einem Engelshaar auch eine besondere Wirkung zukommen mag, liegt fast auf der Hand. Ob am Ende alles gut zusammen wirkt und Babbel wieder ganz gesund wird? Bestimmt.</description>
-    <link>http://www.theater-hobbit.de/</link>
-    <date_start>18252</date_start>
-    <date_end>NA</date_end>
-    <idgroup>NA</idgroup>
-    <advance_price>NA</advance_price>
-    <price>NA</price>
-    <event_site>NA</event_site>
-    <idorganizer>30</idorganizer>
-    <image_url>NA</image_url>
-    <category>B&#xFC;hne</category>
-    <time_start>0.625</time_start>
-    <time_end>NA</time_end>
-    <idcrawler>28</idcrawler>
-    <street>M&#xFC;nzstra&#xDF;e 1</street>
-    <city>W&#xFC;rzburg</city>
-    <zip>97070</zip>
-    <lng>9.93252</lng>
-    <lat>49.78884</lat>
-    <booking_office>NA</booking_office>
-  </row>
-  <row>
-    <idevent>1240</idevent>
-    <title>PETERCHENS MONDFAHRT</title>
-    <description>Ein Engelshaar entdeckt wirklich nicht jeder. Aber Lizzy, die bezaubernde Marionette, die im Plastischen Theater Hobbit zu einem Figuren-Trio geh&#xF6;rt, das f&#xFC;r Kinder ab 2 Jahren auf die B&#xFC;hne tritt, hat das Gl&#xFC;ck! Am Samstag, dem 1. Dezember um 15 Uhr findet die Premiere der dritten Geschichte mit Lizzy, Habbel und Babbel statt. Auch &#x201C;Lizzy und das Engelshaar&#x201C; ist feinf&#xFC;hlig inszeniert und orientiert sich  an den Bed&#xFC;rfnissen des j&#xFC;ngsten Publikums. Den guten Babbel hat eine Erk&#xE4;ltung erwischt - kein Wunder bei dem k&#xFC;hler werdenden Wetter.  Aber zu seinem Gl&#xFC;ck kennt sich die kluge Habbel bestens aus. Sie wei&#xDF;, was notwendig ist und in solchen F&#xE4;llen ganz schnell hilft. So macht sie sich sofort auf den Weg&#x2026; Und Lizzy hat nat&#xFC;rlich auch schon die ein oder andere Erfahrung gemacht, was zu tun ist, wenn es darum geht, f&#xFC;r W&#xE4;rme zu sorgen. Babbel erh&#xE4;lt also Hilfe auf ganz verschiedenen Ebenen: Dass da einem Engelshaar auch eine besondere Wirkung zukommen mag, liegt fast auf der Hand. Ob am Ende alles gut zusammen wirkt und Babbel wieder ganz gesund wird? Bestimmt.</description>
-    <link>http://www.theater-hobbit.de/</link>
-    <date_start>18253</date_start>
-    <date_end>NA</date_end>
-    <idgroup>NA</idgroup>
-    <advance_price>NA</advance_price>
-    <price>NA</price>
-    <event_site>NA</event_site>
-    <idorganizer>30</idorganizer>
-    <image_url>NA</image_url>
-    <category>B&#xFC;hne</category>
-    <time_start>0.625</time_start>
-    <time_end>NA</time_end>
-    <idcrawler>28</idcrawler>
-    <street>M&#xFC;nzstra&#xDF;e 1</street>
-    <city>W&#xFC;rzburg</city>
-    <zip>97070</zip>
-    <lng>9.93252</lng>
-    <lat>49.78884</lat>
-    <booking_office>NA</booking_office>
-  </row>
-  <row>
-    <idevent>1241</idevent>
-    <title>PETERCHENS MONDFAHRT</title>
-    <description>Ein Engelshaar entdeckt wirklich nicht jeder. Aber Lizzy, die bezaubernde Marionette, die im Plastischen Theater Hobbit zu einem Figuren-Trio geh&#xF6;rt, das f&#xFC;r Kinder ab 2 Jahren auf die B&#xFC;hne tritt, hat das Gl&#xFC;ck! Am Samstag, dem 1. Dezember um 15 Uhr findet die Premiere der dritten Geschichte mit Lizzy, Habbel und Babbel statt. Auch &#x201C;Lizzy und das Engelshaar&#x201C; ist feinf&#xFC;hlig inszeniert und orientiert sich  an den Bed&#xFC;rfnissen des j&#xFC;ngsten Publikums. Den guten Babbel hat eine Erk&#xE4;ltung erwischt - kein Wunder bei dem k&#xFC;hler werdenden Wetter.  Aber zu seinem Gl&#xFC;ck kennt sich die kluge Habbel bestens aus. Sie wei&#xDF;, was notwendig ist und in solchen F&#xE4;llen ganz schnell hilft. So macht sie sich sofort auf den Weg&#x2026; Und Lizzy hat nat&#xFC;rlich auch schon die ein oder andere Erfahrung gemacht, was zu tun ist, wenn es darum geht, f&#xFC;r W&#xE4;rme zu sorgen. Babbel erh&#xE4;lt also Hilfe auf ganz verschiedenen Ebenen: Dass da einem Engelshaar auch eine besondere Wirkung zukommen mag, liegt fast auf der Hand. Ob am Ende alles gut zusammen wirkt und Babbel wieder ganz gesund wird? Bestimmt.</description>
-    <link>http://www.theater-hobbit.de/</link>
-    <date_start>18256</date_start>
+    <date_start>18273</date_start>
     <date_end>NA</date_end>
     <idgroup>NA</idgroup>
     <advance_price>NA</advance_price>

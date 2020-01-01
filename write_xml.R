@@ -65,9 +65,9 @@ write_df_to_xml <- function(df,meta_df, file) {
     Endzeit = rep("NA",nrow(df))
   }
   if("street" %in% names(df)){
-    Straße = as.character(df["street"][,1])
+    Strasse = as.character(df["street"][,1])
   } else {
-    Straße = rep("NA",nrow(df))
+    Strasse = rep("NA",nrow(df))
   }
   if("city" %in% names(df)){
     Stadt = as.character(df["city"][,1])
@@ -169,7 +169,7 @@ write_df_to_xml <- function(df,meta_df, file) {
   } else {
     Bild_url = rep("NA",nrow(df))
   }
-  xml_df = data.frame(ID_Event,Titel,Kurztext,Detailtext, Link,Startdatum,Enddatum,Startzeit,Endzeit,Straße,Stadt, PLZ, lng,lat,Vorverkauf,Abendkasse, Kategorie, ID_Kategorie,Bild_url)
+  xml_df = data.frame(ID_Event,Titel,Kurztext,Detailtext, Link,Startdatum,Enddatum,Startzeit,Endzeit,Strasse,Stadt, PLZ, lng,lat,Vorverkauf,Abendkasse, Kategorie, ID_Kategorie,Bild_url)
   
   xml <- xmlTree() 
   # names(xml)
