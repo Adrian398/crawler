@@ -23,8 +23,13 @@ getSqlConnection <- function(){
 }
 conn <- getSqlConnection()
 
-write("","new_events.xml",append=FALSE)
-write("","deleted_events.xml",append=FALSE)
+#delete database content
+dbSendStatement(conn, 'SET foreign_key_checks = 0;')
+dbSendStatement(conn, 'TRUNCATE table event;')
+dbSendStatement(conn, 'SET foreign_key_checks = 1;')
+
+write('',"new_events.xml",append=FALSE)
+write('',"deleted_events.xml",append=FALSE)
 
 countit <<- 1 
 ## try catch for continuing the process when interrupted by an error
@@ -49,3 +54,4 @@ dbDisconnect(conn)
 
 lapply( dbListConnections( dbDriver( drv = "MySQL")), dbDisconnect)
 
+#quit(save='no')
