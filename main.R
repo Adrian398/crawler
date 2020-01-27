@@ -25,6 +25,7 @@ conn <- getSqlConnection()
 
 #delete database content
 dbSendStatement(conn, 'SET foreign_key_checks = 0;')
+dbSendStatement(conn, 'TRUNCATE table organizer;')
 dbSendStatement(conn, 'TRUNCATE table event;')
 dbSendStatement(conn, 'SET foreign_key_checks = 1;')
 

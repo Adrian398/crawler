@@ -87,18 +87,20 @@ write_dataframes_to_database <- function(crawled_df, meta_df, conn) {
   ### write to organizer table
   db_organizer_names <- as.data.frame(tbl(conn, "organizer") %>%
                                         select(organizer))
+  
+  ###27.01 commented out because no need
   ##fix encoding error
-  for (i in colnames(db_organizer_names)){
-    if(is.character(db_organizer_names[[i]])){
-      db_organizer_names[[i]] = iconv(db_organizer_names[[i]], "windows-1252", "UTF-8")
-    }
-  }
+  #for (i in colnames(db_organizer_names)){
+  #  if(is.character(db_organizer_names[[i]])){
+  #    db_organizer_names[[i]] = iconv(db_organizer_names[[i]], "windows-1252", "UTF-8")
+  #  }
+  #}
   
     ## if no organizer in database write one in database
-  if(!any(db_organizer_names==as.character(meta_df["organizer"][1,1]))){
-    dbWriteTable(conn, value = meta_df %>% select(organizer, idlocation), name = "organizer", append = TRUE, row.names=F )
-    print(paste("New Organizer added:", as.character(meta_df["organizer"][1,1])))
-  }
+  #if(!any(db_organizer_names==as.character(meta_df["organizer"][1,1]))){
+  dbWriteTable(conn, value = meta_df %>% select(organizer, idlocation), name = "organizer", append = TRUE, row.names=F )
+  print(paste("New Organizer added:", as.character(meta_df["organizer"][1,1])))
+  #}
   
 
   ##write event_location to event table

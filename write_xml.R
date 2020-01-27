@@ -1,5 +1,5 @@
 library(XML)
-#library(hashmap)
+library(hashmap)
 
 write_df_to_xml <- function(df,meta_df, file) {
   
