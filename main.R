@@ -32,7 +32,7 @@ dbSendStatement(conn, 'SET foreign_key_checks = 1;')
 write('',"new_events.xml",append=FALSE)
 write('',"deleted_events.xml",append=FALSE)
 
-countit <<- 1 
+countit <<- 0
 ## try catch for continuing the process when interrupted by an error
 for (file_name in list.files("new_crawlers")){
   tryCatch({

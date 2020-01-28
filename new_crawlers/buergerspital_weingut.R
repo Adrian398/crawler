@@ -96,7 +96,8 @@ crawled_df <- data.frame(
 idlocation = 403100
 meta_df = data.frame(organizer, url, idlocation)
 names(meta_df)[names(meta_df) == 'url'] <- 'url_crawler'
-
+meta_df["idcrawler"] = 4
+meta_df["id_category"] = 10586
 
 
 #write to database

@@ -1,4 +1,96 @@
 <?xml version='1.0'?>
 
-<crawlers date = '2020-01-27'>
+<crawlers date = '2020-01-28'>
+  <crawler crawler_url="http://www.theater-hobbit.de/" Veranstalter="Theater am Neunerplatz" ID_Ort="6238" ID_Crawler="30" ID_Kategorie="10586">
+    <event>
+      <UID>0</UID>
+      <Titel>BOBO UND DER SAFRANKÖNIG</Titel>
+      <Kurztext>BOBO UND DER SAFRANKÖNIG</Kurztext>
+      <Detailtext>BOBO UND DER SAFRANKÖNIG</Detailtext>
+      <Link>http://www.theater-hobbit.de/</Link>
+      <Startdatum>2020-01-26</Startdatum>
+      <Enddatum>NA</Enddatum>
+      <Startzeit>15:00:00</Startzeit>
+      <Endzeit>NA</Endzeit>
+      <Strasse>Münzstraße 1</Strasse>
+      <Stadt>Würzburg</Stadt>
+      <PLZ>97070</PLZ>
+      <lng>9.93252</lng>
+      <lat>49.78884</lat>
+      <Vorverkauf>NA</Vorverkauf>
+      <Abendkasse>NA</Abendkasse>
+    </event>
+    <event>
+      <UID>1</UID>
+      <Titel>MASCHENKA UND DER BÄR</Titel>
+      <Kurztext>Besonders groß und besonders schwierig ist die Mission, die Bobo bewältigen muss. Auch die Schnecke kann kaum weiter helfen, denn ...</Kurztext>
+      <Detailtext>Besonders groß und besonders schwierig ist die Mission, die Bobo bewältigen muss. Auch die Schnecke kann kaum weiter helfen, denn Metalleramanni tut alles um den Zauberer aufzuhalten. Unterhaltsames Marionettenspiel mit Musik. Spiel: Jörg Peter &amp; Ramon Cohen</Detailtext>
+      <Link>http://www.theater-hobbit.de/</Link>
+      <Startdatum>2020-02-01</Startdatum>
+      <Enddatum>NA</Enddatum>
+      <Startzeit>16:00:00</Startzeit>
+      <Endzeit>NA</Endzeit>
+      <Strasse>Münzstraße 1</Strasse>
+      <Stadt>Würzburg</Stadt>
+      <PLZ>97070</PLZ>
+      <lng>9.93252</lng>
+      <lat>49.78884</lat>
+      <Vorverkauf>NA</Vorverkauf>
+      <Abendkasse>NA</Abendkasse>
+    </event>
+    <event>
+      <UID>2</UID>
+      <Titel>SINI, JETZT FÄNGT DER SPASS ERST AN!</Titel>
+      <Kurztext>DIE GESCHICHTE VOM DICKEN FETTEN PFANNEKUCHEN</Kurztext>
+      <Detailtext>DIE GESCHICHTE VOM DICKEN FETTEN PFANNEKUCHEN</Detailtext>
+      <Link>http://www.theater-hobbit.de/</Link>
+      <Startdatum>2020-02-02</Startdatum>
+      <Enddatum>NA</Enddatum>
+      <Startzeit>11:00:00</Startzeit>
+      <Endzeit>NA</Endzeit>
+      <Strasse>Münzstraße 1</Strasse>
+      <Stadt>Würzburg</Stadt>
+      <PLZ>97070</PLZ>
+      <lng>9.93252</lng>
+      <lat>49.78884</lat>
+      <Vorverkauf>NA</Vorverkauf>
+      <Abendkasse>NA</Abendkasse>
+    </event>
+    <event>
+      <UID>3</UID>
+      <Titel></Titel>
+      <Kurztext>Drei Frauen freuen sich auf den Pfannkuchen, der in der Pfanne vor sich hin brutzelt. Doch kurz bevor er fertig ...</Kurztext>
+      <Detailtext>Drei Frauen freuen sich auf den Pfannkuchen, der in der Pfanne vor sich hin brutzelt. Doch kurz bevor er fertig ist, springt er - hopp - aus der Pfanne heraus und rollt „kantapper, kantapper“ davon... Was er erlebt und wo er am Ende landet, erzählt „Die Geschichte vom dicken fetten Pfannkuchen“. Dieses kleine Märchen ist in vielen Ländern mit zahlreichenVariationen bekannt. Wir erzählen, singen und zeigen die bekannte Geschichte mit Liedern, Reimen und lautmalerischen Versen, die der Sprachentwicklung gut tun. Ab 3 Jahren</Detailtext>
+      <Link>http://www.theater-hobbit.de/</Link>
+      <Startdatum>2020-02-08</Startdatum>
+      <Enddatum>NA</Enddatum>
+      <Startzeit>15:00:00</Startzeit>
+      <Endzeit>NA</Endzeit>
+      <Strasse>Münzstraße 1</Strasse>
+      <Stadt>Würzburg</Stadt>
+      <PLZ>97070</PLZ>
+      <lng>9.93252</lng>
+      <lat>49.78884</lat>
+      <Vorverkauf>NA</Vorverkauf>
+      <Abendkasse>NA</Abendkasse>
+    </event>
+    <event>
+      <UID>4</UID>
+      <Titel></Titel>
+      <Kurztext>Drei Frauen freuen sich auf den Pfannkuchen, der in der Pfanne vor sich hin brutzelt. Doch kurz bevor er fertig ...</Kurztext>
+      <Detailtext>Drei Frauen freuen sich auf den Pfannkuchen, der in der Pfanne vor sich hin brutzelt. Doch kurz bevor er fertig ist, springt er - hopp - aus der Pfanne heraus und rollt „kantapper, kantapper“ davon... Was er erlebt und wo er am Ende landet, erzählt „Die Geschichte vom dicken fetten Pfannkuchen“. Dieses kleine Märchen ist in vielen Ländern mit zahlreichenVariationen bekannt. Wir erzählen, singen und zeigen die bekannte Geschichte mit Liedern, Reimen und lau</Detailtext>
+      <Link>http://www.theater-hobbit.de/</Link>
+      <Startdatum>2020-02-09</Startdatum>
+      <Enddatum>NA</Enddatum>
+      <Startzeit>15:00:00</Startzeit>
+      <Endzeit>NA</Endzeit>
+      <Strasse>Münzstraße 1</Strasse>
+      <Stadt>Würzburg</Stadt>
+      <PLZ>97070</PLZ>
+      <lng>9.93252</lng>
+      <lat>49.78884</lat>
+      <Vorverkauf>NA</Vorverkauf>
+      <Abendkasse>NA</Abendkasse>
+    </event>
+  </crawler>
 </crawlers>

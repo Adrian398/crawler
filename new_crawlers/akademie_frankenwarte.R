@@ -95,6 +95,8 @@ meta_df = df[c("organizer", "link")][1,]
 names(meta_df)[names(meta_df) == 'link'] <- 'url_crawler'
 meta_df["idlocation"] = idlocation
 
+meta_df["idcrawler"] = 0
+meta_df["id_category"] = 10586
 #crawled_df[1:15,]
 #write to database
 write_dataframes_to_database(crawled_df, meta_df, conn)

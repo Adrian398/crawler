@@ -85,8 +85,8 @@ write_dataframes_to_database <- function(crawled_df, meta_df, conn) {
   }
   
   ### write to organizer table
-  db_organizer_names <- as.data.frame(tbl(conn, "organizer") %>%
-                                        select(organizer))
+  #db_organizer_names <- as.data.frame(tbl(conn, "organizer") %>%
+  #                                      select(organizer))
   
   ###27.01 commented out because no need
   ##fix encoding error
@@ -141,12 +141,13 @@ write_dataframes_to_database <- function(crawled_df, meta_df, conn) {
   crawled_df = cbind(crawled_df,idcrawler)
   
       # add organizer foreignkey
-  all_id_organizer = as.data.frame(tbl(conn, "organizer"))
-  all_id_organizer[[2]] = iconv(all_id_organizer[[2]], "windows-1252", "UTF-8")
-  idorganizer = filter(all_id_organizer, organizer == as.character(meta_df["organizer"][1,1]))%>%
-    select(idorganizer)
-  idorganizer = rep.int(as.integer(as.data.frame(idorganizer)), nrow(crawled_df))
-  crawled_df = cbind(crawled_df,idorganizer)
+  ###28.01 all commented
+  #all_id_organizer = as.data.frame(tbl(conn, "organizer"))
+  #all_id_organizer[[2]] = iconv(all_id_organizer[[2]], "windows-1252", "UTF-8")
+  #idorganizer = filter(all_id_organizer, organizer == as.character(meta_df["organizer"][1,1]))%>%
+  #  select(idorganizer)
+  #idorganizer = rep.int(as.integer(as.data.frame(idorganizer)), nrow(crawled_df))
+  #crawled_df = cbind(crawled_df,idorganizer)
   
       # add event_location foreignkey
   # idevent_location = tbl(conn, "event_location") %>%

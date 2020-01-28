@@ -88,6 +88,8 @@ meta_df["idlocation"] = idlocation
 #write to database
 write_dataframes_to_database(v2, meta_df, conn)
 
+meta_df["idcrawler"] = 6
+meta_df["id_category"] = 10586
 
 # for (i in 1:ncol(crawled_df)) {
 #   print(typeof(crawled_df[[i]]))

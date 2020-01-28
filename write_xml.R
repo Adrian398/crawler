@@ -3,9 +3,9 @@ library(hashmap)
 
 write_df_to_xml <- function(df,meta_df, file) {
   
-  ID_Event = seq(countit,countit+nrow(df)-1)
-  countit <<- countit + nrow(df) -1 
-
+  UID = seq(countit,countit+nrow(df)-1)
+  #countit <<- countit + nrow(df) -1 
+  countit <<- 0 
   if("title" %in% names(df)){
     Titel =as.character(df["title"][,1])
   } else {
@@ -109,71 +109,71 @@ write_df_to_xml <- function(df,meta_df, file) {
   } else {
     Abendkasse = rep("NA",nrow(df))
   }
-  if("category" %in% names(df)){
-    Kategorie = as.character(df["category"][,1])
-    ID_Kategorie = c()
-    Keys = c("Ausstellung / Messe",
-             "Bühne",
-             "Fasching",
-             "Fest / Fesival",
-             "Film",
-             "Flohmarkt",
-             "Führung",
-             "Kinder / Jugend",
-             "Kongress / Tagung",
-             "Konzert",
-             "Vortrag / Seminar",
-             "Literatur",
-             "Nachtleben",
-             "Rund um den Wein",
-             "Sport",
-             "Und…")
-    Values = c(10144,
-               10145,
-               10580,
-               10581,
-               12111,
-               12408,
-               10583,
-               10148,
-               19718,
-               10147,
-               10587,
-               10582,
-               10146,
-               10429,
-               12112,
-               10586
-               )
+  #if("category" %in% names(df)){
+    #Kategorie = as.character(df["category"][,1])
+    #ID_Kategorie = c()
+    #Keys = c("Ausstellung / Messe",
+             "Bühne"#,
+             "Fasching"#,
+             "Fest / Fesival"#,
+             "Film"#,
+             "Flohmarkt"#,
+             "Führung"#,
+             "Kinder / Jugend"#,
+             "Kongress / Tagung"#,
+             "Konzert"#,
+             "Vortrag / Seminar"#,
+             "Literatur"#,
+             "Nachtleben"#,
+             "Rund um den Wein"#,
+             "Sport"#,
+             "Und…"#)
+    #Values = c(10144,
+    #           10145,
+    #           10580,
+    #           10581,
+    #           12111,
+    #           12408,
+    #           10583,
+    #           10148,
+    #           19718,
+    #           10147,
+     #          10587,
+     #          10582,
+      #         10146,
+       #        10429,
+        #       12112,
+         #      10586
+          #     )
       
-    H <- hashmap(Keys, Values)
-    for (k in Kategorie) {
-      if(is.na(k)){
-        ID_Kategorie = c(ID_Kategorie, k)
-      }else{
-        if(!is.na(H$find(k))){
-          ID_Kategorie = c(ID_Kategorie,H$find(k))
-        }else{
-          ID_Kategorie = c(ID_Kategorie, NA)
-        }
-      }
+    #H <- hashmap(Keys, Values)
+    #for (k in Kategorie) {
+      #if(is.na(k)){
+       # ID_Kategorie = c(ID_Kategorie, k)
+      #}else{
+        #if(!is.na(H$find(k))){
+        #  ID_Kategorie = c(ID_Kategorie,H$find(k))
+       # }else{
+      #    ID_Kategorie = c(ID_Kategorie, NA)
+     #   }
+    #  }
       
-    }
+   # }
     
-  } else {
-    Kategorie = rep("NA",nrow(df))
-    ID_Kategorie = rep("NA",nrow(df))
-  }
-  if("image_url" %in% names(df)){
-    Bild_url = as.character(df["image_url"][,1])
-  } else {
-    Bild_url = rep("NA",nrow(df))
-  }
-  xml_df = data.frame(ID_Event,Titel,Kurztext,Detailtext, Link,Startdatum,Enddatum,Startzeit,Endzeit,Strasse,Stadt, PLZ, lng,lat,Vorverkauf,Abendkasse, Kategorie, ID_Kategorie,Bild_url)
+  #} else {
+  #  Kategorie = rep("NA",nrow(df))
+  #  ID_Kategorie = rep("NA",nrow(df))
+  #}
+  #if("image_url" %in% names(df)){
+  #  Bild_url = as.character(df["image_url"][,1])
+  #} else {
+  #  Bild_url = rep("NA",nrow(df))
+  #}
+  xml_df = data.frame(UID,Titel,Kurztext,Detailtext, Link,Startdatum,Enddatum,Startzeit,Endzeit,Strasse,Stadt, PLZ, lng,lat,Vorverkauf,Abendkasse)#, Kategorie, ID_Kategorie,Bild_url)
   
   xml <- xmlTree() 
   # names(xml)
-  xml$addTag("crawler", close=FALSE, attrs=c(crawler_url=as.character(meta_df["url_crawler"][1,1]), Veranstalter = as.character(meta_df["organizer"][1,1]), ID_Ort = as.character(meta_df["idlocation"][1,1])))
+  xml$addTag("crawler", close=FALSE, attrs=c(crawler_url=as.character(meta_df["url_crawler"][1,1]), Veranstalter = as.character(meta_df["organizer"][1,1]), ID_Ort = as.character(meta_df["idlocation"][1,1]), ID_Crawler = as.character(meta_df["idcrawler"][1,1]), ID_Kategorie = as.character(meta_df["id_category"][1,1])))
   for (i in 1:nrow(xml_df)) {
     xml$addTag("event", close=FALSE)
     for (j in names(xml_df)) {
@@ -182,7 +182,6 @@ write_df_to_xml <- function(df,meta_df, file) {
     xml$closeTag()
   }
   xml$closeTag()
-  
   write(substring(as(saveXML(xml,encoding = "utf8"), "character"),24),file ,append=TRUE)
 }
 
