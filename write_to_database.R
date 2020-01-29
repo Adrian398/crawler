@@ -1,3 +1,9 @@
+
+#main function to write dataframes to the database
+#will be executed in every crawler
+
+###lots of R encoding errors which may occur again when I change the code
+#code is running good in this version
 write_dataframes_to_database <- function(crawled_df, meta_df, conn) {
   
   crawled_df %>% map_if(is.factor, as.character) %>% as_data_frame -> crawled_df

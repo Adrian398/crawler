@@ -1,6 +1,8 @@
 library(XML)
 library(hashmap)
 
+
+#mainfunction to create xml from the dataframes
 write_df_to_xml <- function(df,meta_df, file) {
   
   UID = seq(countit,countit+nrow(df)-1)
